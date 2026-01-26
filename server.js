@@ -1,0 +1,41 @@
+const express = require('express');
+const mongoose = require('mongoose');
+const cors = require('cors');
+require('dotenv').config();
+
+const app = express();
+
+// Middleware
+app.use(express.json());
+app.use(cors());
+
+// DB Config
+const db = process.env.MONGO_URI || 'mongodb://127.0.0.1:27017/foundry';
+const PORT = process.env.PORT || 5000;
+
+// Routes
+app.use('/api/auth', require('./routes/auth'));
+app.use('/api/products', require('./routes/products'));
+app.use('/api/products', require('./routes/productTabs')); // Tab endpoints
+app.use('/api/search', require('./routes/search')); // Search endpoints
+app.use('/api/founder', require('./routes/founder'));
+app.use('/api/boost', require('./routes/boost'));
+app.use('/api/wallet', require('./routes/wallet'));
+app.use('/api/clicks', require('./routes/clicks'));
+app.use('/api/contact', require('./routes/contact')); // Public contact form
+app.use('/api/stats', require('./routes/stats')); // View/click tracking
+app.use('/r', require('./routes/redirect'));
+
+// Global Error Handler
+app.use(require('./middleware/errorHandler'));
+
+// Connect to MongoDB
+mongoose.connect(db)
+    .then(() => {
+        console.log('MongoDB Connected');
+        app.listen(PORT, () => console.log(`Server started on port ${PORT}`));
+    })
+    .catch(err => {
+        console.error('MongoDB Connection Error:', err);
+        process.exit(1);
+    });
