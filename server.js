@@ -11,6 +11,7 @@ app.use(cors());
 
 // DB Config
 const db = process.env.MONGO_URI || 'mongodb://127.0.0.1:27017/foundry';
+mongoose.set('strictQuery', false);
 const PORT = process.env.PORT || 5000;
 
 // Routes
