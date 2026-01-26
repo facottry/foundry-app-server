@@ -17,6 +17,7 @@ const PORT = process.env.PORT || 5000;
 app.use('/api/auth', require('./routes/auth'));
 app.use('/api/products', require('./routes/products'));
 app.use('/api/products', require('./routes/productTabs')); // Tab endpoints
+app.use('/api/products', require('./routes/tags')); // Tag endpoints
 app.use('/api/search', require('./routes/search')); // Search endpoints
 app.use('/api/track', require('./routes/track')); // Analytics tracking
 app.use('/api/founder', require('./routes/founder'));
