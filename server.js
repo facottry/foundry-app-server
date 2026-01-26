@@ -18,7 +18,9 @@ app.use('/api/auth', require('./routes/auth'));
 app.use('/api/products', require('./routes/products'));
 app.use('/api/products', require('./routes/productTabs')); // Tab endpoints
 app.use('/api/search', require('./routes/search')); // Search endpoints
+app.use('/api/track', require('./routes/track')); // Analytics tracking
 app.use('/api/founder', require('./routes/founder'));
+app.use('/api/founder/products', require('./routes/analytics')); // Product analytics
 app.use('/api/boost', require('./routes/boost'));
 app.use('/api/wallet', require('./routes/wallet'));
 app.use('/api/clicks', require('./routes/clicks'));
