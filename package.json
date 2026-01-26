@@ -5,7 +5,8 @@
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
-    "dev": "nodemon server.js"
+    "dev": "nodemon server.js",
+    "production": "git push -f origin main:PRODUCTION_DEPLOYMENT"
   },
   "dependencies": {
     "bcryptjs": "^2.4.3",
