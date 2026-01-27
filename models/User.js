@@ -9,6 +9,7 @@ const UserSchema = new mongoose.Schema({
     otp_hash: { type: String },
     otp_expires: { type: Date },
     created_at: { type: Date, default: Date.now },
+    last_login_at: { type: Date },
     avatar_url: { type: String },
     bio: { type: String },
     company_name: { type: String },
@@ -18,7 +19,12 @@ const UserSchema = new mongoose.Schema({
     twitter: { type: String },
     linkedin: { type: String },
     timezone: { type: String },
-    onboarding_completed: { type: Boolean, default: false }
+    onboarding_completed: { type: Boolean, default: false },
+    preferences: {
+        email_notifications: { type: Boolean, default: true },
+        product_updates: { type: Boolean, default: true },
+        weekly_digest: { type: Boolean, default: true }
+    }
 });
 
 module.exports = mongoose.model('User', UserSchema);

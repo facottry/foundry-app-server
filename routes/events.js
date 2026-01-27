@@ -10,6 +10,19 @@ const { asyncHandler, sendSuccess, sendError } = require('../utils/response');
 router.post('/track', asyncHandler(async (req, res) => {
     const { productId, eventType, sessionId } = req.body;
 
+    // Attempt to get user_id from token if present (optional auth)
+    let userId = null;
+    if (req.headers.authorization) {
+        try {
+            const token = req.headers.authorization.split(' ')[1];
+            const jwt = require('jsonwebtoken');
+            const decoded = jwt.verify(token, process.env.JWT_SECRET);
+            userId = decoded.user.id;
+        } catch (err) {
+            // Ignore invalid token for tracking
+        }
+    }
+
     if (!productId || !eventType) {
         return sendError(res, 'ProductId and EventType are required', 400);
     }
@@ -25,6 +38,7 @@ router.post('/track', asyncHandler(async (req, res) => {
 
     const event = new ProductEvent({
         product_id: productId,
+        user_id: userId,
         event_type: eventType,
         session_id: sessionId,
         ip_hash: ipHash,

@@ -88,4 +88,97 @@ router.put('/me', auth(), asyncHandler(async (req, res, next) => {
     sendSuccess(res, { user: updatedUser });
 }));
 
+// @route   GET /api/profile/activity-summary
+// @desc    Get recent activity for customer
+// @access  Private
+router.get('/activity-summary', auth(), asyncHandler(async (req, res) => {
+    const ProductEvent = require('../models/ProductEvent');
+    const Review = require('../models/Review');
+    const Product = require('../models/Product');
+
+    // Fetch recent Views
+    const recentViewsEvents = await ProductEvent.find({
+        user_id: req.user.id,
+        event_type: 'VIEW'
+    })
+        .sort({ created_at: -1 })
+        .limit(5)
+        .populate('product_id', 'name logo_url tagline');
+
+    // Deduplicate views by product_id
+    const seenProducts = new Set();
+    const recentViews = [];
+    for (const event of recentViewsEvents) {
+        if (event.product_id && !seenProducts.has(event.product_id._id.toString())) {
+            seenProducts.add(event.product_id._id.toString());
+            recentViews.push({
+                product: event.product_id,
+                viewed_at: event.created_at
+            });
+        }
+    }
+
+    // Fetch recent Reviews
+    const recentReviews = await Review.find({ user_id: req.user.id })
+        .sort({ created_at: -1 })
+        .limit(5)
+        .populate('product_id', 'name logo_url');
+
+    sendSuccess(res, {
+        recent_views: recentViews,
+        items_reviewed: recentReviews
+    });
+}));
+
+// @route   GET /api/profile/founder-summary
+// @desc    Get summary stats for founder
+// @access  Private (Founder)
+router.get('/founder-summary', auth(['FOUNDER']), asyncHandler(async (req, res) => {
+    const Product = require('../models/Product');
+    const OutboundClick = require('../models/OutboundClick');
+
+    // Products
+    const products = await Product.find({ owner_user_id: req.user.id });
+    const productIds = products.map(p => p._id);
+
+    // Stats
+    const totalViews = 0; // Need aggregation from ProductStats or ProductEvent
+    const totalClicks = await OutboundClick.countDocuments({ product_id: { $in: productIds } });
+
+    // Calculate average rating across all products
+    const validRatings = products.filter(p => p.ratings_count > 0);
+    const avgRating = validRatings.length > 0
+        ? validRatings.reduce((acc, p) => acc + p.avg_rating, 0) / validRatings.length
+        : 0;
+
+    sendSuccess(res, {
+        products_count: products.length,
+        total_views: totalViews, // Placeholder until aggregation is ready
+        total_clicks: totalClicks,
+        avg_rating: avgRating,
+        credits: 0 // User balance handled in profile/me
+    });
+}));
+
+router.put('/me/preferences', auth(), asyncHandler(async (req, res) => {
+    const { email_notifications, product_updates, weekly_digest } = req.body;
+    const user = await User.findById(req.user.id);
+    if (!user) return sendError(res, 'User not found', 404);
+
+    if (user.preferences) {
+        if (email_notifications !== undefined) user.preferences.email_notifications = email_notifications;
+        if (product_updates !== undefined) user.preferences.product_updates = product_updates;
+        if (weekly_digest !== undefined) user.preferences.weekly_digest = weekly_digest;
+    } else {
+        user.preferences = {
+            email_notifications: email_notifications ?? true,
+            product_updates: product_updates ?? true,
+            weekly_digest: weekly_digest ?? true
+        };
+    }
+
+    await user.save();
+    sendSuccess(res, { preferences: user.preferences });
+}));
+
 module.exports = router;

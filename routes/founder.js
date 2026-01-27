@@ -1,5 +1,11 @@
 const express = require('express');
 const router = express.Router();
+/**
+ * Purpose: Provide founder-specific functionality (Products, Wallet).
+ * Inputs: Auth Token (Founder Role).
+ * Outputs: Product Lists, Wallet Balance.
+ * Side Effects: None (Read-only aggregation mostly).
+ */
 const Product = require('../models/Product');
 const User = require('../models/User');
 const OutboundClick = require('../models/OutboundClick');

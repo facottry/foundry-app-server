@@ -1,5 +1,11 @@
 const express = require('express');
 const router = express.Router();
+/**
+ * Purpose: Manage user authentication and profile retrieval.
+ * Inputs: Email, Password, Name (for Register).
+ * Outputs: JWT Token, User Profile.
+ * Side Effects: Creates User record, Updates last_login_at.
+ */
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const crypto = require('crypto');

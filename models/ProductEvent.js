@@ -9,6 +9,7 @@ const ProductEventSchema = new mongoose.Schema({
         index: true
     },
     session_id: { type: String, index: true },
+    user_id: { type: mongoose.Schema.Types.ObjectId, ref: 'User', index: true }, // Optional link to user
     ip_hash: { type: String }, // Anonymized IP
     country: { type: String }, // Start with ISO code or full name
     city: { type: String },

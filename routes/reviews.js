@@ -10,6 +10,17 @@ const { asyncHandler, sendSuccess, sendError } = require('../utils/response');
 router.post('/', asyncHandler(async (req, res) => {
     const { productId, rating, text, sessionId } = req.body;
 
+    // Attempt to get user_id from token
+    let userId = null;
+    if (req.headers.authorization) {
+        try {
+            const token = req.headers.authorization.split(' ')[1];
+            const jwt = require('jsonwebtoken');
+            const decoded = jwt.verify(token, process.env.JWT_SECRET);
+            userId = decoded.user.id;
+        } catch (err) { }
+    }
+
     if (!productId || !rating || !text) {
         return sendError(res, 'Missing required fields', 400);
     }
@@ -17,6 +28,7 @@ router.post('/', asyncHandler(async (req, res) => {
     // 1. Save Review
     const review = new Review({
         product_id: productId,
+        user_id: userId,
         rating,
         text,
         session_id: sessionId
@@ -41,6 +53,7 @@ router.post('/', asyncHandler(async (req, res) => {
 
     const reviewEvent = new ProductEvent({
         product_id: productId,
+        user_id: userId,
         event_type: 'REVIEW',
         session_id: sessionId,
         ip_hash: ipHash,
@@ -59,6 +72,7 @@ router.post('/', asyncHandler(async (req, res) => {
     // If review includes rating, let's fire RATE event too.
     const rateEvent = new ProductEvent({
         product_id: productId,
+        user_id: userId,
         event_type: 'RATE',
         session_id: sessionId,
         ip_hash: ipHash,

@@ -22,10 +22,14 @@ app.use('/api/products', require('./routes/productTabs')); // Tab endpoints
 app.use('/api/products', require('./routes/tags')); // Tag endpoints
 app.use('/api/search', require('./routes/search')); // Search endpoints
 app.use('/api/events', require('./routes/events')); // Interaction tracking
-app.use('/api/reviews', require('./routes/reviews')); // Reviews
+app.use('/api/reviews', require('./routes/reviews'));
+app.use('/api/saved', require('./routes/saved'));
+app.use('/api/notes', require('./routes/notes'));
+app.use('/r', require('./routes/redirect')); // Short URL for redirects
 app.use('/api/tracks', require('./routes/track')); // Legacy Analytics tracking
 app.use('/api/founder', require('./routes/founder'));
 app.use('/api/founder/products', require('./routes/analytics')); // Product analytics
+app.use('/api/founder/traffic', require('./routes/traffic_analytics')); // NEW Traffic analytics
 app.use('/api/boost', require('./routes/boost'));
 app.use('/api/wallet', require('./routes/wallet'));
 app.use('/api/clicks', require('./routes/clicks'));
