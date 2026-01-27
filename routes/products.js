@@ -71,8 +71,13 @@ router.get('/category/:slug', asyncHandler(async (req, res, next) => {
         // Use aggregation for calculated sort
         const ProductStats = require('../models/ProductStats');
 
+        const match = { status: 'approved' };
+        if (req.params.slug !== 'all') {
+            match.categories = req.params.slug;
+        }
+
         const pipeline = [
-            { $match: { categories: req.params.slug, status: 'approved' } },
+            { $match: match },
             {
                 $lookup: {
                     from: 'productstats',
@@ -94,7 +99,11 @@ router.get('/category/:slug', asyncHandler(async (req, res, next) => {
 
         products = await Product.aggregate(pipeline);
     } else {
-        products = await Product.find({ categories: req.params.slug, status: 'approved' }).sort(sortQuery);
+        const query = { status: 'approved' };
+        if (req.params.slug !== 'all') {
+            query.categories = req.params.slug;
+        }
+        products = await Product.find(query).sort(sortQuery);
     }
 
     sendSuccess(res, products);

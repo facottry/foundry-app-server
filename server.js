@@ -16,11 +16,14 @@ const PORT = process.env.PORT || 5000;
 
 // Routes
 app.use('/api/auth', require('./routes/auth'));
+app.use('/api/profile', require('./routes/profile'));
 app.use('/api/products', require('./routes/products'));
 app.use('/api/products', require('./routes/productTabs')); // Tab endpoints
 app.use('/api/products', require('./routes/tags')); // Tag endpoints
 app.use('/api/search', require('./routes/search')); // Search endpoints
-app.use('/api/track', require('./routes/track')); // Analytics tracking
+app.use('/api/events', require('./routes/events')); // Interaction tracking
+app.use('/api/reviews', require('./routes/reviews')); // Reviews
+app.use('/api/tracks', require('./routes/track')); // Legacy Analytics tracking
 app.use('/api/founder', require('./routes/founder'));
 app.use('/api/founder/products', require('./routes/analytics')); // Product analytics
 app.use('/api/boost', require('./routes/boost'));

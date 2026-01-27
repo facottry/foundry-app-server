@@ -30,7 +30,11 @@ router.post('/pause', auth(['FOUNDER']), asyncHandler(async (req, res, next) => 
 }));
 
 router.get('/promoted/:category', asyncHandler(async (req, res, next) => {
-    const productsInCategory = await Product.find({ categories: req.params.category, status: 'approved' }).select('_id');
+    const query = { status: 'approved' };
+    if (req.params.category !== 'all') {
+        query.categories = req.params.category;
+    }
+    const productsInCategory = await Product.find(query).select('_id');
     const productIds = productsInCategory.map(p => p._id);
     let campaigns = await Campaign.find({ product_id: { $in: productIds }, status: 'active' }).populate('product_id');
     campaigns = campaigns.filter(c => c.spent_today < c.daily_budget);

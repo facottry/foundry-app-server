@@ -9,6 +9,16 @@ const UserSchema = new mongoose.Schema({
     otp_hash: { type: String },
     otp_expires: { type: Date },
     created_at: { type: Date, default: Date.now },
+    avatar_url: { type: String },
+    bio: { type: String },
+    company_name: { type: String },
+    role_title: { type: String },
+    location: { type: String },
+    website: { type: String },
+    twitter: { type: String },
+    linkedin: { type: String },
+    timezone: { type: String },
+    onboarding_completed: { type: Boolean, default: false }
 });
 
 module.exports = mongoose.model('User', UserSchema);
