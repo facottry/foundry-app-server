@@ -15,8 +15,10 @@ const ProductSchema = new mongoose.Schema({
 
     // Team members
     team_members: [{
-        name: { type: String },
-        role: { type: String },
+        user_id: { type: mongoose.Schema.Types.ObjectId, ref: 'User' },
+        name: { type: String }, // Fallback if no user_id or for manual entry
+        title: { type: String }, // Role title e.g. "CEO"
+        role_type: { type: String, enum: ['founder', 'member'], default: 'member' },
         avatar_url: { type: String },
         twitter_url: { type: String },
         linkedin_url: { type: String }

@@ -46,10 +46,35 @@ router.post('/track', asyncHandler(async (req, res) => {
         city: geo?.city || 'Unknown',
         browser: ua.browser.name || 'Unknown',
         os: ua.os.name || 'Unknown',
-        device_type: ua.device.type || 'desktop' // ua-parser returns undefined for desktop usually
+        device_type: ua.device.type || 'desktop'
     });
 
     await event.save();
+
+    // AI SEGMENTATION TRACKING
+    if (userId) {
+        const User = require('../models/User');
+        const UserEvent = require('../models/UserEvent');
+
+        // Map ProductEvent types to UserEvent types
+        // VIEW -> VIEW_PRODUCT, CLICK -> CLICK_WEBSITE
+        let userEventType = null;
+        if (eventType === 'VIEW') userEventType = 'VIEW_PRODUCT';
+        if (eventType === 'CLICK') userEventType = 'CLICK_WEBSITE';
+
+        if (userEventType) {
+            // Log Event
+            await UserEvent.create({
+                userId,
+                type: userEventType,
+                target: productId,
+                metadata: { ipHash, country: geo?.country }
+            });
+
+            // Mark Dirty
+            await User.findByIdAndUpdate(userId, { segment_dirty: true });
+        }
+    }
 
     sendSuccess(res, { tracked: true });
 }));

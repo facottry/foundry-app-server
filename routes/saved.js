@@ -29,6 +29,14 @@ router.post('/folders', auth(), asyncHandler(async (req, res) => {
     });
 
     await folder.save();
+    await folder.save();
+
+    // AI SEGMENTATION
+    const User = require('../models/User');
+    const UserEvent = require('../models/UserEvent');
+    await UserEvent.create({ userId: req.user.id, type: 'CREATE_FOLDER', target: name });
+    await User.findByIdAndUpdate(req.user.id, { segment_dirty: true });
+
     sendSuccess(res, { folder });
 }));
 
@@ -123,6 +131,14 @@ router.post('/products', auth(), asyncHandler(async (req, res) => {
         folder_id: folder_id || null
     });
     await saved.save();
+    await saved.save();
+
+    // AI SEGMENTATION
+    const User = require('../models/User');
+    const UserEvent = require('../models/UserEvent');
+    await UserEvent.create({ userId: req.user.id, type: 'SAVE_PRODUCT', target: product_id });
+    await User.findByIdAndUpdate(req.user.id, { segment_dirty: true });
+
     sendSuccess(res, { saved_product: saved });
 }));
 

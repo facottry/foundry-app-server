@@ -24,7 +24,14 @@ const UserSchema = new mongoose.Schema({
         email_notifications: { type: Boolean, default: true },
         product_updates: { type: Boolean, default: true },
         weekly_digest: { type: Boolean, default: true }
-    }
+    },
+    // AI Segmentation
+    segments: [{
+        label: { type: String },
+        confidence: { type: Number }
+    }],
+    segment_dirty: { type: Boolean, default: false },
+    last_segmented_at: { type: Date }
 });
 
 module.exports = mongoose.model('User', UserSchema);

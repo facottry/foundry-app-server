@@ -1,8 +1,10 @@
 const OpenAI = require('openai');
 
-const openai = new OpenAI({
-    apiKey: process.env.FOUNDRY_OPENAI_KEY
-});
+const getClient = () => {
+    const key = process.env.FOUNDRY_OPENAI_KEY || process.env.OPENAI_API_KEY;
+    if (!key) return null;
+    return new OpenAI({ apiKey: key });
+};
 
 /**
  * Generate tags for a product using AI
@@ -13,6 +15,12 @@ const openai = new OpenAI({
  */
 const generateTags = async (name, description, category) => {
     try {
+        const openai = getClient();
+        if (!openai) {
+            console.log('OpenAI key not configured, skipping generateTags');
+            return [];
+        }
+
         const prompt = `Given this product information:
 Name: ${name}
 Category: ${category}
@@ -59,6 +67,9 @@ Return ONLY a comma-separated list of tags, nothing else.`;
  */
 const improveDescription = async (description) => {
     try {
+        const openai = getClient();
+        if (!openai) return description;
+
         const prompt = `Fix ONLY minor typos, spelling errors, and obvious grammar mistakes in this product description. Keep the original tone, style, and content. Do not rewrite or add new information. Return ONLY the corrected text.
 
 Original description:
@@ -127,6 +138,11 @@ const enhanceProduct = async (productData) => {
  */
 const tagContactMessage = async (subject, message) => {
     try {
+        const openai = getClient();
+        if (!openai) {
+            return { tags: ['other'], priority: 'medium' };
+        }
+
         const prompt = `Analyze this contact message and categorize it with relevant tags.
 
 Subject: ${subject}

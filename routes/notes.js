@@ -44,6 +44,12 @@ router.post('/folder', auth(), asyncHandler(async (req, res) => {
     );
 
     sendSuccess(res, { note });
+
+    // AI SEGMENTATION
+    const User = require('../models/User');
+    const UserEvent = require('../models/UserEvent');
+    await UserEvent.create({ userId: req.user.id, type: 'ADD_NOTE', target: folderId, metadata: { context: 'folder' } });
+    await User.findByIdAndUpdate(req.user.id, { segment_dirty: true });
 }));
 
 // @route   GET /api/notes/product/:productId

@@ -72,6 +72,21 @@ router.get('/', asyncHandler(async (req, res) => {
         total,
         query: q
     });
+
+    // AI SEGMENTATION (If authenticated)
+    if (req.headers.authorization) {
+        try {
+            const token = req.headers.authorization.split(' ')[1];
+            const jwt = require('jsonwebtoken');
+            const decoded = jwt.verify(token, process.env.JWT_SECRET);
+            if (decoded && decoded.user) {
+                const User = require('../models/User');
+                const UserEvent = require('../models/UserEvent');
+                await UserEvent.create({ userId: decoded.user.id, type: 'SEARCH', target: q });
+                await User.findByIdAndUpdate(decoded.user.id, { segment_dirty: true });
+            }
+        } catch (e) { /* Ignore auth errors in search */ }
+    }
 }));
 
 // @route   GET /api/search/typeahead

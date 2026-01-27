@@ -19,23 +19,93 @@ router.post('/', auth(['FOUNDER']), asyncHandler(async (req, res, next) => {
         owner_user_id: req.user.id,
         name,
         tagline,
-        description: enhancedData.description, // Use AI-improved description
+        description: enhancedData.description,
         website_url,
         logo_url,
         screenshots,
         categories,
-        tags: enhancedData.tags || tags || [], // Use AI-generated tags or fallback to provided tags
-        status: 'pending'
+        tags: enhancedData.tags || tags || [],
+        status: 'pending',
+        team_members: [] // Initialize empty
     });
+
+    // AUTO-POPULATION RULE: If no team, add Founder
+    // We already have req.user from auth middleware.
+    // Fetch full user details to get avatar/title if needed, or trust req.user?
+    // req.user from middleware usually has basic fields. Let's fetch full user to be safe for avatar.
+    const User = require('../models/User');
+    const founder = await User.findById(req.user.id);
+
+    if (founder) {
+        newProduct.team_members.push({
+            user_id: founder._id,
+            name: founder.name,
+            title: founder.role_title || 'Founder',
+            role_type: 'founder',
+            avatar_url: founder.avatar_url
+        });
+    }
 
     const product = await newProduct.save();
     sendSuccess(res, product);
 }));
 
 router.get('/:id', asyncHandler(async (req, res, next) => {
-    const product = await Product.findById(req.params.id);
+    const product = await Product.findById(req.params.id).populate('team_members.user_id', 'name avatar_url role_title');
     if (!product) return sendError(next, 'NOT_FOUND', 'Product not found', 404);
-    sendSuccess(res, product);
+
+    // DYNAMIC INJECTION RULE: If team empty, inject founder
+    // We need to clone to not mutate the DB document during save (though we aren't saving here)
+    // To safe-guard, let's work on the object version.
+    let productObj = product.toObject();
+
+    if (!productObj.team_members || productObj.team_members.length === 0) {
+        const User = require('../models/User');
+        const founder = await User.findById(product.owner_user_id);
+
+        if (founder) {
+            productObj.team_members = [{
+                user_id: founder._id,
+                name: founder.name,
+                title: founder.role_title || 'Founder',
+                role_type: 'founder',
+                avatar_url: founder.avatar_url
+            }];
+        }
+    } else {
+        // Ensure founder is first?
+        productObj.team_members.sort((a, b) => {
+            if (a.role_type === 'founder') return -1;
+            if (b.role_type === 'founder') return 1;
+            return 0;
+        });
+    }
+
+    sendSuccess(res, productObj);
+}));
+
+// @route   GET /api/products/categories/stats
+// @desc    Get counts of products per category
+router.get('/categories/stats', asyncHandler(async (req, res) => {
+    // If categories is an array of strings in Product schema
+    const stats = await Product.aggregate([
+        { $match: { status: 'approved', deleted_at: null } },
+        { $unwind: "$categories" },
+        {
+            $group: {
+                _id: "$categories",
+                count: { $sum: 1 }
+            }
+        }
+    ]);
+
+    // Format as { "DevTools": 12, "AI": 5, ... }
+    const result = {};
+    stats.forEach(s => {
+        result[s._id] = s.count;
+    });
+
+    sendSuccess(res, result);
 }));
 
 router.get('/category/:slug', asyncHandler(async (req, res, next) => {

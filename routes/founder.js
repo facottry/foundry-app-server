@@ -15,6 +15,9 @@ const { asyncHandler, sendSuccess, sendError } = require('../utils/response');
 
 router.get('/dashboard', auth(['FOUNDER']), asyncHandler(async (req, res, next) => {
     const user = await User.findById(req.user.id);
+    if (!user) {
+        return sendError(next, 'AUTH_ERROR', 'User not found (DB mismatch)', 401);
+    }
     const products = await Product.find({ owner_user_id: req.user.id });
 
     const productsWithStats = await Promise.all(products.map(async (product) => {
@@ -53,7 +56,7 @@ router.get('/products/:id/audience', auth(['FOUNDER']), asyncHandler(async (req,
     // Verify ownership
     const product = await Product.findOne({ _id: id, owner_user_id: req.user.id });
     if (!product) {
-        return sendError(res, 'Product not found or unauthorized', 404);
+        return sendError(next, 'NOT_FOUND', 'Product not found or unauthorized', 404);
     }
 
     const ProductEvent = require('../models/ProductEvent');
@@ -117,6 +120,73 @@ router.get('/products/:id/audience', auth(['FOUNDER']), asyncHandler(async (req,
             }
         }
     });
+}));
+
+// @route   PUT /api/founder/products/:id
+// @desc    Update product details
+router.put('/products/:id', auth(['FOUNDER']), asyncHandler(async (req, res, next) => {
+    const product = await Product.findOne({ _id: req.params.id, owner_user_id: req.user.id });
+    if (!product) return sendError(next, 'NOT_FOUND', 'Product not found', 404);
+
+    const { name, tagline, description, website_url, logo_url, screenshots, categories, tags, team_members } = req.body;
+
+    // AI Enhancement optional here? Maybe button triggered instead of auto.
+    // For now, straight update.
+
+    if (name) product.name = name;
+    if (tagline) product.tagline = tagline;
+    if (description) product.description = description;
+    if (website_url) product.website_url = website_url;
+    if (logo_url !== undefined) product.logo_url = logo_url;
+    if (screenshots) product.screenshots = screenshots;
+    if (categories) product.categories = categories;
+    if (tags) product.tags = tags;
+    if (team_members) product.team_members = team_members;
+
+    // Reset status to pending if critical info changed? Spec says "Update Product". 
+    // Usually editing approved product requires re-approval.
+    if (product.status === 'approved') {
+        product.status = 'pending';
+    }
+
+    product.updated_at = Date.now();
+    await product.save();
+    sendSuccess(res, product);
+}));
+
+// @route   DELETE /api/founder/products/:id
+// @desc    Soft delete product
+router.delete('/products/:id', auth(['FOUNDER']), asyncHandler(async (req, res, next) => {
+    const product = await Product.findOne({ _id: req.params.id, owner_user_id: req.user.id });
+    if (!product) return sendError(next, 'NOT_FOUND', 'Product not found', 404);
+
+    product.deleted_at = Date.now();
+    // Also disable status?
+    product.status = 'archived';
+    await product.save();
+
+    sendSuccess(res, { message: 'Product deleted' });
+}));
+
+// @route   PATCH /api/founder/products/:id/archive
+// @desc    Archive product (Toggle)
+router.patch('/products/:id/archive', auth(['FOUNDER']), asyncHandler(async (req, res, next) => {
+    const product = await Product.findOne({ _id: req.params.id, owner_user_id: req.user.id });
+    if (!product) return sendError(res, 'NOT_FOUND', 'Product not found', 404);
+
+    // Toggle archive status
+    if (product.status === 'archived') {
+        product.status = 'pending'; // Restore to pending for re-review or DRAFT? 
+        // Spec says "Archive Product (soft delete)". 
+        // If we treat archive as a status, we can restore.
+        product.deleted_at = null;
+    } else {
+        product.status = 'archived';
+        // product.deleted_at = Date.now(); // Optional: if we want it to vanish from lists
+    }
+
+    await product.save();
+    sendSuccess(res, product);
 }));
 
 module.exports = router;
