@@ -12,6 +12,55 @@ const OutboundClick = require('../models/OutboundClick');
 const Campaign = require('../models/Campaign');
 const auth = require('../middleware/auth');
 const { asyncHandler, sendSuccess, sendError } = require('../utils/response');
+const { buildPublicR2Url } = require('../utils/r2Url');
+
+// @route   GET /api/founder/public/:userId
+// @desc    Get public founder profile and products
+router.get('/public/:userId', asyncHandler(async (req, res, next) => {
+    // Validate ID format
+    if (!req.params.userId.match(/^[0-9a-fA-F]{24}$/)) {
+        return sendError(next, 'INVALID_ID', 'Invalid user ID', 400);
+    }
+
+    const user = await User.findById(req.params.userId).select('name role_title bio company_name linkedin twitter website avatar_url profileImageKey created_at');
+
+    if (!user) {
+        return sendError(next, 'NOT_FOUND', 'Founder not found', 404);
+    }
+
+    // Prepare public profile object
+    const publicProfile = user.toObject();
+    if (publicProfile.profileImageKey) {
+        publicProfile.profileImageUrl = buildPublicR2Url(publicProfile.profileImageKey);
+        // Cache busting
+        publicProfile.profileImageUrl += `?ts=${new Date(publicProfile.created_at || Date.now()).getTime()}`;
+    } else {
+        publicProfile.profileImageUrl = publicProfile.avatar_url;
+    }
+
+    // Fetch Public Products (Owned by this user OR where they are a Team Member)
+    // "team_members.user_id": user._id
+    const products = await Product.find({
+        $or: [
+            { owner_user_id: user._id },
+            { 'team_members.user_id': user._id }
+        ],
+        status: 'approved',
+        deleted_at: null
+    }).select('name slug tagline logo_url logoKey categories avg_rating ratings_count');
+
+    // Enhance products with URLs
+    const enhancedProducts = products.map(p => {
+        const obj = p.toObject();
+        if (obj.logoKey) obj.logoUrl = buildPublicR2Url(obj.logoKey);
+        return obj;
+    });
+
+    sendSuccess(res, {
+        profile: publicProfile,
+        products: enhancedProducts
+    });
+}));
 
 router.get('/dashboard', auth(['FOUNDER']), asyncHandler(async (req, res, next) => {
     const user = await User.findById(req.user.id);

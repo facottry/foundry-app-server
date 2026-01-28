@@ -6,6 +6,7 @@ const { asyncHandler, sendSuccess, sendError } = require('../utils/response');
 const { enhanceProduct } = require('../utils/openai');
 
 const { buildPublicR2Url } = require('../utils/r2Url');
+const slugify = require('../utils/slugify');
 
 // Helper to enhance product with derived URLs
 const enhanceProductWithUrls = (product) => {
@@ -43,9 +44,18 @@ router.post('/', auth(['FOUNDER']), asyncHandler(async (req, res, next) => {
         categories: categories || []
     });
 
+    // Generate Slug
+    let slug = slugify(name);
+    // Ensure uniqueness (simple append strategy)
+    const existingSlug = await Product.findOne({ slug });
+    if (existingSlug) {
+        slug = `${slug}-${Date.now().toString().slice(-4)}`;
+    }
+
     const newProduct = new Product({
         owner_user_id: req.user.id,
         name,
+        slug,
         tagline,
         description: enhancedData.description,
         website_url,
@@ -88,6 +98,24 @@ router.post('/', auth(['FOUNDER']), asyncHandler(async (req, res, next) => {
 
     // Return enhanced product
     sendSuccess(res, enhanceProductWithUrls(product));
+}));
+
+// @route   GET /api/products/similar/:id
+// @desc    Get similar products based on category
+router.get('/similar/:id', asyncHandler(async (req, res, next) => {
+    const product = await Product.findById(req.params.id);
+    if (!product) return sendError(next, 'NOT_FOUND', 'Product not found', 404);
+
+    const similar = await Product.find({
+        _id: { $ne: product._id },
+        categories: { $in: product.categories },
+        status: 'approved',
+        deleted_at: null
+    })
+        .sort({ 'stats.clicks_total': -1 }) // Simple effective sort
+        .limit(3);
+
+    sendSuccess(res, similar.map(p => enhanceProductWithUrls(p)));
 }));
 
 router.get('/:id', asyncHandler(async (req, res, next) => {
@@ -135,6 +163,58 @@ router.get('/:id', asyncHandler(async (req, res, next) => {
             if (b.role_type === 'founder') return 1;
             return 0;
         });
+    }
+
+    sendSuccess(res, enhanceProductWithUrls(productObj));
+    sendSuccess(res, enhanceProductWithUrls(productObj));
+}));
+
+// @route   GET /api/products/slug/:slug
+// @desc    Get product by slug (public)
+router.get('/slug/:slug', asyncHandler(async (req, res, next) => {
+    let product = await Product.findOne({ slug: req.params.slug }).populate('team_members.user_id', 'name avatar_url role_title profileImageKey');
+
+    // Fallback for migration period or if slug lookup fails
+    if (!product) {
+        // Check if it's an ID (valid hex string) just in case
+        if (req.params.slug.match(/^[0-9a-fA-F]{24}$/)) {
+            product = await Product.findById(req.params.slug).populate('team_members.user_id', 'name avatar_url role_title profileImageKey');
+        }
+    }
+
+    if (!product) return sendError(next, 'NOT_FOUND', 'Product not found', 404);
+
+    let productObj = product.toObject();
+
+    // Fix team member avatars logic (duplicate of logical block in get /:id, should be refactored ideally but keeping inline for now)
+    if (productObj.team_members) {
+        productObj.team_members.forEach(member => {
+            if (member.user_id && member.user_id.profileImageKey) {
+                const url = buildPublicR2Url(member.user_id.profileImageKey);
+                member.user_id.avatar_url = url ? `${url}?ts=${Date.now()}` : member.user_id.avatar_url;
+                member.avatar_url = member.user_id.avatar_url;
+            }
+        });
+    }
+
+    // Founders injection logic (condensed)
+    if (!productObj.team_members || productObj.team_members.length === 0) {
+        const User = require('../models/User');
+        const founder = await User.findById(product.owner_user_id);
+        if (founder) {
+            let founderAvatar = founder.avatar_url;
+            if (founder.profileImageKey) {
+                const url = buildPublicR2Url(founder.profileImageKey);
+                founderAvatar = url ? `${url}?ts=${Date.now()}` : founder.avatar_url;
+            }
+            productObj.team_members = [{
+                user_id: founder._id,
+                name: founder.name,
+                title: founder.role_title || 'Founder',
+                role_type: 'founder',
+                avatar_url: founderAvatar
+            }];
+        }
     }
 
     sendSuccess(res, enhanceProductWithUrls(productObj));

@@ -3,6 +3,7 @@ const mongoose = require('mongoose');
 const ProductSchema = new mongoose.Schema({
     owner_user_id: { type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true },
     name: { type: String, required: true },
+    slug: { type: String, unique: true, sparse: true }, // unique and sparse for migration safety
     tagline: { type: String, required: true },
     description: { type: String, required: true },
     website_url: { type: String, required: true },
@@ -48,6 +49,7 @@ const ProductSchema = new mongoose.Schema({
 // Text index for search
 ProductSchema.index({
     name: 'text',
+    slug: 'text',
     tagline: 'text',
     description: 'text',
     categories: 'text',
