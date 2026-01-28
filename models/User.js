@@ -20,6 +20,7 @@ const UserSchema = new mongoose.Schema({
     linkedin: { type: String },
     timezone: { type: String },
     onboarding_completed: { type: Boolean, default: false },
+    profileImageKey: { type: String }, // New field for R2 key
     preferences: {
         email_notifications: { type: Boolean, default: true },
         product_updates: { type: Boolean, default: true },

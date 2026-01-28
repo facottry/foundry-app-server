@@ -7,7 +7,10 @@ const ProductSchema = new mongoose.Schema({
     description: { type: String, required: true },
     website_url: { type: String, required: true },
     logo_url: { type: String },
+    logoKey: { type: String }, // New field for R2 key
+    externalLogoUrl: { type: String }, // New field for external URL
     screenshots: [{ type: String }],
+    screenshotKeys: [{ type: String }], // New field for R2 keys
     categories: [{ type: String }],
     tags: [{ type: String }],
     status: { type: String, enum: ['pending', 'approved', 'rejected'], default: 'pending' },

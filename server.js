@@ -37,6 +37,7 @@ app.use('/api/clicks', require('./routes/clicks'));
 app.use('/api/contact', require('./routes/contact')); // Public contact form
 app.use('/api/uploads', require('./routes/uploads')); // NEW Image Uploads
 app.use('/api/stats', require('./routes/stats')); // View/click tracking
+app.use('/api/app', require('./routes/appConfig')); // NEW Config
 app.use('/r', require('./routes/redirect'));
 
 // Global Error Handler
@@ -47,8 +48,13 @@ require('./cron/segmentation');
 
 // Connect to MongoDB
 mongoose.connect(db)
-    .then(() => {
+    .then(async () => {
         console.log('MongoDB Connected');
+
+        // Seed Config
+        const seedSystemConfig = require('./utils/seedSystemConfig');
+        await seedSystemConfig();
+
         app.listen(PORT, () => console.log(`Server started on port ${PORT}`));
 
         // Run Segmentation immediately on startup

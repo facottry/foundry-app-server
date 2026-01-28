@@ -5,8 +5,36 @@ const auth = require('../middleware/auth');
 const { asyncHandler, sendSuccess, sendError } = require('../utils/response');
 const { enhanceProduct } = require('../utils/openai');
 
+const { buildPublicR2Url } = require('../utils/r2Url');
+
+// Helper to enhance product with derived URLs
+const enhanceProductWithUrls = (product) => {
+    let p = product;
+    if (product.toObject) p = product.toObject();
+
+    // Logo
+    if (p.logoKey) {
+        p.logoUrl = buildPublicR2Url(p.logoKey);
+        // Cache busting
+        p.logoUrl += `?ts=${new Date(p.updated_at || Date.now()).getTime()}`;
+    } else if (p.externalLogoUrl) {
+        p.logoUrl = p.externalLogoUrl;
+    } else {
+        p.logoUrl = p.logo_url;
+    }
+
+    // Screenshots
+    if (p.screenshotKeys && p.screenshotKeys.length > 0) {
+        p.screenshotUrls = p.screenshotKeys.map(key => buildPublicR2Url(key));
+    } else {
+        p.screenshotUrls = p.screenshots || [];
+    }
+
+    return p;
+};
+
 router.post('/', auth(['FOUNDER']), asyncHandler(async (req, res, next) => {
-    const { name, tagline, description, website_url, logo_url, screenshots, categories, tags } = req.body;
+    const { name, tagline, description, website_url, logo_url, screenshots, categories, tags, logoKey, screenshotKeys, externalLogoUrl } = req.body;
 
     // Enhance product with AI (auto-tagging and description improvement)
     const enhancedData = await enhanceProduct({
@@ -22,7 +50,10 @@ router.post('/', auth(['FOUNDER']), asyncHandler(async (req, res, next) => {
         description: enhancedData.description,
         website_url,
         logo_url,
+        logoKey, // Save key
+        externalLogoUrl,
         screenshots,
+        screenshotKeys, // Save keys
         categories,
         tags: enhancedData.tags || tags || [],
         status: 'pending',
@@ -30,46 +61,71 @@ router.post('/', auth(['FOUNDER']), asyncHandler(async (req, res, next) => {
     });
 
     // AUTO-POPULATION RULE: If no team, add Founder
-    // We already have req.user from auth middleware.
-    // Fetch full user details to get avatar/title if needed, or trust req.user?
-    // req.user from middleware usually has basic fields. Let's fetch full user to be safe for avatar.
     const User = require('../models/User');
     const founder = await User.findById(req.user.id);
 
     if (founder) {
+        const founderObj = founder.toObject(); // use object to avoid weirdness if we were saving
+
+        // Use helper logic for founder avatar too? 
+        // We need to fetch it properly.
+        let founderAvatar = founder.avatar_url;
+        if (founder.profileImageKey) {
+            const url = buildPublicR2Url(founder.profileImageKey);
+            founderAvatar = url ? `${url}?ts=${Date.now()}` : founder.avatar_url;
+        }
+
         newProduct.team_members.push({
             user_id: founder._id,
             name: founder.name,
             title: founder.role_title || 'Founder',
             role_type: 'founder',
-            avatar_url: founder.avatar_url
+            avatar_url: founderAvatar
         });
     }
 
     const product = await newProduct.save();
-    sendSuccess(res, product);
+
+    // Return enhanced product
+    sendSuccess(res, enhanceProductWithUrls(product));
 }));
 
 router.get('/:id', asyncHandler(async (req, res, next) => {
-    const product = await Product.findById(req.params.id).populate('team_members.user_id', 'name avatar_url role_title');
+    const product = await Product.findById(req.params.id).populate('team_members.user_id', 'name avatar_url role_title profileImageKey');
     if (!product) return sendError(next, 'NOT_FOUND', 'Product not found', 404);
 
-    // DYNAMIC INJECTION RULE: If team empty, inject founder
-    // We need to clone to not mutate the DB document during save (though we aren't saving here)
-    // To safe-guard, let's work on the object version.
     let productObj = product.toObject();
 
+    // Fix team member avatars in the populated objects
+    if (productObj.team_members) {
+        productObj.team_members.forEach(member => {
+            if (member.user_id && member.user_id.profileImageKey) {
+                const url = buildPublicR2Url(member.user_id.profileImageKey);
+                member.user_id.avatar_url = url ? `${url}?ts=${Date.now()}` : member.user_id.avatar_url; // Override for display
+                // Also update the top-level avatar_url on the member object if it was copied/stored
+                member.avatar_url = member.user_id.avatar_url;
+            }
+        });
+    }
+
+    // DYNAMIC INJECTION RULE: If team empty, inject founder
     if (!productObj.team_members || productObj.team_members.length === 0) {
         const User = require('../models/User');
         const founder = await User.findById(product.owner_user_id);
 
         if (founder) {
+            let founderAvatar = founder.avatar_url;
+            if (founder.profileImageKey) {
+                const url = buildPublicR2Url(founder.profileImageKey);
+                founderAvatar = url ? `${url}?ts=${Date.now()}` : founder.avatar_url;
+            }
+
             productObj.team_members = [{
-                user_id: founder._id,
+                user_id: founder._id, // might be just ID if not populated, but here we construct it
                 name: founder.name,
                 title: founder.role_title || 'Founder',
                 role_type: 'founder',
-                avatar_url: founder.avatar_url
+                avatar_url: founderAvatar
             }];
         }
     } else {
@@ -81,7 +137,7 @@ router.get('/:id', asyncHandler(async (req, res, next) => {
         });
     }
 
-    sendSuccess(res, productObj);
+    sendSuccess(res, enhanceProductWithUrls(productObj));
 }));
 
 // @route   GET /api/products/categories/stats
@@ -176,7 +232,10 @@ router.get('/category/:slug', asyncHandler(async (req, res, next) => {
         products = await Product.find(query).sort(sortQuery);
     }
 
-    sendSuccess(res, products);
+    // Map products to include URLs
+    const enhancedProducts = products.map(p => enhanceProductWithUrls(p));
+
+    sendSuccess(res, enhancedProducts);
 }));
 
 // @route   PUT /api/products/:id
@@ -191,7 +250,7 @@ router.put('/:id', auth(['FOUNDER']), asyncHandler(async (req, res, next) => {
         return sendError(next, 'FORBIDDEN', 'You can only edit your own products', 403);
     }
 
-    const { name, tagline, description, website_url, logo_url, screenshots, categories, tags, team_members, awards } = req.body;
+    const { name, tagline, description, website_url, logo_url, screenshots, categories, tags, team_members, awards, logoKey, screenshotKeys, externalLogoUrl } = req.body;
 
     // Update allowed fields
     if (name) product.name = name;
@@ -199,7 +258,10 @@ router.put('/:id', auth(['FOUNDER']), asyncHandler(async (req, res, next) => {
     if (description) product.description = description;
     if (website_url) product.website_url = website_url;
     if (logo_url !== undefined) product.logo_url = logo_url;
+    if (logoKey !== undefined) product.logoKey = logoKey;
+    if (externalLogoUrl !== undefined) product.externalLogoUrl = externalLogoUrl;
     if (screenshots) product.screenshots = screenshots;
+    if (screenshotKeys) product.screenshotKeys = screenshotKeys;
     if (categories) product.categories = categories;
     if (tags) product.tags = tags;
     if (team_members) product.team_members = team_members;
@@ -213,7 +275,7 @@ router.put('/:id', auth(['FOUNDER']), asyncHandler(async (req, res, next) => {
     product.updated_at = new Date();
     await product.save();
 
-    sendSuccess(res, product);
+    sendSuccess(res, enhanceProductWithUrls(product));
 }));
 
 // @route   DELETE /api/products/:id

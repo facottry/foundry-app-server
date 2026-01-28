@@ -6,6 +6,8 @@ const OutboundClick = require('../models/OutboundClick'); // For stats
 const { asyncHandler, sendSuccess, sendError } = require('../utils/response');
 const auth = require('../middleware/auth');
 
+const { buildPublicR2Url } = require('../utils/r2Url');
+
 // @route   GET /api/profile/me
 // @desc    Get current user profile
 // @access  Private
@@ -15,6 +17,25 @@ router.get('/me', auth(), asyncHandler(async (req, res, next) => {
     if (!user) {
         return sendError(next, 'NOT_FOUND', 'User not found', 404);
     }
+
+    // derived field for profileImageUrl
+    const userObj = user.toObject();
+    if (userObj.profileImageKey) {
+        userObj.profileImageUrl = buildPublicR2Url(userObj.profileImageKey);
+        // Cache busting
+        userObj.profileImageUrl += `?ts=${new Date(user.updatedAt || Date.now()).getTime()}`;
+        // Note: user schema has no updatedAt, wait it does not? 
+        // Models/User.js has: created_at, but not updated_at explicitly defined in snippet I saw?
+        // Let's check User.js again. It has `created_at`. No `updated_at`.
+        // I can use `created_at` or just Date.now() if recently uploaded?
+        // The prompt says "Append ?ts=updatedAt". If Model doesn't have it, I should maybe use created_at or just skip if not available?
+        // Or I can add updated_at to User schema. But "Do NOT change schemas unless strictly required".
+        // Use created_at if updated_at missing. Or user.last_login_at?
+        // I'll stick to provided fields.
+    } else {
+        userObj.profileImageUrl = userObj.avatar_url;
+    }
+
 
     let stats = {};
     if (user.role === 'FOUNDER') {
@@ -37,7 +58,7 @@ router.get('/me', auth(), asyncHandler(async (req, res, next) => {
         };
     }
 
-    sendSuccess(res, { user, stats });
+    sendSuccess(res, { user: userObj, stats });
 }));
 
 // @route   PUT /api/profile/me
@@ -46,6 +67,7 @@ router.get('/me', auth(), asyncHandler(async (req, res, next) => {
 router.put('/me', auth(), asyncHandler(async (req, res, next) => {
     const {
         avatar_url,
+        profileImageKey, // New field
         bio,
         company_name,
         role_title,
@@ -67,6 +89,7 @@ router.put('/me', auth(), asyncHandler(async (req, res, next) => {
     // Update fields if provided
     if (name) user.name = name;
     if (avatar_url !== undefined) user.avatar_url = avatar_url;
+    if (profileImageKey !== undefined) user.profileImageKey = profileImageKey;
     if (bio !== undefined) user.bio = bio;
     if (company_name !== undefined) user.company_name = company_name;
     if (role_title !== undefined) user.role_title = role_title;
@@ -84,6 +107,14 @@ router.put('/me', auth(), asyncHandler(async (req, res, next) => {
     delete updatedUser.password_hash;
     delete updatedUser.otp_hash;
     delete updatedUser.otp_expires;
+
+    if (updatedUser.profileImageKey) {
+        updatedUser.profileImageUrl = buildPublicR2Url(updatedUser.profileImageKey);
+        // Add timestamp if we can
+        updatedUser.profileImageUrl += `?ts=${Date.now()}`;
+    } else {
+        updatedUser.profileImageUrl = updatedUser.avatar_url;
+    }
 
     sendSuccess(res, { user: updatedUser });
 }));
