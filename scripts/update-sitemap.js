@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const fs = require('fs');
 const path = require('path');
-require('dotenv').config();
+require('dotenv').config({ path: path.join(__dirname, '../.env') });
 
 const PUBLIC_DIR = path.join(__dirname, '../../appclient/public');
 const SITEMAPS_DIR = path.join(PUBLIC_DIR, 'sitemaps');
@@ -90,7 +90,7 @@ const getBlogData = () => {
         const authorBlock = content.match(authorBlockRegex);
 
         if (authorBlock && authorBlock[1]) {
-            const keyRegex = /^\s*(\w+):/gm;
+            const keyRegex = /^\s+(\w+):\s*{/gm;
             let match;
             while ((match = keyRegex.exec(authorBlock[1])) !== null) {
                 authors.push(match[1]);
@@ -155,7 +155,7 @@ const main = async () => {
         .select('slug updated_at name logoKey logo_url tagline categories');
 
     // 2. Founders
-    const founders = await User.find({ role: 'FOUNDER' }).select('_id updated_at created_at name avatar_url profileImageKey');
+    const founders = await User.find({ role: 'FOUNDER' }).select('_id slug updated_at created_at name avatar_url profileImageKey');
 
     // 3. Blog Data
     const { posts, authors, categories, tags } = getBlogData();
@@ -192,7 +192,7 @@ const main = async () => {
     const founderUrls = founders.map(f => {
         const avatar = f.profileImageKey ? buildImageUrl(f.profileImageKey) : f.avatar_url;
         return {
-            loc: `${DOMAIN}/founder/${f._id}`,
+            loc: `${DOMAIN}/founder/${f.slug || f._id}`,
             priority: 0.6,
             changefreq: 'monthly',
             lastmod: f.updated_at || f.created_at ? new Date(f.updated_at || f.created_at).toISOString() : undefined,

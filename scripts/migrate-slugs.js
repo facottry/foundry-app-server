@@ -1,4 +1,5 @@
-require('dotenv').config(); // Loads .env from CWD (appserver)
+const path = require('path');
+require('dotenv').config({ path: path.join(__dirname, '../.env') });
 const mongoose = require('mongoose');
 const Product = require('../models/Product');
 const slugify = require('../utils/slugify');
@@ -23,6 +24,25 @@ const migrateSlugs = async () => {
             product.slug = slug;
             await product.save();
             console.log(`Updated product: ${product.name} -> ${slug}`);
+        }
+
+        // --- MIGRATE USERS ---
+        const User = require('../models/User');
+        const users = await User.find({ slug: { $exists: false } });
+        console.log(`Found ${users.length} users without slugs.`);
+
+        for (const user of users) {
+            let slug = slugify(user.name);
+
+            // Check uniqueness
+            let existing = await User.findOne({ slug });
+            if (existing && existing._id.toString() !== user._id.toString()) {
+                slug = `${slug}-${user._id.toString().slice(-4)}`;
+            }
+
+            user.slug = slug;
+            await user.save();
+            console.log(`Updated user: ${user.name} -> ${slug}`);
         }
 
         console.log('Migration complete.');
