@@ -4,6 +4,7 @@ const User = require('../models/User');
 const Product = require('../models/Product'); // For stats
 const OutboundClick = require('../models/OutboundClick'); // For stats
 const { asyncHandler, sendSuccess, sendError } = require('../utils/response');
+const { generateUniqueSlug } = require('../utils/slug');
 const auth = require('../middleware/auth');
 
 const { buildPublicR2Url } = require('../utils/r2Url');
@@ -77,7 +78,8 @@ router.put('/me', auth(), asyncHandler(async (req, res, next) => {
         linkedin,
         timezone,
         onboarding_completed,
-        name // Allow updating name too
+        name,
+        slug
     } = req.body;
 
     const user = await User.findById(req.user.id);
@@ -87,6 +89,11 @@ router.put('/me', auth(), asyncHandler(async (req, res, next) => {
     }
 
     // Update fields if provided
+    if (slug && slug !== user.slug) {
+        const newSlug = await generateUniqueSlug(User, slug, user._id);
+        user.slug = newSlug;
+    }
+
     if (name) user.name = name;
     if (avatar_url !== undefined) user.avatar_url = avatar_url;
     if (profileImageKey !== undefined) user.profileImageKey = profileImageKey;

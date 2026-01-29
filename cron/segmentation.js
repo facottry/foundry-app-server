@@ -62,7 +62,7 @@ const runSegmentation = async () => {
                 }
                 const openai = new OpenAI({
                     apiKey,
-                    baseURL: process.env.OPENAI_BASE_URL || "https://generativelanguage.googleapis.com/v1beta/openai/"
+                    // Default OpenAI Base URL
                 });
 
                 const prompt = `
@@ -82,11 +82,11 @@ const runSegmentation = async () => {
                 - Reviews: ${behaviors.reviews_written}
 
                 Return strictly a JSON array of objects with "label" and "confidence" (0-1).
-                Example: [{"label": "Developer", "confidence": 0.85}, {"label": "Indie Hacker", "confidence": 0.6}]
+                Example: { "segments": [{"label": "Developer", "confidence": 0.85}, {"label": "Indie Hacker", "confidence": 0.6}] }
                 `;
 
                 const completion = await openai.chat.completions.create({
-                    model: "gemini-2.0-flash-exp",
+                    model: "gpt-4o-mini", // Use reliable model (or gpt-3.5-turbo)
                     messages: [{ role: "user", content: prompt }],
                     response_format: { type: "json_object" }
                 });

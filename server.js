@@ -58,6 +58,7 @@ mongoose.connect(db)
         app.listen(PORT, () => console.log(`Server started on port ${PORT}`));
 
         // Run Segmentation immediately on startup
+        // Forced restart for route updates
         const { runSegmentation } = require('./cron/segmentation');
         runSegmentation();
     })

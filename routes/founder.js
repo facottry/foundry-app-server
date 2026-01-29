@@ -16,13 +16,18 @@ const { buildPublicR2Url } = require('../utils/r2Url');
 
 // @route   GET /api/founder/public/:userId
 // @desc    Get public founder profile and products
-router.get('/public/:userId', asyncHandler(async (req, res, next) => {
-    // Validate ID format
-    if (!req.params.userId.match(/^[0-9a-fA-F]{24}$/)) {
-        return sendError(next, 'INVALID_ID', 'Invalid user ID', 400);
+router.get('/public/:identity', asyncHandler(async (req, res, next) => {
+    const { identity } = req.params;
+    let query = {};
+
+    // Check if identity is a valid ObjectId
+    if (identity.match(/^[0-9a-fA-F]{24}$/)) {
+        query = { _id: identity };
+    } else {
+        query = { slug: identity };
     }
 
-    const user = await User.findById(req.params.userId).select('name role_title bio company_name linkedin twitter website avatar_url profileImageKey created_at');
+    const user = await User.findOne(query).select('name role_title bio company_name linkedin twitter website avatar_url profileImageKey created_at slug');
 
     if (!user) {
         return sendError(next, 'NOT_FOUND', 'Founder not found', 404);
@@ -83,7 +88,17 @@ router.get('/dashboard', auth(['FOUNDER']), asyncHandler(async (req, res, next) 
         };
     }));
 
-    sendSuccess(res, { balance: user.credits_balance, products: productsWithStats });
+    sendSuccess(res, {
+        balance: user.credits_balance,
+        products: productsWithStats,
+        user: {
+            id: user.id,
+            name: user.name,
+            slug: user.slug,
+            avatar_url: user.avatar_url,
+            profileImageKey: user.profileImageKey
+        }
+    });
 }));
 
 // @route   GET /api/founder/products

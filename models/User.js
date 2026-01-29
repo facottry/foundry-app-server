@@ -3,11 +3,15 @@ const mongoose = require('mongoose');
 const UserSchema = new mongoose.Schema({
     name: { type: String, required: true },
     email: { type: String, required: true, unique: true },
+    slug: { type: String, unique: true, sparse: true }, // URL friendly slug
     password_hash: { type: String, required: true },
+    phone: { type: String, unique: true, sparse: true }, // Sparse unique index
     role: { type: String, enum: ['CUSTOMER', 'FOUNDER', 'ADMIN'], default: 'CUSTOMER' },
     credits_balance: { type: Number, default: 0 },
     otp_hash: { type: String },
     otp_expires: { type: Date },
+    phone_otp_hash: { type: String },
+    phone_otp_expires: { type: Date },
     created_at: { type: Date, default: Date.now },
     last_login_at: { type: Date },
     avatar_url: { type: String },

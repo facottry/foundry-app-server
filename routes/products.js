@@ -119,7 +119,7 @@ router.get('/similar/:id', asyncHandler(async (req, res, next) => {
 }));
 
 router.get('/:id', asyncHandler(async (req, res, next) => {
-    const product = await Product.findById(req.params.id).populate('team_members.user_id', 'name avatar_url role_title profileImageKey');
+    const product = await Product.findById(req.params.id).populate('team_members.user_id', 'name avatar_url role_title profileImageKey slug');
     if (!product) return sendError(next, 'NOT_FOUND', 'Product not found', 404);
 
     let productObj = product.toObject();
@@ -149,7 +149,7 @@ router.get('/:id', asyncHandler(async (req, res, next) => {
             }
 
             productObj.team_members = [{
-                user_id: founder._id, // might be just ID if not populated, but here we construct it
+                user_id: founder, // Injected as full object to mimic population
                 name: founder.name,
                 title: founder.role_title || 'Founder',
                 role_type: 'founder',
@@ -172,13 +172,13 @@ router.get('/:id', asyncHandler(async (req, res, next) => {
 // @route   GET /api/products/slug/:slug
 // @desc    Get product by slug (public)
 router.get('/slug/:slug', asyncHandler(async (req, res, next) => {
-    let product = await Product.findOne({ slug: req.params.slug }).populate('team_members.user_id', 'name avatar_url role_title profileImageKey');
+    let product = await Product.findOne({ slug: req.params.slug }).populate('team_members.user_id', 'name avatar_url role_title profileImageKey slug');
 
     // Fallback for migration period or if slug lookup fails
     if (!product) {
         // Check if it's an ID (valid hex string) just in case
         if (req.params.slug.match(/^[0-9a-fA-F]{24}$/)) {
-            product = await Product.findById(req.params.slug).populate('team_members.user_id', 'name avatar_url role_title profileImageKey');
+            product = await Product.findById(req.params.slug).populate('team_members.user_id', 'name avatar_url role_title profileImageKey slug');
         }
     }
 
@@ -208,7 +208,7 @@ router.get('/slug/:slug', asyncHandler(async (req, res, next) => {
                 founderAvatar = url ? `${url}?ts=${Date.now()}` : founder.avatar_url;
             }
             productObj.team_members = [{
-                user_id: founder._id,
+                user_id: founder,
                 name: founder.name,
                 title: founder.role_title || 'Founder',
                 role_type: 'founder',
