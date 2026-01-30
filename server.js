@@ -39,6 +39,8 @@ app.use('/api/uploads', require('./routes/uploads')); // NEW Image Uploads
 app.use('/api/stats', require('./routes/stats')); // View/click tracking
 app.use('/api/app', require('./routes/appConfig')); // NEW Config
 app.use('/r', require('./routes/redirect'));
+app.use('/api/subscribe', require('./routes/subscription'));
+app.use('/api/newsletters', require('./routes/newsletters')); // Public Archive
 
 // Global Error Handler
 app.use(require('./middleware/errorHandler'));

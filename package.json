@@ -19,7 +19,7 @@
     "mongoose": "^6.3.1",
     "multer": "^2.0.2",
     "node-cron": "^4.2.1",
-    "nodemailer": "^7.0.12",
+    "nodemailer": "^7.0.13",
     "openai": "^6.16.0",
     "ua-parser-js": "^2.0.8",
     "uuid": "^13.0.0"
