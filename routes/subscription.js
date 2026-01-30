@@ -95,6 +95,9 @@ router.post('/', async (req, res) => {
         }
 
         const confirmationToken = crypto.randomBytes(32).toString('hex');
+        if (!process.env.ENCRYPTION_KEY) {
+            throw new Error('ENCRYPTION_KEY is not defined in environment variables');
+        }
         const emailEncrypted = encrypt(email);
 
         if (!subscriber) {
@@ -159,7 +162,14 @@ router.post('/', async (req, res) => {
 
     } catch (error) {
         console.error('Subscribe error:', error);
-        res.status(500).json({ error: 'Server error' });
+
+        let errorMessage = 'Server error';
+        if (error.message.includes('ENCRYPTION_KEY')) errorMessage = 'Server Configuration Error: Encryption Key missing';
+        if (error.code === 'EAUTH') errorMessage = 'Email Configuration Error: SMTP Authentication failed';
+        if (error.message.includes('Invalid key length')) errorMessage = 'Server Configuration Error: Invalid Encryption Key';
+
+        // Return actual error in development or specific critical errors
+        res.status(500).json({ error: errorMessage, details: error.message });
     }
 });
 
