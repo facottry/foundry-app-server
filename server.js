@@ -41,12 +41,15 @@ app.use('/api/app', require('./routes/appConfig')); // NEW Config
 app.use('/r', require('./routes/redirect'));
 app.use('/api/subscribe', require('./routes/subscription'));
 app.use('/api/newsletters', require('./routes/newsletters')); // Public Archive
+app.use('/api/founder/botvos', require('./routes/botvos')); // Bot VAS
 
 // Global Error Handler
 app.use(require('./middleware/errorHandler'));
 
 // Start Cron Jobs
 require('./cron/segmentation');
+const { initBotVASCron } = require('./cron/botvasCron');
+initBotVASCron();
 
 // Connect to MongoDB
 mongoose.connect(db)
