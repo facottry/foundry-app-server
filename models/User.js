@@ -30,6 +30,9 @@ const UserSchema = new mongoose.Schema({
         product_updates: { type: Boolean, default: true },
         weekly_digest: { type: Boolean, default: true }
     },
+    // Verification
+    verified: { type: Boolean, default: false },
+
     // AI Segmentation
     segments: [{
         label: { type: String },

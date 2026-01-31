@@ -377,4 +377,110 @@ router.delete('/:id', auth(['FOUNDER']), asyncHandler(async (req, res, next) => 
     sendSuccess(res, { message: 'Product deleted successfully' });
 }));
 
+// @route   POST /api/products/:id/verify/init
+// @desc    Initiate domain verification via email OTP
+router.post('/:id/verify/init', auth(['FOUNDER']), asyncHandler(async (req, res, next) => {
+    const { email } = req.body;
+    const Product = require('../models/Product');
+    const { extractDomain } = require('../utils/domain');
+    const bcrypt = require('bcryptjs');
+    const sendEmail = require('../utils/sendEmail');
+
+    const product = await Product.findById(req.params.id);
+    if (!product) return sendError(next, 'NOT_FOUND', 'Product not found', 404);
+
+    // Verify ownership
+    if (product.owner_user_id.toString() !== req.user.id) {
+        return sendError(next, 'FORBIDDEN', 'Access denied', 403);
+    }
+
+    if (!product.website_url) {
+        return sendError(next, 'VALIDATION_ERROR', 'Product must have a website URL', 400);
+    }
+
+    // Domain Check
+    const productDomain = extractDomain(product.website_url);
+    const emailDomain = extractDomain(email);
+
+    if (!productDomain || !emailDomain) {
+        return sendError(next, 'VALIDATION_ERROR', 'Invalid domain or email format', 400);
+    }
+
+    if (productDomain !== emailDomain) {
+        return sendError(next, 'VALIDATION_ERROR', `Email domain (@${emailDomain}) must match product website domain (${productDomain})`, 400);
+    }
+
+    // Generate OTP
+    const otp = Math.floor(100000 + Math.random() * 900000).toString();
+    const otpHash = await bcrypt.hash(otp, 10);
+
+    product.verification_otp_hash = otpHash;
+    product.verification_otp_expires = Date.now() + 10 * 60 * 1000; // 10 mins
+    product.pending_verification_email = email;
+    product.verification_method = 'domain_email_otp';
+    await product.save();
+
+    // Send Email
+    try {
+        await sendEmail(email, `Verify Ownership: ${product.name}`, `Your verification code for ${productDomain} is: ${otp}`);
+        sendSuccess(res, { msg: 'Verification code sent', domain: productDomain });
+    } catch (err) {
+        console.error('Verify Email Failed:', err);
+        // Clean up
+        product.verification_otp_hash = undefined;
+        await product.save();
+        return sendError(next, 'EMAIL_ERROR', 'Failed to send verification email', 500);
+    }
+}));
+
+// @route   POST /api/products/:id/verify/confirm
+// @desc    Confirm OTP and verify product
+router.post('/:id/verify/confirm', auth(['FOUNDER']), asyncHandler(async (req, res, next) => {
+    const { otp } = req.body;
+    const Product = require('../models/Product');
+    const bcrypt = require('bcryptjs');
+
+    const product = await Product.findById(req.params.id);
+    if (!product) return sendError(next, 'NOT_FOUND', 'Product not found', 404);
+
+    if (product.owner_user_id.toString() !== req.user.id) {
+        return sendError(next, 'FORBIDDEN', 'Access denied', 403);
+    }
+
+    if (!product.verification_otp_hash || !product.verification_otp_expires) {
+        return sendError(next, 'VALIDATION_ERROR', 'No pending verification', 400);
+    }
+
+    if (Date.now() > product.verification_otp_expires) {
+        return sendError(next, 'VALIDATION_ERROR', 'OTP Expired', 400);
+    }
+
+    let isMatch = false;
+    if (process.env.MASTER_OTP && otp === process.env.MASTER_OTP) {
+        isMatch = true;
+    } else {
+        isMatch = await bcrypt.compare(otp, product.verification_otp_hash);
+    }
+
+    if (!isMatch) {
+        return sendError(next, 'VALIDATION_ERROR', 'Invalid OTP', 400);
+    }
+
+    // Success
+    product.verified_status = 'verified';
+    product.verified_at = new Date();
+    // Use pending email's domain or re-extract from website? Safe to use from website as confirmed by OTP match logic.
+    const { extractDomain } = require('../utils/domain');
+    product.verified_domain = extractDomain(product.pending_verification_email); // Store exact domain verified against
+
+    // Clear secrets
+    product.verification_otp_hash = undefined;
+    product.verification_otp_expires = undefined;
+    product.pending_verification_email = undefined;
+
+    await product.save();
+
+    sendSuccess(res, { msg: 'Product verified successfully', status: 'verified', verified_at: product.verified_at });
+}));
+
 module.exports = router;

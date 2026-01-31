@@ -15,6 +15,14 @@ const ProductSchema = new mongoose.Schema({
     categories: [{ type: String }],
     tags: [{ type: String }],
     status: { type: String, enum: ['pending', 'approved', 'rejected'], default: 'pending' },
+    verified_status: { type: String, enum: ['unverified', 'verified'], default: 'unverified' },
+    verified_domain: { type: String },
+    verified_at: { type: Date },
+    verification_method: { type: String }, // 'domain_email_otp'
+    verification_otp_hash: { type: String },
+    verification_otp_expires: { type: Date },
+    pending_verification_email: { type: String },
+
     traffic_enabled: { type: Boolean, default: true },
 
     // Team members

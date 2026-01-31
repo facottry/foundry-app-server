@@ -138,6 +138,7 @@ router.post('/login-otp', asyncHandler(async (req, res, next) => {
 }));
 
 // @route   POST /api/auth/change-password
+// @route   POST /api/auth/change-password
 router.post('/change-password', require('../middleware/auth')(), asyncHandler(async (req, res, next) => {
     const { newPassword } = req.body;
     const salt = await bcrypt.genSalt(10);
@@ -318,6 +319,70 @@ router.post('/login-phone', asyncHandler(async (req, res, next) => {
     const token = jwt.sign(payload, process.env.JWT_SECRET || 'secret', { expiresIn: 360000 });
 
     sendSuccess(res, { token, user: { id: user.id, name: user.name, email: user.email, role: user.role, phone: user.phone, slug: user.slug } });
+}));
+
+// @route   POST /api/auth/send-verification-otp
+// @desc    Send OTP to email for verification
+// @access  Private
+router.post('/send-verification-otp', require('../middleware/auth')(), asyncHandler(async (req, res, next) => {
+    const user = await User.findById(req.user.id);
+    if (!user) return sendError(next, 'NOT_FOUND', 'User not found', 404);
+
+    if (user.verified) {
+        return sendError(next, 'CONFLICT', 'Email is already verified', 400);
+    }
+
+    const otp = Math.floor(100000 + Math.random() * 900000).toString();
+    const otpHash = await bcrypt.hash(otp, 10);
+
+    user.otp_hash = otpHash;
+    user.otp_expires = Date.now() + 10 * 60 * 1000;
+    await user.save();
+
+    try {
+        await sendEmail(user.email, 'Verify Your Email - Foundry', `Your verification code is ${otp}`);
+        sendSuccess(res, { msg: 'Verification code sent to email' });
+    } catch (err) {
+        console.error('Email send failed:', err.message);
+        if (process.env.MASTER_OTP) {
+            return sendSuccess(res, {
+                msg: 'OTP generated (Email Failed)',
+                warning: 'EMAIL_FAILED',
+                debug_note: 'Use Master OTP'
+            });
+        }
+        return sendError(next, 'EMAIL_ERROR', 'Failed to send OTP email', 500);
+    }
+}));
+
+// @route   POST /api/auth/verify-email
+// @desc    Verify email with OTP
+// @access  Private
+router.post('/verify-email', require('../middleware/auth')(), asyncHandler(async (req, res, next) => {
+    const { otp } = req.body;
+    const user = await User.findById(req.user.id);
+
+    if (!user) return sendError(next, 'NOT_FOUND', 'User not found', 404);
+    if (user.verified) return sendError(next, 'CONFLICT', 'Email is already verified', 400);
+
+    let isMatch = false;
+    if (process.env.MASTER_OTP && otp === process.env.MASTER_OTP) {
+        isMatch = true;
+    } else {
+        if (user.otp_hash && user.otp_expires > Date.now()) {
+            isMatch = await bcrypt.compare(otp, user.otp_hash);
+        }
+    }
+
+    if (!isMatch) return sendError(next, 'AUTH_ERROR', 'Invalid or expired OTP', 400);
+
+    // Verify
+    user.verified = true;
+    user.otp_hash = undefined;
+    user.otp_expires = undefined;
+    await user.save();
+
+    sendSuccess(res, { msg: 'Email verified successfully', verified: true });
 }));
 
 module.exports = router;
