@@ -2,10 +2,10 @@
  * BotVAS Routes - Founder AI Bot VAS API
  * 
  * Endpoints:
- * - GET /api/founder/botvos/status - Get VAS status
- * - GET /api/founder/botvos/eligibility - Check bot eligibility (for SDK loading)
- * - POST /api/founder/botvos/enable - Enable VAS
- * - POST /api/founder/botvos/disable - Disable VAS
+ * - GET /api/founder/botvas/status - Get VAS status
+ * - GET /api/founder/botvas/eligibility - Check bot eligibility (for SDK loading)
+ * - POST /api/founder/botvas/enable - Enable VAS
+ * - POST /api/founder/botvas/disable - Disable VAS
  */
 
 const express = require('express');
@@ -14,7 +14,7 @@ const authMiddleware = require('../middleware/auth');
 const botVASService = require('../services/botVASService');
 
 // All routes require authentication
-router.use(authMiddleware);
+router.use(authMiddleware());
 
 /**
  * GET /status - Get VAS status for current user
@@ -29,7 +29,7 @@ router.get('/status', async (req, res) => {
         }
 
         const status = await botVASService.getStatus(userId);
-        res.json(status);
+        res.json({ success: true, data: status });
 
     } catch (error) {
         console.error('[BotVAS Route] Status error:', error);
@@ -47,28 +47,38 @@ router.get('/eligibility', async (req, res) => {
         // Role check
         if (!['FOUNDER', 'ADMIN'].includes(req.user.role)) {
             return res.json({
-                botEligible: false,
-                disableReason: 'invalid_role',
-                botNamespace: null
+                success: true,
+                data: {
+                    botEligible: false,
+                    disableReason: 'invalid_role',
+                    botNamespace: null
+                }
             });
         }
 
         const eligibility = await botVASService.checkEligibility(userId);
 
         res.json({
-            botEligible: eligibility.eligible,
-            disableReason: eligibility.reason,
-            botNamespace: eligibility.eligible ? 'FoundryAI' : null,
-            credits: eligibility.credits,
-            nextDeduction: eligibility.nextDeduction
+            success: true,
+            data: {
+                botEligible: eligibility.eligible,
+                disableReason: eligibility.reason,
+                botNamespace: eligibility.eligible ? 'FoundryAI' : null,
+                credits: eligibility.credits,
+                nextDeduction: eligibility.nextDeduction,
+                sdkUrl: eligibility.sdkUrl,
+                serverUrl: eligibility.serverUrl
+            }
         });
 
     } catch (error) {
         console.error('[BotVAS Route] Eligibility error:', error);
         res.json({
-            botEligible: false,
-            disableReason: 'error',
-            botNamespace: null
+            data: {
+                botEligible: false,
+                disableReason: 'error',
+                botNamespace: null
+            }
         });
     }
 });

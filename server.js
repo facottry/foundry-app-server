@@ -41,7 +41,7 @@ app.use('/api/app', require('./routes/appConfig')); // NEW Config
 app.use('/r', require('./routes/redirect'));
 app.use('/api/subscribe', require('./routes/subscription'));
 app.use('/api/newsletters', require('./routes/newsletters')); // Public Archive
-app.use('/api/founder/botvos', require('./routes/botvos')); // Bot VAS
+app.use('/api/founder/botvas', require('./routes/botvas')); // Bot VAS
 
 // Global Error Handler
 app.use(require('./middleware/errorHandler'));
@@ -66,6 +66,7 @@ mongoose.connect(db)
         // Forced restart for route updates
         const { runSegmentation } = require('./cron/segmentation');
         runSegmentation();
+        // Force restart for botvas route
     })
     .catch(err => {
         console.error('MongoDB Connection Error:', err);
