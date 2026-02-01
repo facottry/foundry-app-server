@@ -79,8 +79,8 @@ router.post('/', async (req, res) => {
 
         if (subscriber) {
             if (subscriber.status === 'ACTIVE') {
-                // Idempotent success
-                return res.json({ message: 'Confirmation email sent.' }); // Don't reveal exact status
+                // Inform user they are already subscribed
+                return res.status(409).json({ message: 'You are already subscribed to the newsletter.' });
             }
 
             // If PENDING, check for spamming/double-click (Cool-down: 60s)

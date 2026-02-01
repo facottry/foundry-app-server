@@ -68,20 +68,29 @@ router.get('/', asyncHandler(async (req, res) => {
     ]);
 
     // 2. Merge with metadata
-    const categories = Object.keys(CATEGORY_META).map(key => {
-        const meta = CATEGORY_META[key];
-        const stat = stats.find(s => s._id === key);
+    // 2. Merge stats with metadata and include ALL categories found
+    const allCategories = stats.map(stat => {
+        const slug = stat._id;
+        const meta = CATEGORY_META[slug] || {
+            name: slug,
+            slug: slug,
+            tagline: 'Discover top tools',
+            gradient: 'from-gray-400 to-gray-600',
+            icon: '🔧',
+            subtags: [],
+            isTrending: false
+        };
+
         return {
             ...meta,
-            productCount: stat ? stat.count : 0
+            productCount: stat.count
         };
     });
 
-    // 3. Sort (Trending/Count first, or fixed order?)
-    // Fixed order as per metadata definition keys usually implies priority, 
-    // or we can sort by count. Let's keep fixed order for design consistency.
+    // 3. Sort by count descending
+    allCategories.sort((a, b) => b.productCount - a.productCount);
 
-    sendSuccess(res, categories);
+    sendSuccess(res, allCategories);
 }));
 
 module.exports = router;

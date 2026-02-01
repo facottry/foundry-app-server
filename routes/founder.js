@@ -75,9 +75,13 @@ router.get('/dashboard', auth(['FOUNDER']), asyncHandler(async (req, res, next) 
     const products = await Product.find({ owner_user_id: req.user.id });
 
     const productsWithStats = await Promise.all(products.map(async (product) => {
-        const clickCount = await OutboundClick.countDocuments({ product_id: product.id, confirmed: true });
+        // Use ProductStats for faster/consistent counts if OutboundClick aggregation is lagging? 
+        // But spec says "Count documents". 
+        // Ensure strictly matching product._id
+        const clickCount = await OutboundClick.countDocuments({ product_id: product._id, confirmed: true });
+
         const startOfDay = new Date(); startOfDay.setHours(0, 0, 0, 0);
-        const clicksToday = await OutboundClick.countDocuments({ product_id: product.id, confirmed: true, confirmed_at: { $gte: startOfDay } });
+        const clicksToday = await OutboundClick.countDocuments({ product_id: product._id, confirmed: true, confirmed_at: { $gte: startOfDay } });
         const campaign = await Campaign.findOne({ product_id: product.id, status: 'active' });
 
         return {
@@ -125,9 +129,20 @@ router.get('/products/:id/audience', auth(['FOUNDER']), asyncHandler(async (req,
 
     const ProductEvent = require('../models/ProductEvent');
 
+    const { browser, os, device, country, city, region } = req.query;
+
+    const baseMatch = { product_id: product._id };
+    if (browser) baseMatch.browser = browser;
+    if (os) baseMatch.os = os;
+    // Map 'device' param to 'device_type' field if needed, or stick to schema
+    if (device) baseMatch.device_type = device;
+    if (country) baseMatch.country = country;
+    if (city) baseMatch.city = city;
+    // if (region) baseMatch.region = region; // Schema doesn't have region explicitly, mostly city/country
+
     // Aggregation pipeline helper
     const getDistribution = async (field, eventType = null) => {
-        const match = { product_id: product._id };
+        const match = { ...baseMatch };
         if (eventType) match.event_type = eventType;
 
         return ProductEvent.aggregate([
@@ -156,10 +171,10 @@ router.get('/products/:id/audience', auth(['FOUNDER']), asyncHandler(async (req,
 
     // Get counts
     const [views, clicks, ratings, reviews] = await Promise.all([
-        ProductEvent.countDocuments({ product_id: id, event_type: 'VIEW' }),
-        ProductEvent.countDocuments({ product_id: id, event_type: 'CLICK' }),
-        ProductEvent.countDocuments({ product_id: id, event_type: 'RATE' }),
-        ProductEvent.countDocuments({ product_id: id, event_type: 'REVIEW' })
+        ProductEvent.countDocuments({ ...baseMatch, event_type: 'VIEW' }),
+        ProductEvent.countDocuments({ ...baseMatch, event_type: 'CLICK' }),
+        ProductEvent.countDocuments({ ...baseMatch, event_type: 'RATE' }),
+        ProductEvent.countDocuments({ ...baseMatch, event_type: 'REVIEW' })
     ]);
 
     sendSuccess(res, {

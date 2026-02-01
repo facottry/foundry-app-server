@@ -1,0 +1,85 @@
+Project	Tagline	Enhanced Description	Founder(s)	Official Email
+SudoDocs	Analyzes code and documentation for product teams	"Automated technical writer that ingests your code base, issue tracker and existing documentation to generate accurate feature docs and change logs. It scans source code to highlight areas needing
+updates and supports crossâ€‘language docs so product teams can keep manuals current and consistent."	Saurabh Sugandh	support@sudodocs.com
+GuruTrans	Translate 100+ languages with contextâ€‘aware AI instantly	"Language translation platform that uses contextâ€‘aware artificial intelligence to translate emails, contracts, product pages and chats across more than 100 languages. It captures idioms, tone and
+nuance while ensuring data privacy so teams can communicate accurately across cultures."	Jason Chen	support@gurutrans.app
+PageFinder	AIâ€‘powered document searchâ€”find exact pages and content	"Document search engine that indexes at the page level. Users can upload PDFs, DOCX, PPT, and image files; the system performs multimodal search to locate exact pages or paragraphs. It also builds
+shareable binders of relevant pages, making research and knowledge management easy."	Mike Nam	support@auriq.com
+CoreProse	Generate 3,000â€‘word SEO articles with verified sources quickly	"Longâ€‘form content generator that uses autonomous AI agents and hybrid search to write 3,000â€‘word SEO articles. It cites five to ten verified sources, maintains a consistent voice, and can publish
+directly to WordPress or Notion. The tool aims to democratize quality content creation by automating research and writing."	Olivier Delafosse	contact@coreprose.com
+The Prompt Fixer	Transform any AI query into an expertâ€‘level prompt	"AI promptâ€‘engineering assistant that restructures user questions into wellâ€‘formed prompts optimized for different largeâ€‘language models. It democratizes prompt engineering by providing templates,
+multiâ€‘model awareness and context expansion so both novices and experts can get better results from AI systems."	Garrett Eaglin	support@thepromptfixer.com
+RezFix	Tailor your resume for any job in seconds with AI	"Job application platform that uses AI to tailor resumes and cover letters to match specific job descriptions. It optimizes content for applicantâ€‘tracking systems, offers recruiterâ€‘approved templates
+and provides interview preparation guidanceâ€”helping job seekers stand out quickly and securely."	Garrett Eaglin	support@rezfix.app
+Video Summarizer	Get concise summaries, mind maps, timelines, and Q&A from videos	"Video summarization tool that turns long videos into concise written summaries. The AI produces a summary, mindâ€‘map, timeline and Q&A in the userâ€™s language, enabling learners to grasp the key points
+of lectures or presentations without watching the full recording."	Klym Zhuravlovâ€‘Iuzefovych	contact@videosummarizerai.com
+ReadDocs	AIâ€‘powered summaries, key points, and answers for documents	"Documentâ€‘analysis service that accepts PDF, Word and transcript files, applies OCR when needed and returns a clean summary with bulletâ€‘point key takeaways and instant answers to user questions. It is
+designed for students, professionals and researchers who need to digest long documents quickly."	Muhammed Valli	info@readdocs.co.uk
+IdeaProof	AI startup idea validator for founders	"Webâ€‘based tool that evaluates a startup idea across more than fifty criteria using realâ€‘time market data. It produces a viability score, risk assessment, marketâ€‘size estimation and competitor overview
+to help founders refine their concepts. Currently there is no publicly named founder."	Not publicly listed	Not publicly listed
+Vonvo	Practice cold calls with AI prospects for instant feedback	"Salesâ€‘training platform where users can practice cold calls against AIâ€‘generated prospects. The system provides instant feedback on tone, pitch and objection handling so sales teams can improve their
+skills before approaching real prospects."	Not publicly listed	hello@vonvo.ai
+Aymo AI	Unified AI workspace that brings the best large language models together so you can write, analyze, and build faster	"Allâ€‘inâ€‘one AI platform that provides access to multiple largeâ€‘language models (GPTâ€‘5, Claude, Gemini, Grok, DeepSeek and more) through a single interface. It supports team collaboration, preset
+prompts, code explanation, file analysis and a bringâ€‘yourâ€‘ownâ€‘key option, enabling developers and writers to work faster across tasks."	Musharof Chowdhury	support@aymo.ai
+Skene	Fully automated PLG iteration engine that helps products grow without growth teams	"Productâ€‘led growth engine that automatically runs experiments, analyzes user behavior and iterates on product experience to drive growth. It helps software products grow without dedicated growth teams
+by automating A/B testing, messaging and onboarding flows."	Teemu Kinos; Michele Boggia; Teppo Hudsson	dpo@skene.ai
+Zest	AIâ€‘productivity companion for developers and engineering teams	"Developer productivity tool that integrates with your codebase to provide contextual search, chat and autoâ€‘completion. It unifies documents, code snippets and Q&A across repositories to help engineers
+find answers quickly. No public founder information is available."	Not publicly listed	support@zestcode.ai
+AISEOMate	AI powered SEO tool built for busy founders, solo marketers, and small teams	"Searchâ€‘engine optimization platform that automates keyword research, content planning, competitor analysis and onâ€‘page optimization. It generates optimized blog posts and marketing copy using
+generative AI, helping small teams to improve their search rankings without heavy manual work."	Oleg Kozynenko	oleg@aiseomate.com
+AEO lite	Answer Engine Optimization checker built for marketers, founders, and SEOs	"Browserâ€‘based tool that audits web pages for answerâ€‘engine optimizationâ€”readiness for generative search responses. It scores content, identifies weaknesses and provides a plan to improve structured
+data and copy so pages appear in AIâ€‘generated answers."	Maciej Turek	maciej@turek.com
+Agentive SEO	Advanced AIâ€‘powered tool designed to streamline your entire SEO workflow	"Comprehensive SEO platform that automates keyword research, content creation and competitor analysis. The creator explains that he built the tool to help marketers manage their websites more
+efficiently, and it includes AIâ€‘driven suggestions to improve rankings."	Conor Martin	conor@conormartin.com
+Edgen	AI Copilot for Stock and Crypto Investor	"Investing coâ€‘pilot that uses artificial intelligence to analyze stock and crypto data, answer questions and simulate strategies. It provides conversationâ€‘style insights, risk analyses and portfolio
+monitoring to help investors make informed decisions."	Sean Tao; Allen Ng	legal@edgen.tech
+AlertBot	Monitor uptime and performance with real browsers	"Website and application monitoring service that uses actual browser sessions to track uptime, performance and user experience. It provides realâ€‘time alerts, detailed reports and screenshot evidence.
+The service is offered by InfoGenius; specific founders are not publicly listed."	Not publicly listed	helpdesk@alertbot.com
+Panellog	Compare expert reviews with community ratings before you buy	"Productâ€‘review platform that aggregates expert reviews and community ratings into a weighted score. It helps shoppers compare products with confidence by giving more weight to verified experts while
+still considering broader community feedback."	Not publicly listed	Not publicly listed
+Newtab	Automate tab management to stay organized, focused, and in control	"Chrome extension that automatically manages browser tabs. It notifies users about duplicates, closes inactive tabs, lets them search and tag pages and even control audio and video playback to reduce
+clutter and improve productivity."	Not publicly listed	Not publicly listed
+Buildstash	New accessible approach to build artifact and release management for software teams	"Collaborative platform for storing, managing and sharing build artifacts and managing release workflows. It aims to make build and release management more accessible and reliable for software teams
+with remote caching and simple configuration."	Robbie Cargill; Markus Wilson	contact@buildstash.com
+VDOC	Makes design work simple. Track tasks with EOD updates, timesheets, project views	"Design command center offered by Virtual Real Design that organizes tasks, endâ€‘ofâ€‘day updates, timesheets, project views and file sharing for creative teams. It aims to simplify project management and
+collaboration. No individual founders are disclosed."	Not publicly listed	enquiry@virtualrealdesign.com
+Supawrite	AIâ€‘driven platform for automated SEO blog content	"Contentâ€‘generation platform that produces SEOâ€‘friendly blog posts. Users provide a topic and outline, and the AI writes longâ€‘form articles, complete with headings, examples and meta descriptions. It
+integrates with WordPress and other CMSs to streamline content marketing."	Daniel Kempe	hello@supawrite.com
+Vibe Coding App	AI tool designed to enhance the developer experience	"Directory of AI coding tools published by the studio Silkdrive. It curates and reviews tools to help developers enhance their productivity and stay up to date with the latest AIâ€‘assisted coding
+resources. No specific founder information is available beyond the publishing studio."	Not publicly listed	hello@vibecoding.app
+Noodle Seed	Noâ€‘code platform for creating and deploying AI assistant apps	"Noâ€‘code development platform that lets users build and deploy AI assistant applications using dragâ€‘andâ€‘drop modules. It provides preâ€‘built components for naturalâ€‘language understanding and integrates
+with popular messaging apps. It is aimed at entrepreneurs without programming experience."	Fahd Rafi; Asad Iqbal	support@noodleseed.com
+Serversage.ai	AI platform that performs the complete pentesting workflow	"Cyberâ€‘security platform that automates the entire penetrationâ€‘testing workflow. It uses AI to conduct reconnaissance, vulnerability scanning, exploitation and reporting, helping security teams
+identify and remediate threats faster. Founder and official contact information are not publicly available."	Not publicly listed	Not publicly listed
+SocialRails	Create content and post to multiple platforms	"Marketing tool that generates social media content using AI and schedules posts across multiple platforms from a single dashboard. It aims to help small businesses maintain a consistent social
+presence. Founder and official email have not been publicly disclosed."	Not publicly listed	Not publicly listed
+PageDock	Manage all social media inboxes from one dashboard	"Customerâ€‘service platform that consolidates social media inboxesâ€”such as Facebook, Instagram and Twitterâ€”into one view, enabling teams to respond quickly. It provides analytics and workflow tools.
+Founder and official email information are not publicly available."	Not publicly listed	Not publicly listed
+SocialPost	Generate, schedule, and analyze onâ€‘brand social posts with AI	"AIâ€‘powered social media assistant that helps users craft onâ€‘brand posts, schedule them and analyze engagement metrics. It reduces the time spent on content creation and performance tracking. Founder
+and contact details are not publicly shared."	Not publicly listed	Not publicly listed
+GeoNudge	Monitor and enhance brand visibility across AI search engines	"Visibility management tool that tracks a brandâ€™s presence across AI search engines and provides optimization recommendations. It helps businesses improve discoverability in generative search results.
+No public founder or contact information is available."	Not publicly listed	Not publicly listed
+AEO Optimizer	AI search optimization for productâ€‘level and website needs	"Optimization platform that analyzes product pages and websites to improve their performance in AIâ€‘driven search engines. It provides actionable recommendations for structured data, content and page
+speed. Founder and official contact info are not publicly available."	Not publicly listed	Not publicly listed
+Wolfy	A Google Ads agent that analyzes your data around the clock	"Advertising assistant that monitors Google Ads campaigns continuously, analyzes performance and automatically adjusts budgets, bidding strategies and keywords to maximize return on ad spend. It aims
+to reduce manual campaign management. Founder and contact details are not publicly listed."	Not publicly listed	Not publicly listed
+AIVO	Track your visibility on AI platforms and improve it	"Analytics service that tracks how often a brand or product appears in AIâ€‘generated content, chatbots and search results. It offers suggestions to improve visibility. No publicly available information
+on founder or official email."	Not publicly listed	Not publicly listed
+Dapple	A platform to manage awards, contests, and applications	"Eventâ€‘management platform for organizing awards programs, contests and applicationâ€‘based initiatives. It streamlines submissions, judging and communications in one dashboard. Founder and official
+email information have not been publicly provided."	Not publicly listed	Not publicly listed
+Askruit	Automate firstâ€‘round video interviews to hire faster	"Hiring tool that automates firstâ€‘round interviews by asking candidates a set of questions through a recorded video interface. AI analyzes the responses and provides insights to recruiters,
+accelerating the screening process. There is no public information about its founder or contact email."	Not publicly listed	Not publicly listed
+Reelu	Ditch the CV and share an interactive Storyboard that gets you hired	"Jobâ€‘search platform that lets candidates create an interactive visual storyboard showcasing their skills and achievements. Recruiters can engage with the content more dynamically than a traditional
+CV. Founder and contact details are not publicly disclosed."	Not publicly listed	Not publicly listed
+Jobari	Optimize your resume, match jobs, and prep interviews with AI	"Career platform that uses AI to optimize resumes, match candidates with job openings and provide interview preparation materials. It helps job seekers improve their applications through dataâ€‘driven
+insights. Founder and email information are not publicly available."	Not publicly listed	Not publicly listed
+AssetsAnalyzer	Make informed stock and ETF decisions with analytics	"Financial tool that analyzes stocks and exchangeâ€‘traded funds, providing performance metrics, risk factors and comparative analytics. It assists investors in making informed portfolio decisions.
+Founder and contact details are not publicly listed."	Not publicly listed	Not publicly listed
+AssetScape	Simulate geopolitical risks and stressâ€‘test your portfolio	"Riskâ€‘analysis platform that allows investors to simulate geopolitical scenarios and stressâ€‘test their portfolios. It evaluates potential impacts on asset classes to help investors prepare for
+uncertainty. Founder and official contact information are not publicly available."	Not publicly listed	Not publicly listed
+Outsampler	Enabling finance professionals to chat with numerical data	"Analytics tool that enables finance professionals to interact with numerical data via naturalâ€‘language queries. Users can ask questions and receive charts and explanations from large datasets. Founder
+and contact details have not been publicly disclosed."	Not publicly listed	Not publicly listed
+Tellus	Turn your parentâ€™s voice recordings into a memoir	"Storytelling service that transforms voice recordings from parents or loved ones into a polished memoir. It transcribes, edits and compiles narratives into a keepsake book. Founder and official email
+information are not publicly available."	Not publicly listed	Not publicly listed
+NemoVideo	Create viral videos from your links or clips	"Videoâ€‘creation tool that uses AI to generate short, engaging videos from links, text or uploaded clips. It applies templates, music and effects to help creators produce viral content quickly. Founder
+and contact information are not publicly listed."	Not publicly listed	Not publicly listed

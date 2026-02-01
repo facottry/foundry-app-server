@@ -65,10 +65,28 @@ const runSegmentation = async () => {
                     // Default OpenAI Base URL
                 });
 
+                const isFounder = user.role === 'FOUNDER';
+
+                let rules = '';
+                if (isFounder) {
+                    rules = `
+                    - STRICT REQUIREMENT: You MUST return exactly 3 segments.
+                    - First segment MUST be "Founder" (confidence 1.0).
+                    - Select 2 additional relevant segments from the list based on profile/behavior.
+                    `;
+                } else {
+                    rules = `
+                    - STRICT REQUIREMENT: You MUST return at least 2 segments (minimum 2).
+                    - Choose based on profile and behavior.
+                    `;
+                }
+
                 const prompt = `
                 Analyze this user based on their recent behavior and profile on a Product Discovery Platform (Foundry).
-                Classify them into 1-2 segments from this list: [Developer, Founder, Investor, Product Manager, Marketer, Student, Indie Hacker, Recruiter].
+                Classify them into segments from this list: [Developer, Founder, Investor, Product Manager, Marketer, Student, Indie Hacker, Recruiter, Designer, SaaS Builder].
                 
+                ${rules}
+
                 User Profile:
                 - Title: ${behaviors.title || 'N/A'}
                 - Bio: ${behaviors.bio || 'N/A'}
@@ -82,7 +100,7 @@ const runSegmentation = async () => {
                 - Reviews: ${behaviors.reviews_written}
 
                 Return strictly a JSON array of objects with "label" and "confidence" (0-1).
-                Example: { "segments": [{"label": "Developer", "confidence": 0.85}, {"label": "Indie Hacker", "confidence": 0.6}] }
+                Example: { "segments": [{"label": "Founder", "confidence": 1.0}, {"label": "Indie Hacker", "confidence": 0.6}, {"label": "Developer", "confidence": 0.5}] }
                 `;
 
                 const completion = await openai.chat.completions.create({
