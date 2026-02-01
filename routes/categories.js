@@ -56,13 +56,22 @@ const CATEGORY_META = {
 // @desc    Get rich category data with counts
 router.get('/', asyncHandler(async (req, res) => {
     // 1. Get counts
+    // 1. Get counts and Top 3 Products
     const stats = await Product.aggregate([
         { $match: { status: 'approved', deleted_at: null } },
+        { $sort: { created_at: -1 } }, // Ensure latest first
         { $unwind: "$categories" },
         {
             $group: {
                 _id: "$categories",
-                count: { $sum: 1 }
+                count: { $sum: 1 },
+                topProducts: { $push: { id: "$_id", name: "$name" } }
+            }
+        },
+        {
+            $project: {
+                count: 1,
+                topProducts: { $slice: ["$topProducts", 3] }
             }
         }
     ]);
@@ -83,7 +92,9 @@ router.get('/', asyncHandler(async (req, res) => {
 
         return {
             ...meta,
-            productCount: stat.count
+            productCount: stat.count,
+            topProducts: stat.topProducts || [],
+            selectionMode: 'LATEST_3_TEMP'
         };
     });
 
