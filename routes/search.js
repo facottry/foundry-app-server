@@ -32,30 +32,41 @@ router.get('/', asyncHandler(async (req, res) => {
             { tagline: regex },
             { description: regex },
             { categories: regex },
-            { tags: regex }
+            { tags: regex },
+            { 'team_members.name': regex }
         ]
     };
 
     const [results, total] = await Promise.all([
         Product.find(query)
-            .select('name tagline description logo_url categories tags website_url avg_rating ratings_count')
+            .select('name tagline description logo_url categories tags website_url avg_rating ratings_count team_members')
             .limit(parseInt(limit))
             .skip(skip)
             .lean(),
         Product.countDocuments(query)
     ]);
 
-    // Sort by match priority (name > tagline > tags > description)
+    // Sort by match priority (name > founder > tagline > categories > tags > description)
     const sorted = results.sort((a, b) => {
         const aNameMatch = regex.test(a.name);
         const bNameMatch = regex.test(b.name);
         if (aNameMatch && !bNameMatch) return -1;
         if (!aNameMatch && bNameMatch) return 1;
 
+        const aFounderMatch = a.team_members?.some(member => regex.test(member.name));
+        const bFounderMatch = b.team_members?.some(member => regex.test(member.name));
+        if (aFounderMatch && !bFounderMatch) return -1;
+        if (!aFounderMatch && bFounderMatch) return 1;
+
         const aTaglineMatch = regex.test(a.tagline);
         const bTaglineMatch = regex.test(b.tagline);
         if (aTaglineMatch && !bTaglineMatch) return -1;
         if (!aTaglineMatch && bTaglineMatch) return 1;
+
+        const aCategoryMatch = a.categories?.some(cat => regex.test(cat));
+        const bCategoryMatch = b.categories?.some(cat => regex.test(cat));
+        if (aCategoryMatch && !bCategoryMatch) return -1;
+        if (!aCategoryMatch && bCategoryMatch) return 1;
 
         const aTagsMatch = a.tags?.some(tag => regex.test(tag));
         const bTagsMatch = b.tags?.some(tag => regex.test(tag));
@@ -103,18 +114,19 @@ router.get('/typeahead', asyncHandler(async (req, res) => {
     const startsWithRegex = new RegExp(`^${escapedQuery}`, 'i');
     const containsRegex = new RegExp(escapedQuery, 'i');
 
-    // Priority: startsWith name > contains name > startsWith tags/categories
+    // Priority: startsWith name > contains name > founder name > startsWith tags/categories
     const results = await Product.find({
         status: 'approved',
         deleted_at: null,
         $or: [
             { name: startsWithRegex },
             { name: containsRegex },
+            { 'team_members.name': containsRegex },
             { tags: startsWithRegex },
             { categories: startsWithRegex }
         ]
     })
-        .select('name tagline logo_url')
+        .select('name tagline logo_url team_members')
         .limit(10)
         .lean();
 
