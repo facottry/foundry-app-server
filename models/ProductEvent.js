@@ -4,7 +4,7 @@ const ProductEventSchema = new mongoose.Schema({
     product_id: { type: mongoose.Schema.Types.ObjectId, ref: 'Product', required: true, index: true },
     event_type: {
         type: String,
-        enum: ['VIEW', 'CLICK', 'RATE', 'REVIEW'],
+        enum: ['VIEW', 'CLICK', 'RATE', 'REVIEW', 'REVIEW_UPDATE'],
         required: true,
         index: true
     },
