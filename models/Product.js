@@ -24,7 +24,7 @@ const ProductSchema = new mongoose.Schema({
     pending_verification_email: { type: String },
 
     traffic_enabled: { type: Boolean, default: true },
-
+    follower_count: { type: Number, default: 0 },
     // Team members
     team_members: [{
         user_id: { type: mongoose.Schema.Types.ObjectId, ref: 'User' },

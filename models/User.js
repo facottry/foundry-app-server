@@ -38,6 +38,12 @@ const UserSchema = new mongoose.Schema({
         label: { type: String },
         confidence: { type: Number }
     }],
+
+    // Phase 2: Engagement - Follow System
+    follows: {
+        productIds: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Product' }],
+        categoryIds: [{ type: String }] // Categories use slug or string ID
+    },
     segment_dirty: { type: Boolean, default: false },
     last_segmented_at: { type: Date }
 });

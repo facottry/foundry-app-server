@@ -6,11 +6,13 @@ const ReviewSchema = new mongoose.Schema({
     title: { type: String, maxlength: 100 }, // New field
     text: { type: String, required: true, maxlength: 2000 },
     ai_tags: [{ type: String }], // New AI tags
-    sentiment: { type: String, enum: ['positive', 'neutral', 'negative'], default: 'neutral' }, // New Sentiment
-    status: { type: String, enum: ['published', 'hidden', 'flagged'], default: 'published' }, // New Status
+    sentiment: { type: String, enum: ['positive', 'neutral', 'negative'], default: 'neutral' },
+    sentiment_score: { type: Number, min: 0, max: 1 }, // PRD v1
+    status: { type: String, enum: ['published', 'hidden', 'flagged'], default: 'published' },
     user_id: { type: mongoose.Schema.Types.ObjectId, ref: 'User', index: true },
     session_id: { type: String },
-    created_at: { type: Date, default: Date.now }
+    created_at: { type: Date, default: Date.now },
+    updated_at: { type: Date, default: Date.now }
 });
 
 // Enforce unique review per user per product
