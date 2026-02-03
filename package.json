@@ -1,6 +1,6 @@
 {
   "name": "foundry-server",
-  "version": "3.3.3",
+  "version": "3.3.4",
   "description": "Foundry.io Backend",
   "main": "server.js",
   "scripts": {
