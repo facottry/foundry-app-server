@@ -3,7 +3,7 @@ const querystring = require('querystring');
 
 class OAuthService {
     static getRedirectUrl(provider) {
-        const clientUrl = process.env.CLIENT_URL || 'http://localhost:3001';
+        const clientUrl = process.env.CLIENT_URL || 'https://foundry-app-client.onrender.com';
         switch (provider) {
             case 'google':
                 return `https://accounts.google.com/o/oauth2/v2/auth?` + querystring.stringify({
@@ -15,9 +15,11 @@ class OAuthService {
                     prompt: 'consent'
                 });
             case 'github':
+                // User requested Backend Callback Flow
+                const serverUrl = process.env.SERVER_URL || 'https://foundryappserver.onrender.com';
                 return `https://github.com/login/oauth/authorize?` + querystring.stringify({
                     client_id: process.env.GITHUB_CLIENT_ID,
-                    redirect_uri: `${clientUrl}/auth/github/callback`,
+                    redirect_uri: `${serverUrl}/api/auth/sso/github/callback`,
                     scope: 'user:email'
                 });
             case 'linkedin':
@@ -46,7 +48,7 @@ class OAuthService {
     }
 
     static async getGoogleProfile(code) {
-        const clientUrl = process.env.CLIENT_URL || 'http://localhost:3001';
+        const clientUrl = process.env.CLIENT_URL || 'https://foundry-app-client.onrender.com';
         const { data } = await axios.post('https://oauth2.googleapis.com/token', {
             client_id: process.env.GOOGLE_CLIENT_ID,
             client_secret: process.env.GOOGLE_CLIENT_SECRET,
@@ -90,7 +92,7 @@ class OAuthService {
     }
 
     static async getLinkedinProfile(code) {
-        const clientUrl = process.env.CLIENT_URL || 'http://localhost:3001';
+        const clientUrl = process.env.CLIENT_URL || 'https://foundry-app-client.onrender.com';
         const params = new URLSearchParams();
         params.append('grant_type', 'authorization_code');
         params.append('code', code);
