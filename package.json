@@ -8,7 +8,7 @@
     "dev": "nodemon server.js",
     "kill": "npx kill-port 5000",
     "commit": "git add . && git commit -m 'update' && git push origin main",
-    "production": "git push -f origin main:PRODUCTION_DEPLOYMENT"
+    "production": "git push --force-with-lease origin main:PRODUCTION_DEPLOYMENT"
   },
   "dependencies": {
     "@aws-sdk/client-s3": "^3.975.0",
