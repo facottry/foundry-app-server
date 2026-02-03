@@ -2,9 +2,10 @@ const mongoose = require('mongoose');
 
 const UserSchema = new mongoose.Schema({
     name: { type: String, required: true },
-    email: { type: String, required: true, unique: true },
+    email: { type: String, required: true, unique: true, alias: 'primaryEmail' }, // Alias for spec compatibility
     slug: { type: String, unique: true, sparse: true }, // URL friendly slug
-    password_hash: { type: String, required: true },
+    password_hash: { type: String, required: true, alias: 'passwordHash' }, // Alias for spec compatibility
+
     phone: { type: String, unique: true, sparse: true }, // Sparse unique index
     role: { type: String, enum: ['CUSTOMER', 'FOUNDER', 'ADMIN'], default: 'CUSTOMER' },
     credits_balance: { type: Number, default: 0 },

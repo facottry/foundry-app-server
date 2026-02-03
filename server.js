@@ -15,7 +15,10 @@ mongoose.set('strictQuery', false);
 const PORT = process.env.PORT || 5000;
 
 // Routes
+app.get('/', (req, res) => res.send('API Running'));
 app.use('/api/auth', require('./routes/auth'));
+app.use('/api/auth/sso', require('./routes/sso')); // New Unified SSO routes
+
 app.use('/api/profile', require('./routes/profile'));
 app.use('/api/follows', require('./routes/follows'));
 app.use('/api/products', require('./routes/products'));
@@ -43,6 +46,8 @@ app.use('/r', require('./routes/redirect'));
 app.use('/api/subscribe', require('./routes/subscription'));
 app.use('/api/newsletters', require('./routes/newsletters')); // Public Archive
 app.use('/api/founder/botvas', require('./routes/botvas')); // Bot VAS
+app.use('/api/wakeup', require('./routes/wakeup')); // Wakeup API
+
 
 // Global Error Handler
 app.use(require('./middleware/errorHandler'));

@@ -385,4 +385,7 @@ router.post('/verify-email', require('../middleware/auth')(), asyncHandler(async
     sendSuccess(res, { msg: 'Email verified successfully', verified: true });
 }));
 
+// @route   GET /api/auth/me
+router.get('/me', require('../middleware/auth')(), require('../controllers/authController').getMe);
+
 module.exports = router;
