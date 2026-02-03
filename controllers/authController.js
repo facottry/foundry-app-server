@@ -63,7 +63,8 @@ class AuthController {
                 path: '/api/auth/refresh' // Restrict path
             });
 
-            res.json({ user, accessToken: tokens.accessToken });
+            const userWithMethods = await AuthService.attachLoginMethods(user);
+            res.json({ user: userWithMethods, accessToken: tokens.accessToken });
 
         } catch (err) {
             console.error(err);
@@ -92,7 +93,8 @@ class AuthController {
                 secure: process.env.NODE_ENV === 'production',
                 path: '/api/auth/refresh'
             });
-            res.json({ user, accessToken: tokens.accessToken });
+            const userWithMethods = await AuthService.attachLoginMethods(user);
+            res.json({ user: userWithMethods, accessToken: tokens.accessToken });
 
         } catch (err) {
             console.error(err);
@@ -297,7 +299,9 @@ class AuthController {
         try {
             const user = await User.findById(req.user.id).select('-password_hash -otp_hash -phone_otp_hash');
             if (!user) return res.status(404).json({ error: 'User not found' });
-            res.json(user);
+
+            const userWithMethods = await AuthService.attachLoginMethods(user);
+            res.json(userWithMethods);
         } catch (err) {
             console.error(err);
             res.status(500).json({ error: 'Server error' });

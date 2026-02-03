@@ -28,92 +28,93 @@ class AuthService {
     static async resolveUser(identity) {
         const { provider, providerUserId, email, verified } = identity;
 
-        // 1. Check provider ID match
+        // 1. Exact Match: Provider + ID
         let existingIdentity = await AuthIdentity.findOne({ provider, providerUserId });
         if (existingIdentity) {
             const user = await User.findById(existingIdentity.userId);
-            if (!user) {
-                console.warn(`Orphaned identity found: ${existingIdentity._id}`);
-                // Optional: Delete identity or throw?
-                // For robustness, let's remove the orphaned identity and proceed to re-link/create?
-                // Or just throw to alerting.
-                await AuthIdentity.deleteOne({ _id: existingIdentity._id });
-                // Fallthrough to step 2 as if identity didn't exist
+            if (user) {
+                return await this.attachLoginMethods(user);
+            }
+            // If identity exists but user is gone, clean up
+            await AuthIdentity.deleteOne({ _id: existingIdentity._id });
+        }
+
+        // 2. Email Match (The "Canonical" Check)
+        // We only trust verified emails for automatic linking
+        let user = await User.findOne({ email });
+
+        if (user) {
+            // User exists!
+            if (verified) {
+                // Link this new provider to the existing user
+                await this.createAuthIdentity(user._id, identity);
+                return await this.attachLoginMethods(user);
             } else {
-                return user;
+                // Email matches but new provider is NOT verified?
+                // Security Risk: Do not link. Do not log in.
+                // However, spec says "Email is single source of truth".
+                // If the provider doesn't verify email (rare for Google/GitHub), we shouldn't trust it to hijack the account.
+                // We will throw error or force verification?
+                // Spec says "Google/GitHub/LinkedIn -> provider verified email". Assuming verified=true.
+                throw new Error('Cannot link unverified identity to existing account.');
             }
         }
 
-        // 2. Check verified email match
-        let userToLink = null;
-        if (verified) {
-            const emailMatchIdentity = await AuthIdentity.findOne({ email, verified: true });
-            if (emailMatchIdentity) {
-                userToLink = await User.findById(emailMatchIdentity.userId);
-            } else {
-                const userMatch = await User.findOne({ email: email });
-                if (userMatch) {
-                    userToLink = userMatch;
-                }
-            }
-        }
-
-        if (userToLink) {
-            // Auto-link
-            await this.createAuthIdentity(userToLink._id, identity);
-            return userToLink;
-        }
-
-        // 3. Create user + identity
-        // EXISTING User model requires 'name', 'password_hash'. 
-        // We need to generate defaults if not provided.
-        // For passwordHash, if SSO, we put a placeholder? Or make it optional?
-        // User schema says: "password_hash: { type: String, required: true }"
-        // We should fix User schema to make password_hash optional, OR generate a random one.
-        // Let's generate a random one for SSO users.
-        const randomPassword = Math.random().toString(36).slice(-8);
-        // We'd need bcrypt here but I don't want to import it just for this if possible.
-        // Wait, User model is strict. I will modify User model to NOT require password_hash if it's SSO?
-        // Constraint: "No breaking changes". Changing "required: true" to "false" is non-breaking for existing data, but might affect app logic expecting it.
-        // Safest: Generate a dummy hash.
-
-        // Also 'name' is required. "Foundry User"? Or extract from profile?
-        // Identity has no name. We should probably pass 'name' in normalizeIdentity or separately.
-        // For now, default to "User".
-
-        // I'll update normalizeIdentity signature or just accept it might fail validation.
-        // actually `resolveUser` should probably take `profile`'s name too.
-
-        // Let's fix this in `authController` or pass specific data.
-        // For now simplistic:
-
-        const newUser = new User({
-            name: identity.name || email.split('@')[0], // Extract name from email or profile
+        // 3. New User (No existing user found)
+        user = new User({
+            name: identity.name || email.split('@')[0],
             email: email,
-            password_hash: 'sso_placeholder_' + Date.now(), // Placeholder hash
-            role: 'CUSTOMER', // Default
-            verified: verified
+            role: 'CUSTOMER',
+            verified: verified,
+            onboarding_completed: false
         });
 
-        await newUser.save();
-        await this.createAuthIdentity(newUser._id, identity);
-        return newUser;
+        await user.save();
+        await this.createAuthIdentity(user._id, identity);
+
+        return await this.attachLoginMethods(user);
     }
 
     static async createAuthIdentity(userId, identity) {
-        return await AuthIdentity.create({
+        // Idempotent creation (upsert-like behavior)
+        const filter = { provider: identity.provider, providerUserId: identity.providerUserId };
+        const update = {
             userId,
-            provider: identity.provider,
-            providerUserId: identity.providerUserId,
             email: identity.email,
-            verified: identity.verified
+            verified: identity.verified,
+            // Update name? Maybe not.
+        };
+        // Use findOneAndUpdate with upsert to avoid race conditions
+        return await AuthIdentity.findOneAndUpdate(filter, update, { upsert: true, new: true });
+    }
+
+    static async attachLoginMethods(userDoc) {
+        const user = userDoc.toObject ? userDoc.toObject() : userDoc;
+
+        // Find all identities for this user
+        const identities = await AuthIdentity.find({ userId: user._id });
+
+        user.loginMethods = {
+            password: !!user.password_hash,
+            google: false,
+            github: false,
+            linkedin: false,
+            otp: !!user.otp_hash || !!user.phone_otp_hash
+        };
+
+        identities.forEach(id => {
+            if (['google', 'github', 'linkedin'].includes(id.provider)) {
+                user.loginMethods[id.provider] = true;
+            }
         });
+
+        return user;
     }
 
     static generateTokens(user) {
-        const payload = { user: { id: user.id, role: user.role } };
+        const payload = { user: { id: user._id, role: user.role } }; // Ensure _id is used
         const accessToken = jwt.sign(payload, process.env.JWT_SECRET || 'secret', { expiresIn: '15m' });
-        const refreshToken = jwt.sign({ id: user.id }, process.env.REFRESH_SECRET || 'secret_refresh', { expiresIn: '7d' });
+        const refreshToken = jwt.sign({ id: user._id }, process.env.REFRESH_SECRET || 'secret_refresh', { expiresIn: '7d' });
         return { accessToken, refreshToken };
     }
 }
