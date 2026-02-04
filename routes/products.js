@@ -319,7 +319,10 @@ router.get('/categories/stats', asyncHandler(async (req, res) => {
 }));
 
 router.get('/category/:slug', asyncHandler(async (req, res, next) => {
-    const { sort = 'trending' } = req.query;
+    const { sort = 'trending', page = 1, limit = 50 } = req.query;
+    const pageNum = Math.max(1, parseInt(page));
+    const limitNum = Math.min(50, Math.max(1, parseInt(limit))); // Max 50 items
+    const skip = (pageNum - 1) * limitNum;
 
     let sortQuery = {};
     let useStats = false;
@@ -346,6 +349,7 @@ router.get('/category/:slug', asyncHandler(async (req, res, next) => {
     }
 
     let products;
+    let total = 0;
 
     if (useStats && (sort === 'trending' || sort === 'popular')) {
         // Use aggregation for calculated sort
@@ -355,6 +359,9 @@ router.get('/category/:slug', asyncHandler(async (req, res, next) => {
         if (req.params.slug !== 'all') {
             match.categories = req.params.slug;
         }
+
+        // Get total count
+        total = await Product.countDocuments(match);
 
         const pipeline = [
             { $match: match },
@@ -374,7 +381,9 @@ router.get('/category/:slug', asyncHandler(async (req, res, next) => {
                         : { $add: [{ $multiply: [{ $ifNull: ['$stats.clicks_total', 0] }, 3] }, { $ifNull: ['$stats.views_total', 0] }] }
                 }
             },
-            { $sort: { sortScore: -1 } }
+            { $sort: { sortScore: -1 } },
+            { $skip: skip },
+            { $limit: limitNum }
         ];
 
         products = await Product.aggregate(pipeline);
@@ -383,13 +392,23 @@ router.get('/category/:slug', asyncHandler(async (req, res, next) => {
         if (req.params.slug !== 'all') {
             query.categories = req.params.slug;
         }
-        products = await Product.find(query).sort(sortQuery);
+        total = await Product.countDocuments(query);
+        products = await Product.find(query).sort(sortQuery).skip(skip).limit(limitNum);
     }
 
     // Map products to include URLs
     const enhancedProducts = products.map(p => enhanceProductWithUrls(p));
 
-    sendSuccess(res, enhancedProducts);
+    sendSuccess(res, {
+        products: enhancedProducts,
+        pagination: {
+            page: pageNum,
+            limit: limitNum,
+            total,
+            pages: Math.ceil(total / limitNum),
+            hasMore: pageNum * limitNum < total
+        }
+    });
 }));
 
 // @route   PUT /api/products/:id
