@@ -16,7 +16,7 @@ class OAuthService {
                 });
             case 'github':
                 // User requested Backend Callback Flow
-                const serverUrl = process.env.SERVER_URL || 'https://foundryappserver.onrender.com';
+                const serverUrl = process.env.APP_SERVER_URL || 'https://foundryappserver.onrender.com';
                 return `https://github.com/login/oauth/authorize?` + querystring.stringify({
                     client_id: process.env.GITHUB_CLIENT_ID,
                     redirect_uri: `${serverUrl}/api/auth/sso/github/callback`,
@@ -65,30 +65,54 @@ class OAuthService {
     }
 
     static async getGithubProfile(code) {
+        console.log('[OAuth Debug] exchangeCode for GitHub called with code:', code);
         // GitHub doesn't require redirect_uri in the access_token step usually, but strict mode might.
         // It uses client_id/secret.
-        const { data } = await axios.post('https://github.com/login/oauth/access_token', {
+        console.log('[OAuth Debug] Requesting access token from https://github.com/login/oauth/access_token');
+        console.log('[OAuth Debug] Params:', {
             client_id: process.env.GITHUB_CLIENT_ID,
-            client_secret: process.env.GITHUB_CLIENT_SECRET,
-            code,
-        }, { headers: { Accept: 'application/json' } });
-
-        if (data.error) throw new Error(data.error_description);
-
-        const { data: userProfile } = await axios.get('https://api.github.com/user', {
-            headers: { Authorization: `Bearer ${data.access_token}` }
+            has_secret: !!process.env.GITHUB_CLIENT_SECRET, // Don't log the actual secret
+            code
         });
 
-        // Github email might be private
-        const { data: emails } = await axios.get('https://api.github.com/user/emails', {
-            headers: { Authorization: `Bearer ${data.access_token}` }
-        });
-        const primaryEmail = emails.find(e => e.primary && e.verified)?.email || emails[0].email;
+        try {
+            const { data } = await axios.post('https://github.com/login/oauth/access_token', {
+                client_id: process.env.GITHUB_CLIENT_ID,
+                client_secret: process.env.GITHUB_CLIENT_SECRET,
+                code,
+            }, { headers: { Accept: 'application/json' } });
 
-        return {
-            ...userProfile,
-            email: primaryEmail
-        };
+            console.log('[OAuth Debug] Token response data:', data);
+
+            if (data.error) {
+                console.error('[OAuth Debug] Token Error:', data.error_description);
+                throw new Error(data.error_description);
+            }
+
+            console.log('[OAuth Debug] Access Token received. Fetching user profile...');
+            const { data: userProfile } = await axios.get('https://api.github.com/user', {
+                headers: { Authorization: `Bearer ${data.access_token}` }
+            });
+            console.log('[OAuth Debug] User Profile received:', userProfile.login);
+
+            // Github email might be private
+            console.log('[OAuth Debug] Fetching emails...');
+            const { data: emails } = await axios.get('https://api.github.com/user/emails', {
+                headers: { Authorization: `Bearer ${data.access_token}` }
+            });
+            console.log('[OAuth Debug] Emails received:', emails.length);
+
+            const primaryEmail = emails.find(e => e.primary && e.verified)?.email || emails[0].email;
+            console.log('[OAuth Debug] Selected Email:', primaryEmail);
+
+            return {
+                ...userProfile,
+                email: primaryEmail
+            };
+        } catch (error) {
+            console.error('[OAuth Debug] GitHub Exchange Failed:', error.response?.data || error.message);
+            throw error;
+        }
     }
 
     static async getLinkedinProfile(code) {

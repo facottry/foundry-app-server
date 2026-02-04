@@ -189,6 +189,8 @@ class AuthController {
 
             if (!code) return res.status(400).send('No code provided');
 
+            console.log(`[Auth Debug] Social Callback received for ${provider}. Code present.`);
+
             const profile = await require('../services/oauthService').exchangeCode(provider, code);
             const adapterValues = ProviderAdapters[provider](profile);
             adapterValues.name = adapterValues.name || profile.name;
