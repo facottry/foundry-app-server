@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const ProductView = require('../models/ProductView');
+const ProductStats = require('../models/ProductStats');
 const { extractMetadata } = require('../utils/geoDevice');
 const { asyncHandler, sendSuccess } = require('../utils/response');
 
@@ -22,6 +23,16 @@ router.post('/view', asyncHandler(async (req, res) => {
         session_id: sessionId,
         ...metadata
     });
+
+    // Update ProductStats
+    await ProductStats.findOneAndUpdate(
+        { product_id: productId },
+        {
+            $inc: { views_total: 1, views_24h: 1 },
+            $set: { last_viewed_at: new Date(), updated_at: new Date() }
+        },
+        { upsert: true }
+    );
 
     sendSuccess(res, { tracked: true });
 }));
