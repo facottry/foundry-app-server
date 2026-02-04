@@ -256,11 +256,17 @@ class AuthController {
             const { idToken } = req.body;
             if (!idToken) return res.status(400).json({ error: 'Missing ID Token' });
 
+            console.log('[Google SSO] Verifying token...');
+
             // Verify via Google API
             const { data: ticket } = await require('axios').get(`https://oauth2.googleapis.com/tokeninfo?id_token=${idToken}`);
 
+            console.log('[Google SSO] Token verified. Audience:', ticket.aud);
+            console.log('[Google SSO] Expected Client ID:', process.env.GOOGLE_CLIENT_ID);
+
             // Check Audience
             if (ticket.aud !== process.env.GOOGLE_CLIENT_ID) {
+                console.error('[Google SSO] Audience mismatch!', { got: ticket.aud, expected: process.env.GOOGLE_CLIENT_ID });
                 return res.status(401).json({ error: 'Invalid audience' });
             }
 
@@ -289,11 +295,13 @@ class AuthController {
                 path: '/api/auth/refresh'
             });
 
+            console.log('[Google SSO] Success for user:', user.email);
             res.json({ user, accessToken: tokens.accessToken });
 
         } catch (err) {
-            console.error('Google Verification Error:', err.response?.data || err.message);
-            res.status(401).json({ error: 'Invalid Google Token' });
+            const googleError = err.response?.data?.error_description || err.response?.data?.error || err.message;
+            console.error('[Google SSO] Verification Error:', googleError);
+            res.status(401).json({ error: 'Invalid Google Token', details: googleError });
         }
     }
 
