@@ -15,13 +15,29 @@ router.get('/transactions', auth(['FOUNDER']), asyncHandler(async (req, res, nex
     sendSuccess(res, transactions);
 }));
 
+const MAX_CREDITS = 5000;
+const MAX_TOPUP_AMOUNT = 1000;
+
 router.post('/topup', auth(['FOUNDER']), asyncHandler(async (req, res, next) => {
     const { amount } = req.body;
+    const topupAmount = parseInt(amount);
+
+    // Enforce max topup per transaction
+    if (topupAmount > MAX_TOPUP_AMOUNT) {
+        return sendError(next, 'LIMIT_EXCEEDED', `Maximum topup allowed is ${MAX_TOPUP_AMOUNT} credits per transaction.`, 400);
+    }
+
     const user = await User.findById(req.user.id);
-    user.credits_balance += parseInt(amount);
+    user.credits_balance += topupAmount;
+
+    // Enforce max credit limit
+    if (user.credits_balance > MAX_CREDITS) {
+        user.credits_balance = MAX_CREDITS;
+    }
+
     await user.save();
 
-    await new WalletTransaction({ user_id: req.user.id, amount: parseInt(amount), reason: 'topup' }).save();
+    await new WalletTransaction({ user_id: req.user.id, amount: topupAmount, reason: 'topup' }).save();
     sendSuccess(res, { success: true, balance: user.credits_balance });
 }));
 

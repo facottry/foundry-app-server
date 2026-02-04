@@ -268,4 +268,21 @@ router.patch('/products/:id/archive', auth(['FOUNDER']), asyncHandler(async (req
     sendSuccess(res, product);
 }));
 
+// @route   GET /api/founder/products/:id/reviews
+// @desc    Get reviews for a product owned by founder
+router.get('/products/:id/reviews', auth(['FOUNDER']), asyncHandler(async (req, res, next) => {
+    const Review = require('../models/Review');
+    const product = await Product.findOne({ _id: req.params.id, owner_user_id: req.user.id });
+
+    if (!product) {
+        return sendError(next, 'NOT_FOUND', 'Product not found or not owned by you', 404);
+    }
+
+    const reviews = await Review.find({ product_id: req.params.id })
+        .populate('user_id', 'name avatar_url')
+        .sort({ created_at: -1 });
+
+    sendSuccess(res, reviews);
+}));
+
 module.exports = router;

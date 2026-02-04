@@ -24,6 +24,8 @@ const enhanceProductWithUrls = (product) => {
         p.logoUrl = p.logo_url;
     }
 
+
+
     // Screenshots
     if (p.screenshotKeys && p.screenshotKeys.length > 0) {
         p.screenshotUrls = p.screenshotKeys.map(key => buildPublicR2Url(key));
@@ -31,11 +33,84 @@ const enhanceProductWithUrls = (product) => {
         p.screenshotUrls = p.screenshots || [];
     }
 
+
+
     return p;
 };
 
+// @route   POST /api/products/:id/follow
+// @desc    Follow a product
+router.post('/:id/follow', auth(), asyncHandler(async (req, res, next) => {
+    const ProductFollow = require('../models/ProductFollow');
+    const Product = require('../models/Product');
+    const { id } = req.params;
+    const userId = req.user.id;
+
+    const product = await Product.findById(id);
+    if (!product) {
+        return sendError(next, 'NOT_FOUND', 'Product not found', 404);
+    }
+
+
+    try {
+        const follow = new ProductFollow({ user_id: userId, product_id: id });
+        const savedFollow = await follow.save();
+
+        const updateRes = await Product.findByIdAndUpdate(id, { $inc: { follower_count: 1 } });
+
+        sendSuccess(res, { isFollowing: true, message: 'Followed' });
+    } catch (err) {
+        if (err.code === 11000) {
+            return sendSuccess(res, { isFollowing: true, message: 'Already following' });
+        }
+        throw err;
+    }
+}));
+
+// @route   POST /api/products/:id/unfollow
+// @desc    Unfollow a product
+router.post('/:id/unfollow', auth(), asyncHandler(async (req, res, next) => {
+    const ProductFollow = require('../models/ProductFollow');
+    const Product = require('../models/Product');
+    const { id } = req.params;
+    const userId = req.user.id;
+
+    const result = await ProductFollow.findOneAndDelete({ user_id: userId, product_id: id });
+
+    if (result) {
+        await Product.findByIdAndUpdate(id, { $inc: { follower_count: -1 } });
+    }
+
+    sendSuccess(res, { isFollowing: false, message: 'Unfollowed' });
+}));
+
+// @route   GET /api/products/:id/follow-state
+// @desc    Check if user follows product
+router.get('/:id/follow-state', auth(), asyncHandler(async (req, res) => {
+    const ProductFollow = require('../models/ProductFollow');
+    const { id } = req.params;
+    const userId = req.user.id;
+
+    const exists = await ProductFollow.exists({ user_id: userId, product_id: id });
+    sendSuccess(res, { isFollowing: !!exists });
+}));
+
 router.post('/', auth(['FOUNDER']), asyncHandler(async (req, res, next) => {
     const { name, tagline, description, website_url, logo_url, screenshots, categories, tags, logoKey, screenshotKeys, externalLogoUrl } = req.body;
+
+    // Check for existing pending product with same name
+    const existingPending = await Product.findOne({
+        owner_user_id: req.user.id,
+        name: { $regex: new RegExp(`^${name.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}$`, 'i') },
+        status: 'pending'
+    });
+
+    if (existingPending) {
+        return sendError(next, 'DUPLICATE_PENDING',
+            `You already have a pending product named "${name}". Please wait for approval before resubmitting.`,
+            400
+        );
+    }
 
     // Enhance product with AI (auto-tagging and description improvement)
     const enhancedData = await enhanceProduct({
@@ -165,7 +240,6 @@ router.get('/:id', asyncHandler(async (req, res, next) => {
         });
     }
 
-    sendSuccess(res, enhanceProductWithUrls(productObj));
     sendSuccess(res, enhanceProductWithUrls(productObj));
 }));
 
@@ -482,5 +556,7 @@ router.post('/:id/verify/confirm', auth(['FOUNDER']), asyncHandler(async (req, r
 
     sendSuccess(res, { msg: 'Product verified successfully', status: 'verified', verified_at: product.verified_at });
 }));
+
+
 
 module.exports = router;

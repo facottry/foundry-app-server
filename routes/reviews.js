@@ -60,13 +60,11 @@ router.post('/', auth(['CUSTOMER', 'FOUNDER']), asyncHandler(async (req, res, ne
         return sendError(next, 'VALIDATION_ERROR', 'Missing required fields', 400);
     }
 
-    // 1. Check Product & Permissions
+    // 1. Check Product Exists
     const product = await Product.findById(productId);
     if (!product) return sendError(next, 'NOT_FOUND', 'Product not found', 404);
 
-    if (product.owner_user_id.toString() === req.user.id) {
-        return sendError(next, 'FORBIDDEN', 'You cannot review your own product.', 403);
-    }
+    // NOTE: Founders can now review their own products (per user request)
 
     // 2. Prepare Review Data (Upsert Logic)
     let review = await Review.findOne({ product_id: productId, user_id: req.user.id });
@@ -100,6 +98,9 @@ router.post('/', auth(['CUSTOMER', 'FOUNDER']), asyncHandler(async (req, res, ne
     }
 
     await review.save();
+
+    // Run AI Tagging (async, non-blocking)
+    tagReview(review);
 
     // 3. Trigger Aggregation (Critical Sync Step)
     const allReviews = await Review.find({ product_id: productId, status: 'published' });
