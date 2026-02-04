@@ -3,11 +3,19 @@ const mongoose = require('mongoose');
 const cors = require('cors');
 require('dotenv').config();
 
+const { version } = require('./package.json');
+
 const app = express();
 
 // Middleware
 app.use(express.json());
 app.use(cors());
+
+// Add API_VERSION header to all responses
+app.use((req, res, next) => {
+    res.setHeader('X-API-VERSION', version);
+    next();
+});
 
 // DB Config
 const db = process.env.MONGO_URI || 'mongodb://127.0.0.1:27017/foundry';
