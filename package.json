@@ -1,7 +1,7 @@
 {
   "name": "foundry-server",
   "version": "3.3.5",
-  "description": "Foundry.io Backend",
+  "description": "www.clicktory.in Backend",
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
