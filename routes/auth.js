@@ -388,4 +388,7 @@ router.post('/verify-email', require('../middleware/auth')(), asyncHandler(async
 // @route   GET /api/auth/me
 router.get('/me', require('../middleware/auth')(), require('../controllers/authController').getMe);
 
+// @route   POST /api/auth/logout
+router.post('/logout', require('../controllers/authController').logout);
+
 module.exports = router;

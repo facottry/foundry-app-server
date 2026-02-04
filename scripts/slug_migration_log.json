@@ -1,0 +1,4405 @@
+[
+  {
+    "product_id": "6977dfc051bff4449e8b2a99",
+    "product_name": "AI Learning Assistant",
+    "old_slug": "ai-learning-assistant",
+    "new_slug": "ai-learning-assistant",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "6977e01451bff4449e8b2aa0",
+    "product_name": "Code Review Bot",
+    "old_slug": "code-review-bot",
+    "new_slug": "code-review-bot",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "6977e04351bff4449e8b2aaa",
+    "product_name": "Email Marketing Suite",
+    "old_slug": "email-marketing-suite",
+    "new_slug": "email-marketing-suite",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "6977e06f51bff4449e8b2ab7",
+    "product_name": "Analytics Dashboard",
+    "old_slug": "analytics-dashboard",
+    "new_slug": "analytics-dashboard",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "6977e0a751bff4449e8b2ac7",
+    "product_name": "Customer Support AI",
+    "old_slug": "customer-support-ai",
+    "new_slug": "customer-support-ai",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "6977e0d951bff4449e8b2ada",
+    "product_name": "Project Management Pro",
+    "old_slug": "project-management-pro",
+    "new_slug": "project-management-pro",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "6977e11151bff4449e8b2af0",
+    "product_name": "Social Media Scheduler",
+    "old_slug": "social-media-scheduler",
+    "new_slug": "social-media-scheduler",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "6977e15251bff4449e8b2b09",
+    "product_name": "Video Editing Studio",
+    "old_slug": "video-editing-studio",
+    "new_slug": "video-editing-studio",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "6977e18551bff4449e8b2b25",
+    "product_name": "SEO Optimizer",
+    "old_slug": "seo-optimizer",
+    "new_slug": "seo-optimizer",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "6977e1d951bff4449e8b2b44",
+    "product_name": "Cloud Storage Pro",
+    "old_slug": "cloud-storage-pro",
+    "new_slug": "cloud-storage-pro",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "6977e2a551bff4449e8b2b6d",
+    "product_name": "Expense Tracker",
+    "old_slug": "expense-tracker",
+    "new_slug": "expense-tracker",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "697925e10d95536f6cafbdb1",
+    "product_name": "The Mail Man2",
+    "old_slug": "the-mail-man2",
+    "new_slug": "mail-man",
+    "status": "UPDATED"
+  },
+  {
+    "product_id": "697b1142e12e9886f8bc1a04",
+    "product_name": "Paytm",
+    "old_slug": "paytm",
+    "new_slug": "paytm",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "697e00b2b7473c21561b45ef",
+    "product_name": "Jaipuria School ",
+    "old_slug": "jaipuria-school",
+    "new_slug": "jaipuria-school",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "697e00b4b7473c21561b45fa",
+    "product_name": "Jaipuria School ",
+    "old_slug": "jaipuria-school-6503",
+    "new_slug": "jaipuria-school-app",
+    "status": "UPDATED"
+  },
+  {
+    "product_id": "69804126ce12edf9ebb3c9c2",
+    "product_name": "OpenClaw",
+    "old_slug": "openclaw",
+    "new_slug": "open-claw",
+    "status": "UPDATED"
+  },
+  {
+    "product_id": "69804126ce12edf9ebb3c9c9",
+    "product_name": "Attentive.ai",
+    "old_slug": "attentiveai",
+    "new_slug": "attentive-ai",
+    "status": "UPDATED"
+  },
+  {
+    "product_id": "69804126ce12edf9ebb3c9ce",
+    "product_name": "Vibesmonitor",
+    "old_slug": "vibesmonitor",
+    "new_slug": "vibesmonitor",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "69804127ce12edf9ebb3c9d4",
+    "product_name": "Zo Computer",
+    "old_slug": "zo-computer",
+    "new_slug": "zo-computer",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "69804127ce12edf9ebb3c9da",
+    "product_name": "AI-Bundle-2025",
+    "old_slug": "ai-bundle-2025",
+    "new_slug": "ai-bundle",
+    "status": "UPDATED"
+  },
+  {
+    "product_id": "69804127ce12edf9ebb3c9e0",
+    "product_name": "Writizzy",
+    "old_slug": "writizzy",
+    "new_slug": "writizzy",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "69804127ce12edf9ebb3c9e6",
+    "product_name": "Emma: Food Scanner",
+    "old_slug": "emma-food-scanner",
+    "new_slug": "emma-food-scanner",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "69804127ce12edf9ebb3c9eb",
+    "product_name": "GojiberryAI",
+    "old_slug": "gojiberryai",
+    "new_slug": "gojiberry-ai",
+    "status": "UPDATED"
+  },
+  {
+    "product_id": "69804127ce12edf9ebb3c9f1",
+    "product_name": "Late",
+    "old_slug": "late",
+    "new_slug": "late",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "69804127ce12edf9ebb3c9f6",
+    "product_name": "Dodo Payments",
+    "old_slug": "dodo-payments",
+    "new_slug": "dodo-payments",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "69804127ce12edf9ebb3c9fc",
+    "product_name": "RealFaviconGenerator",
+    "old_slug": "realfavicongenerator",
+    "new_slug": "real-favicon-generator",
+    "status": "UPDATED"
+  },
+  {
+    "product_id": "69804128ce12edf9ebb3ca02",
+    "product_name": "own.page",
+    "old_slug": "ownpage",
+    "new_slug": "own-page",
+    "status": "UPDATED"
+  },
+  {
+    "product_id": "69804128ce12edf9ebb3ca07",
+    "product_name": "Skribra",
+    "old_slug": "skribra",
+    "new_slug": "skribra",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "69804128ce12edf9ebb3ca0e",
+    "product_name": "Freemius",
+    "old_slug": "freemius",
+    "new_slug": "freemius",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "69804128ce12edf9ebb3ca15",
+    "product_name": "MemSync",
+    "old_slug": "memsync",
+    "new_slug": "mem-sync",
+    "status": "UPDATED"
+  },
+  {
+    "product_id": "69804128ce12edf9ebb3ca1c",
+    "product_name": "Show Up In AI",
+    "old_slug": "show-up-in-ai",
+    "new_slug": "show-up-in-ai",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "69804128ce12edf9ebb3ca23",
+    "product_name": "LetterBucket",
+    "old_slug": "letterbucket",
+    "new_slug": "letter-bucket",
+    "status": "UPDATED"
+  },
+  {
+    "product_id": "69804128ce12edf9ebb3ca2a",
+    "product_name": "VidSell",
+    "old_slug": "vidsell",
+    "new_slug": "vid-sell",
+    "status": "UPDATED"
+  },
+  {
+    "product_id": "69804128ce12edf9ebb3ca31",
+    "product_name": "LeyLine",
+    "old_slug": "leyline",
+    "new_slug": "ley-line",
+    "status": "UPDATED"
+  },
+  {
+    "product_id": "69804129ce12edf9ebb3ca38",
+    "product_name": "StoreAgent",
+    "old_slug": "storeagent",
+    "new_slug": "store-agent",
+    "status": "UPDATED"
+  },
+  {
+    "product_id": "69804129ce12edf9ebb3ca3f",
+    "product_name": "GuideToDocs",
+    "old_slug": "guidetodocs",
+    "new_slug": "guide-to-docs",
+    "status": "UPDATED"
+  },
+  {
+    "product_id": "69804129ce12edf9ebb3ca46",
+    "product_name": "Sevalla",
+    "old_slug": "sevalla",
+    "new_slug": "sevalla",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "69804129ce12edf9ebb3ca4d",
+    "product_name": "IndieDevs",
+    "old_slug": "indiedevs",
+    "new_slug": "indie-devs",
+    "status": "UPDATED"
+  },
+  {
+    "product_id": "69804129ce12edf9ebb3ca54",
+    "product_name": "DevScribe",
+    "old_slug": "devscribe",
+    "new_slug": "dev-scribe",
+    "status": "UPDATED"
+  },
+  {
+    "product_id": "69804129ce12edf9ebb3ca5b",
+    "product_name": "JSON Kit",
+    "old_slug": "json-kit",
+    "new_slug": "json-kit",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "69804129ce12edf9ebb3ca62",
+    "product_name": "Autom",
+    "old_slug": "autom",
+    "new_slug": "autom",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "69804129ce12edf9ebb3ca69",
+    "product_name": "Is This Course Legit?",
+    "old_slug": "is-this-course-legit",
+    "new_slug": "is-this-course-legit",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "6980412ace12edf9ebb3ca70",
+    "product_name": "Screen Charm",
+    "old_slug": "screen-charm",
+    "new_slug": "screen-charm",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "6980412ace12edf9ebb3ca77",
+    "product_name": "DeepPrep AI",
+    "old_slug": "deepprep-ai",
+    "new_slug": "deep-prep-ai",
+    "status": "UPDATED"
+  },
+  {
+    "product_id": "6980412ace12edf9ebb3ca7e",
+    "product_name": "Mumble Note",
+    "old_slug": "mumble-note",
+    "new_slug": "mumble-note",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "6980412ace12edf9ebb3ca85",
+    "product_name": "CatDoes",
+    "old_slug": "catdoes",
+    "new_slug": "cat-does",
+    "status": "UPDATED"
+  },
+  {
+    "product_id": "6980412ace12edf9ebb3ca8c",
+    "product_name": "Fload",
+    "old_slug": "fload",
+    "new_slug": "fload",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "6980412ace12edf9ebb3ca93",
+    "product_name": "Maagnus for Shopify",
+    "old_slug": "maagnus-for-shopify",
+    "new_slug": "maagnus-shopify",
+    "status": "UPDATED"
+  },
+  {
+    "product_id": "6980412ace12edf9ebb3ca9a",
+    "product_name": "DeepTracker",
+    "old_slug": "deeptracker",
+    "new_slug": "deep-tracker",
+    "status": "UPDATED"
+  },
+  {
+    "product_id": "6980412ace12edf9ebb3caa1",
+    "product_name": "reGrowth",
+    "old_slug": "regrowth",
+    "new_slug": "re-growth",
+    "status": "UPDATED"
+  },
+  {
+    "product_id": "6980412bce12edf9ebb3caa8",
+    "product_name": "TechIns8",
+    "old_slug": "techins8",
+    "new_slug": "tech-ins",
+    "status": "UPDATED"
+  },
+  {
+    "product_id": "6980412bce12edf9ebb3caaf",
+    "product_name": "Capgo",
+    "old_slug": "capgo",
+    "new_slug": "capgo",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "6980412bce12edf9ebb3cab6",
+    "product_name": "WaitForIt",
+    "old_slug": "waitforit",
+    "new_slug": "wait-it",
+    "status": "UPDATED"
+  },
+  {
+    "product_id": "6980412bce12edf9ebb3cabd",
+    "product_name": "Clawptcha",
+    "old_slug": "clawptcha",
+    "new_slug": "clawptcha",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "6980412bce12edf9ebb3cac4",
+    "product_name": "PicsGo",
+    "old_slug": "picsgo",
+    "new_slug": "pics-go",
+    "status": "UPDATED"
+  },
+  {
+    "product_id": "6980412bce12edf9ebb3cacb",
+    "product_name": "Gold Calculator",
+    "old_slug": "gold-calculator",
+    "new_slug": "gold-calculator",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "6980412bce12edf9ebb3cad2",
+    "product_name": "BrowserBook",
+    "old_slug": "browserbook",
+    "new_slug": "browser-book",
+    "status": "UPDATED"
+  },
+  {
+    "product_id": "6980412bce12edf9ebb3cad9",
+    "product_name": "Beanvest Quality",
+    "old_slug": "beanvest-quality",
+    "new_slug": "beanvest-quality",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "6980412cce12edf9ebb3cae0",
+    "product_name": "Papr",
+    "old_slug": "papr",
+    "new_slug": "papr",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "6980412cce12edf9ebb3cae7",
+    "product_name": "Shelfinder",
+    "old_slug": "shelfinder",
+    "new_slug": "shelfinder",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "6980412cce12edf9ebb3caee",
+    "product_name": "CirtusAI",
+    "old_slug": "cirtusai",
+    "new_slug": "cirtus-ai",
+    "status": "UPDATED"
+  },
+  {
+    "product_id": "6980412cce12edf9ebb3caf5",
+    "product_name": "Jsfxr Pro",
+    "old_slug": "jsfxr-pro",
+    "new_slug": "jsfxr-pro",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "6980412cce12edf9ebb3cafc",
+    "product_name": "AdeptDev",
+    "old_slug": "adeptdev",
+    "new_slug": "adept-dev",
+    "status": "UPDATED"
+  },
+  {
+    "product_id": "6980412cce12edf9ebb3cb03",
+    "product_name": "Draftly",
+    "old_slug": "draftly",
+    "new_slug": "draftly",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "6980412cce12edf9ebb3cb0a",
+    "product_name": "Straighty.app",
+    "old_slug": "straightyapp",
+    "new_slug": "straighty-app",
+    "status": "UPDATED"
+  },
+  {
+    "product_id": "6980412cce12edf9ebb3cb11",
+    "product_name": "TubeGuide",
+    "old_slug": "tubeguide",
+    "new_slug": "tube-guide",
+    "status": "UPDATED"
+  },
+  {
+    "product_id": "6980412dce12edf9ebb3cb18",
+    "product_name": "Property Scout 360",
+    "old_slug": "property-scout-360",
+    "new_slug": "property-scout",
+    "status": "UPDATED"
+  },
+  {
+    "product_id": "6980412dce12edf9ebb3cb1f",
+    "product_name": "Pestle",
+    "old_slug": "pestle",
+    "new_slug": "pestle",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "6980412dce12edf9ebb3cb26",
+    "product_name": "Exvero",
+    "old_slug": "exvero",
+    "new_slug": "exvero",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "6980412dce12edf9ebb3cb2d",
+    "product_name": "Pippit AI",
+    "old_slug": "pippit-ai",
+    "new_slug": "pippit-ai",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "6980412dce12edf9ebb3cb34",
+    "product_name": "Cognee",
+    "old_slug": "cognee",
+    "new_slug": "cognee",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "6980412dce12edf9ebb3cb3b",
+    "product_name": "Autoread",
+    "old_slug": "autoread",
+    "new_slug": "autoread",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "6980412dce12edf9ebb3cb42",
+    "product_name": "Zinit",
+    "old_slug": "zinit",
+    "new_slug": "zinit",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "6980412ece12edf9ebb3cb49",
+    "product_name": "IndexFlow",
+    "old_slug": "indexflow",
+    "new_slug": "index-flow",
+    "status": "UPDATED"
+  },
+  {
+    "product_id": "6980412ece12edf9ebb3cb50",
+    "product_name": "Kive Studios",
+    "old_slug": "kive-studios",
+    "new_slug": "kive-studios",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "6980412ece12edf9ebb3cb57",
+    "product_name": "Flowise",
+    "old_slug": "flowise",
+    "new_slug": "flowise",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "6980412ece12edf9ebb3cb5e",
+    "product_name": "Opusense",
+    "old_slug": "opusense",
+    "new_slug": "opusense",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "6980412ece12edf9ebb3cb65",
+    "product_name": "SafeTrigger",
+    "old_slug": "safetrigger",
+    "new_slug": "safe-trigger",
+    "status": "UPDATED"
+  },
+  {
+    "product_id": "6980412ece12edf9ebb3cb6c",
+    "product_name": "One Click Deploy",
+    "old_slug": "one-click-deploy",
+    "new_slug": "one-click-deploy",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "6980412ece12edf9ebb3cb73",
+    "product_name": "PRDKit",
+    "old_slug": "prdkit",
+    "new_slug": "prdkit",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "6980412ece12edf9ebb3cb7a",
+    "product_name": "LearnerOn",
+    "old_slug": "learneron",
+    "new_slug": "learner-on",
+    "status": "UPDATED"
+  },
+  {
+    "product_id": "6980412fce12edf9ebb3cb81",
+    "product_name": "Releem",
+    "old_slug": "releem",
+    "new_slug": "releem",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "6980412fce12edf9ebb3cb88",
+    "product_name": "GOAT Slider",
+    "old_slug": "goat-slider",
+    "new_slug": "goat-slider",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "6980412fce12edf9ebb3cb8f",
+    "product_name": "Cartesia Sonic",
+    "old_slug": "cartesia-sonic",
+    "new_slug": "cartesia-sonic",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "6980412fce12edf9ebb3cb96",
+    "product_name": "OpenAlternative",
+    "old_slug": "openalternative",
+    "new_slug": "open-alternative",
+    "status": "UPDATED"
+  },
+  {
+    "product_id": "6980412fce12edf9ebb3cb9d",
+    "product_name": "Habit Pixel",
+    "old_slug": "habit-pixel",
+    "new_slug": "habit-pixel",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "6980412fce12edf9ebb3cba4",
+    "product_name": "DevSuite",
+    "old_slug": "devsuite",
+    "new_slug": "dev-suite",
+    "status": "UPDATED"
+  },
+  {
+    "product_id": "6980412fce12edf9ebb3cbab",
+    "product_name": "EuroAlternative",
+    "old_slug": "euroalternative",
+    "new_slug": "euro-alternative",
+    "status": "UPDATED"
+  },
+  {
+    "product_id": "6980412fce12edf9ebb3cbb2",
+    "product_name": "OpenAds",
+    "old_slug": "openads",
+    "new_slug": "open-ads",
+    "status": "UPDATED"
+  },
+  {
+    "product_id": "69804130ce12edf9ebb3cbb9",
+    "product_name": "Formserve",
+    "old_slug": "formserve",
+    "new_slug": "formserve",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "69804130ce12edf9ebb3cbc0",
+    "product_name": "DocBeacon",
+    "old_slug": "docbeacon",
+    "new_slug": "doc-beacon",
+    "status": "UPDATED"
+  },
+  {
+    "product_id": "69804130ce12edf9ebb3cbc7",
+    "product_name": "Chart My Course",
+    "old_slug": "chart-my-course",
+    "new_slug": "chart-my-course",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "69804130ce12edf9ebb3cbce",
+    "product_name": "R/kaching",
+    "old_slug": "rkaching",
+    "new_slug": "r-kaching",
+    "status": "UPDATED"
+  },
+  {
+    "product_id": "69804130ce12edf9ebb3cbd5",
+    "product_name": "Movestax",
+    "old_slug": "movestax",
+    "new_slug": "movestax",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "69804130ce12edf9ebb3cbdc",
+    "product_name": "Myboost",
+    "old_slug": "myboost",
+    "new_slug": "myboost",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "69804130ce12edf9ebb3cbe3",
+    "product_name": "Koffio Ai",
+    "old_slug": "koffio-ai",
+    "new_slug": "koffio-ai",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "69804130ce12edf9ebb3cbea",
+    "product_name": "Yazero",
+    "old_slug": "yazero",
+    "new_slug": "yazero",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "69804131ce12edf9ebb3cbf1",
+    "product_name": "Kallo",
+    "old_slug": "kallo",
+    "new_slug": "kallo",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "69804131ce12edf9ebb3cbf8",
+    "product_name": "Ask Ai For It",
+    "old_slug": "ask-ai-for-it",
+    "new_slug": "ask-ai-it",
+    "status": "UPDATED"
+  },
+  {
+    "product_id": "69804131ce12edf9ebb3cbff",
+    "product_name": "Brandiseer",
+    "old_slug": "brandiseer",
+    "new_slug": "brandiseer",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "69804131ce12edf9ebb3cc06",
+    "product_name": "Adligator",
+    "old_slug": "adligator",
+    "new_slug": "adligator",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "69804131ce12edf9ebb3cc0d",
+    "product_name": "Startories",
+    "old_slug": "startories",
+    "new_slug": "startories",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "69804131ce12edf9ebb3cc14",
+    "product_name": "Toolfolio",
+    "old_slug": "toolfolio",
+    "new_slug": "toolfolio",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "69804131ce12edf9ebb3cc1b",
+    "product_name": "Detool",
+    "old_slug": "detool",
+    "new_slug": "detool",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "69804131ce12edf9ebb3cc22",
+    "product_name": "Thinkup",
+    "old_slug": "thinkup",
+    "new_slug": "thinkup",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "69804132ce12edf9ebb3cc29",
+    "product_name": "Pickle Rooms",
+    "old_slug": "pickle-rooms",
+    "new_slug": "pickle-rooms",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "69804132ce12edf9ebb3cc30",
+    "product_name": "Bootstraw",
+    "old_slug": "bootstraw",
+    "new_slug": "bootstraw",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "69804132ce12edf9ebb3cc37",
+    "product_name": "Lawforventure",
+    "old_slug": "lawforventure",
+    "new_slug": "lawforventure",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "69804132ce12edf9ebb3cc3e",
+    "product_name": "Unicorns Club",
+    "old_slug": "unicorns-club",
+    "new_slug": "unicorns-club",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "69804132ce12edf9ebb3cc45",
+    "product_name": "Connexify",
+    "old_slug": "connexify",
+    "new_slug": "connexify",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "69804132ce12edf9ebb3cc4c",
+    "product_name": "Easysite",
+    "old_slug": "easysite",
+    "new_slug": "easysite",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "69804132ce12edf9ebb3cc53",
+    "product_name": "Web33",
+    "old_slug": "web33",
+    "new_slug": "web",
+    "status": "UPDATED"
+  },
+  {
+    "product_id": "69804132ce12edf9ebb3cc5a",
+    "product_name": "Tarotia",
+    "old_slug": "tarotia",
+    "new_slug": "tarotia",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "69804133ce12edf9ebb3cc61",
+    "product_name": "Breakcold",
+    "old_slug": "breakcold",
+    "new_slug": "breakcold",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "69804133ce12edf9ebb3cc68",
+    "product_name": "Wiseadvizor",
+    "old_slug": "wiseadvizor",
+    "new_slug": "wiseadvizor",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "69804133ce12edf9ebb3cc6f",
+    "product_name": "Ceedar",
+    "old_slug": "ceedar",
+    "new_slug": "ceedar",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "69804133ce12edf9ebb3cc76",
+    "product_name": "Allaitool",
+    "old_slug": "allaitool",
+    "new_slug": "allaitool",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "69804133ce12edf9ebb3cc7d",
+    "product_name": "Volta",
+    "old_slug": "volta",
+    "new_slug": "volta",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "69804133ce12edf9ebb3cc84",
+    "product_name": "Beep",
+    "old_slug": "beep",
+    "new_slug": "beep",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "69804133ce12edf9ebb3cc8b",
+    "product_name": "Intrascope",
+    "old_slug": "intrascope",
+    "new_slug": "intrascope",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "69804133ce12edf9ebb3cc92",
+    "product_name": "ClearCRM",
+    "old_slug": "clearcrm",
+    "new_slug": "clear-crm",
+    "status": "UPDATED"
+  },
+  {
+    "product_id": "69804134ce12edf9ebb3cc99",
+    "product_name": "Brisqi",
+    "old_slug": "brisqi",
+    "new_slug": "brisqi",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "69804134ce12edf9ebb3cca0",
+    "product_name": "Clipflow",
+    "old_slug": "clipflow",
+    "new_slug": "clipflow",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "69804134ce12edf9ebb3cca7",
+    "product_name": "Tenki",
+    "old_slug": "tenki",
+    "new_slug": "tenki",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "69804134ce12edf9ebb3ccae",
+    "product_name": "BlackTwist",
+    "old_slug": "blacktwist",
+    "new_slug": "black-twist",
+    "status": "UPDATED"
+  },
+  {
+    "product_id": "69804134ce12edf9ebb3ccb5",
+    "product_name": "TuCanChat",
+    "old_slug": "tucanchat",
+    "new_slug": "tu-can-chat",
+    "status": "UPDATED"
+  },
+  {
+    "product_id": "69804134ce12edf9ebb3ccbc",
+    "product_name": "Codes Health",
+    "old_slug": "codes-health",
+    "new_slug": "codes-health",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "69804134ce12edf9ebb3ccc3",
+    "product_name": "Rilla",
+    "old_slug": "rilla",
+    "new_slug": "rilla",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "69804134ce12edf9ebb3ccca",
+    "product_name": "Blossom",
+    "old_slug": "blossom",
+    "new_slug": "blossom",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "69804135ce12edf9ebb3ccd1",
+    "product_name": "Mantel",
+    "old_slug": "mantel",
+    "new_slug": "mantel",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "69804135ce12edf9ebb3ccd8",
+    "product_name": "Omnea",
+    "old_slug": "omnea",
+    "new_slug": "omnea",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "69804135ce12edf9ebb3ccdf",
+    "product_name": "Adaptive Security",
+    "old_slug": "adaptive-security",
+    "new_slug": "adaptive-security",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "69804135ce12edf9ebb3cce6",
+    "product_name": "Harmonic",
+    "old_slug": "harmonic",
+    "new_slug": "harmonic",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "69804135ce12edf9ebb3cced",
+    "product_name": "Ambience Healthcare",
+    "old_slug": "ambience-healthcare",
+    "new_slug": "ambience-healthcare",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "69804135ce12edf9ebb3ccf4",
+    "product_name": "Tennr",
+    "old_slug": "tennr",
+    "new_slug": "tennr",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "69804135ce12edf9ebb3ccfb",
+    "product_name": "XBOW",
+    "old_slug": "xbow",
+    "new_slug": "xbow",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "69804135ce12edf9ebb3cd02",
+    "product_name": "OpenRouter",
+    "old_slug": "openrouter",
+    "new_slug": "open-router",
+    "status": "UPDATED"
+  },
+  {
+    "product_id": "69804136ce12edf9ebb3cd09",
+    "product_name": "Harvey",
+    "old_slug": "harvey",
+    "new_slug": "harvey",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "69804136ce12edf9ebb3cd10",
+    "product_name": "Tars AI Agents",
+    "old_slug": "tars-ai-agents",
+    "new_slug": "tars-ai-agents",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "69804136ce12edf9ebb3cd17",
+    "product_name": "Opportunexus",
+    "old_slug": "opportunexus",
+    "new_slug": "opportunexus",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "69804136ce12edf9ebb3cd1e",
+    "product_name": "Popsy",
+    "old_slug": "popsy",
+    "new_slug": "popsy",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "69804136ce12edf9ebb3cd25",
+    "product_name": "Typedream",
+    "old_slug": "typedream",
+    "new_slug": "typedream",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "69804136ce12edf9ebb3cd2c",
+    "product_name": "Adalo",
+    "old_slug": "adalo",
+    "new_slug": "adalo",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "69804136ce12edf9ebb3cd33",
+    "product_name": "Draftbit",
+    "old_slug": "draftbit",
+    "new_slug": "draftbit",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "69804136ce12edf9ebb3cd3a",
+    "product_name": "WeWeb",
+    "old_slug": "weweb",
+    "new_slug": "we-web",
+    "status": "UPDATED"
+  },
+  {
+    "product_id": "69804137ce12edf9ebb3cd41",
+    "product_name": "Glide",
+    "old_slug": "glide",
+    "new_slug": "glide",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "69804137ce12edf9ebb3cd48",
+    "product_name": "Typeblock",
+    "old_slug": "typeblock",
+    "new_slug": "typeblock",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "69804137ce12edf9ebb3cd4f",
+    "product_name": "new.website",
+    "old_slug": "newwebsite",
+    "new_slug": "new-website",
+    "status": "UPDATED"
+  },
+  {
+    "product_id": "69804137ce12edf9ebb3cd56",
+    "product_name": "Softr",
+    "old_slug": "softr",
+    "new_slug": "softr",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "69804137ce12edf9ebb3cd5d",
+    "product_name": "Bubble",
+    "old_slug": "bubble",
+    "new_slug": "bubble",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "69804137ce12edf9ebb3cd64",
+    "product_name": "Evalyze",
+    "old_slug": "evalyze",
+    "new_slug": "evalyze",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "69804137ce12edf9ebb3cd6b",
+    "product_name": "Caisy",
+    "old_slug": "caisy",
+    "new_slug": "caisy",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "69804137ce12edf9ebb3cd72",
+    "product_name": "DataWars",
+    "old_slug": "datawars",
+    "new_slug": "data-wars",
+    "status": "UPDATED"
+  },
+  {
+    "product_id": "69804138ce12edf9ebb3cd79",
+    "product_name": "Investrio",
+    "old_slug": "investrio",
+    "new_slug": "investrio",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "69804138ce12edf9ebb3cd80",
+    "product_name": "My Town AI",
+    "old_slug": "my-town-ai",
+    "new_slug": "my-town-ai",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "69804138ce12edf9ebb3cd87",
+    "product_name": "Doctours",
+    "old_slug": "doctours",
+    "new_slug": "doctours",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "69804138ce12edf9ebb3cd8e",
+    "product_name": "Original Sunshine",
+    "old_slug": "original-sunshine",
+    "new_slug": "original-sunshine",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "69804138ce12edf9ebb3cd95",
+    "product_name": "Mappa",
+    "old_slug": "mappa",
+    "new_slug": "mappa",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "69804138ce12edf9ebb3cd9c",
+    "product_name": "Finnecto",
+    "old_slug": "finnecto",
+    "new_slug": "finnecto",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "69804138ce12edf9ebb3cda3",
+    "product_name": "Levee",
+    "old_slug": "levee",
+    "new_slug": "levee",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "69804138ce12edf9ebb3cdaa",
+    "product_name": "Awear",
+    "old_slug": "awear",
+    "new_slug": "awear",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "69804139ce12edf9ebb3cdb1",
+    "product_name": "SvelteLaunch",
+    "old_slug": "sveltelaunch",
+    "new_slug": "svelte-launch",
+    "status": "UPDATED"
+  },
+  {
+    "product_id": "69804139ce12edf9ebb3cdb8",
+    "product_name": "Snipowl",
+    "old_slug": "snipowl",
+    "new_slug": "snipowl",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "69804139ce12edf9ebb3cdbf",
+    "product_name": "WildSEO",
+    "old_slug": "wildseo",
+    "new_slug": "wild-seo",
+    "status": "UPDATED"
+  },
+  {
+    "product_id": "69804139ce12edf9ebb3cdc6",
+    "product_name": "Larafast",
+    "old_slug": "larafast",
+    "new_slug": "larafast",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "69804139ce12edf9ebb3cdcd",
+    "product_name": "Reddit Pro",
+    "old_slug": "reddit-pro",
+    "new_slug": "reddit-pro",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "69804139ce12edf9ebb3cdd4",
+    "product_name": "Varnish Software",
+    "old_slug": "varnish-software",
+    "new_slug": "varnish-software",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "6980413ace12edf9ebb3cddb",
+    "product_name": "Raycast",
+    "old_slug": "raycast",
+    "new_slug": "raycast",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "6980413ace12edf9ebb3cde2",
+    "product_name": "Linear",
+    "old_slug": "linear",
+    "new_slug": "linear",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "6980413ace12edf9ebb3cde9",
+    "product_name": "Cursor",
+    "old_slug": "cursor",
+    "new_slug": "cursor",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "6980413ace12edf9ebb3cdf0",
+    "product_name": "Superhuman",
+    "old_slug": "superhuman",
+    "new_slug": "superhuman",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "6980413ace12edf9ebb3cdf7",
+    "product_name": "Cron (Notion Calendar)",
+    "old_slug": "cron-notion-calendar",
+    "new_slug": "cron-notion-calendar",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "6980413ace12edf9ebb3cdfe",
+    "product_name": "Arc Browser",
+    "old_slug": "arc-browser",
+    "new_slug": "arc-browser",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "6980413ace12edf9ebb3ce05",
+    "product_name": "Perplexity AI",
+    "old_slug": "perplexity-ai",
+    "new_slug": "perplexity-ai",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "6980413ace12edf9ebb3ce0c",
+    "product_name": "Midjourney",
+    "old_slug": "midjourney",
+    "new_slug": "midjourney",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "6980413bce12edf9ebb3ce13",
+    "product_name": "Synthesia",
+    "old_slug": "synthesia",
+    "new_slug": "synthesia",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "6980413bce12edf9ebb3ce1a",
+    "product_name": "Runway",
+    "old_slug": "runway",
+    "new_slug": "runway",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "6980413bce12edf9ebb3ce21",
+    "product_name": "Gamma",
+    "old_slug": "gamma",
+    "new_slug": "gamma",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "6980413bce12edf9ebb3ce28",
+    "product_name": "Tome",
+    "old_slug": "tome",
+    "new_slug": "tome",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "6980413bce12edf9ebb3ce2f",
+    "product_name": "Framer",
+    "old_slug": "framer",
+    "new_slug": "framer",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "6980413bce12edf9ebb3ce36",
+    "product_name": "Beehiiv",
+    "old_slug": "beehiiv",
+    "new_slug": "beehiiv",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "6980413bce12edf9ebb3ce3d",
+    "product_name": "Substack",
+    "old_slug": "substack",
+    "new_slug": "substack",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "6980413bce12edf9ebb3ce44",
+    "product_name": "Lemon Squeezy",
+    "old_slug": "lemon-squeezy",
+    "new_slug": "lemon-squeezy",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "6980413cce12edf9ebb3ce4b",
+    "product_name": "Paddle",
+    "old_slug": "paddle",
+    "new_slug": "paddle",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "6980413cce12edf9ebb3ce52",
+    "product_name": "Gumroad",
+    "old_slug": "gumroad",
+    "new_slug": "gumroad",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "6980413cce12edf9ebb3ce59",
+    "product_name": "Carrd",
+    "old_slug": "carrd",
+    "new_slug": "carrd",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "6980413cce12edf9ebb3ce60",
+    "product_name": "Bio.link",
+    "old_slug": "biolink",
+    "new_slug": "bio-link",
+    "status": "UPDATED"
+  },
+  {
+    "product_id": "6980413cce12edf9ebb3ce67",
+    "product_name": "Linktree",
+    "old_slug": "linktree",
+    "new_slug": "linktree",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "6980413cce12edf9ebb3ce6e",
+    "product_name": "Product Hunt",
+    "old_slug": "product-hunt",
+    "new_slug": "product-hunt",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "6980413cce12edf9ebb3ce75",
+    "product_name": "Pandada AI",
+    "old_slug": "pandada-ai",
+    "new_slug": "pandada-ai",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "6980413cce12edf9ebb3ce7c",
+    "product_name": "TravelAnimator",
+    "old_slug": "travelanimator",
+    "new_slug": "travel-animator",
+    "status": "UPDATED"
+  },
+  {
+    "product_id": "6980413dce12edf9ebb3ce83",
+    "product_name": "Meet-Ting",
+    "old_slug": "meet-ting",
+    "new_slug": "meet-ting",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "6980413dce12edf9ebb3ce8a",
+    "product_name": "Meteroid",
+    "old_slug": "meteroid",
+    "new_slug": "meteroid",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "6980413dce12edf9ebb3ce91",
+    "product_name": "Kilo Code Reviewer",
+    "old_slug": "kilo-code-reviewer",
+    "new_slug": "kilo-code-reviewer",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "6980413dce12edf9ebb3ce98",
+    "product_name": "Moltbot",
+    "old_slug": "moltbot",
+    "new_slug": "moltbot",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "6980413dce12edf9ebb3ce9f",
+    "product_name": "LobeHub",
+    "old_slug": "lobehub",
+    "new_slug": "lobe-hub",
+    "status": "UPDATED"
+  },
+  {
+    "product_id": "6980413dce12edf9ebb3cea6",
+    "product_name": "Timeless",
+    "old_slug": "timeless",
+    "new_slug": "timeless",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "6980413dce12edf9ebb3cead",
+    "product_name": "Minara",
+    "old_slug": "minara",
+    "new_slug": "minara",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "6980413dce12edf9ebb3ceb4",
+    "product_name": "Verdent",
+    "old_slug": "verdent",
+    "new_slug": "verdent",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "6980413ece12edf9ebb3cebb",
+    "product_name": "Cue",
+    "old_slug": "cue",
+    "new_slug": "cue",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "6980413ece12edf9ebb3cec2",
+    "product_name": "JDoodle.ai 2.0",
+    "old_slug": "jdoodleai-20",
+    "new_slug": "jdoodle-ai",
+    "status": "UPDATED"
+  },
+  {
+    "product_id": "6980413ece12edf9ebb3cec9",
+    "product_name": "PingPolls",
+    "old_slug": "pingpolls",
+    "new_slug": "ping-polls",
+    "status": "UPDATED"
+  },
+  {
+    "product_id": "6980413ece12edf9ebb3ced0",
+    "product_name": "Thumbfa.st",
+    "old_slug": "thumbfast",
+    "new_slug": "thumbfa-st",
+    "status": "UPDATED"
+  },
+  {
+    "product_id": "6980413ece12edf9ebb3ced7",
+    "product_name": "Mochi Focus",
+    "old_slug": "mochi-focus",
+    "new_slug": "mochi-focus",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "6980413ece12edf9ebb3cede",
+    "product_name": "Forums.ai",
+    "old_slug": "forumsai",
+    "new_slug": "forums-ai",
+    "status": "UPDATED"
+  },
+  {
+    "product_id": "6980413ece12edf9ebb3cee5",
+    "product_name": "Pola Browser",
+    "old_slug": "pola-browser",
+    "new_slug": "pola-browser",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "6980413ece12edf9ebb3ceec",
+    "product_name": "Hyoi",
+    "old_slug": "hyoi",
+    "new_slug": "hyoi",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "6980413fce12edf9ebb3cef3",
+    "product_name": "Humans in the Loop",
+    "old_slug": "humans-in-the-loop",
+    "new_slug": "humans-in-loop",
+    "status": "UPDATED"
+  },
+  {
+    "product_id": "6980413fce12edf9ebb3cefa",
+    "product_name": "BrainLoom",
+    "old_slug": "brainloom",
+    "new_slug": "brain-loom",
+    "status": "UPDATED"
+  },
+  {
+    "product_id": "6980413fce12edf9ebb3cf01",
+    "product_name": "GetThis",
+    "old_slug": "getthis",
+    "new_slug": "get-this",
+    "status": "UPDATED"
+  },
+  {
+    "product_id": "6980413fce12edf9ebb3cf08",
+    "product_name": "Blink Agent Builder",
+    "old_slug": "blink-agent-builder",
+    "new_slug": "blink-agent-builder",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "6980413fce12edf9ebb3cf0f",
+    "product_name": "Fimo",
+    "old_slug": "fimo",
+    "new_slug": "fimo",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "6980413fce12edf9ebb3cf16",
+    "product_name": "Mastra",
+    "old_slug": "mastra",
+    "new_slug": "mastra",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "6980413fce12edf9ebb3cf1d",
+    "product_name": "Citable",
+    "old_slug": "citable",
+    "new_slug": "citable",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "6980413fce12edf9ebb3cf24",
+    "product_name": "FastMCP 3.0",
+    "old_slug": "fastmcp-30",
+    "new_slug": "fast-mcp",
+    "status": "UPDATED"
+  },
+  {
+    "product_id": "69804140ce12edf9ebb3cf2b",
+    "product_name": "daily.dev Recruiter",
+    "old_slug": "dailydev-recruiter",
+    "new_slug": "daily-dev-recruiter",
+    "status": "UPDATED"
+  },
+  {
+    "product_id": "69804140ce12edf9ebb3cf32",
+    "product_name": "Interactpitch",
+    "old_slug": "interactpitch",
+    "new_slug": "interactpitch",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "69804140ce12edf9ebb3cf39",
+    "product_name": "Typeless",
+    "old_slug": "typeless",
+    "new_slug": "typeless",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "69804140ce12edf9ebb3cf40",
+    "product_name": "Figy.ai",
+    "old_slug": "figyai",
+    "new_slug": "figy-ai",
+    "status": "UPDATED"
+  },
+  {
+    "product_id": "69804140ce12edf9ebb3cf47",
+    "product_name": "Caricature.life",
+    "old_slug": "caricaturelife",
+    "new_slug": "caricature-life",
+    "status": "UPDATED"
+  },
+  {
+    "product_id": "69804140ce12edf9ebb3cf4e",
+    "product_name": "Purifai",
+    "old_slug": "purifai",
+    "new_slug": "purifai",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "69804140ce12edf9ebb3cf55",
+    "product_name": "Movens",
+    "old_slug": "movens",
+    "new_slug": "movens",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "69804140ce12edf9ebb3cf5c",
+    "product_name": "Cloudchipr",
+    "old_slug": "cloudchipr",
+    "new_slug": "cloudchipr",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "69804141ce12edf9ebb3cf63",
+    "product_name": "Dewdrop",
+    "old_slug": "dewdrop",
+    "new_slug": "dewdrop",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "69804141ce12edf9ebb3cf6a",
+    "product_name": "Chessmaster AI",
+    "old_slug": "chessmaster-ai",
+    "new_slug": "chessmaster-ai",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "69804141ce12edf9ebb3cf71",
+    "product_name": "StealthHound",
+    "old_slug": "stealthhound",
+    "new_slug": "stealth-hound",
+    "status": "UPDATED"
+  },
+  {
+    "product_id": "69804141ce12edf9ebb3cf78",
+    "product_name": "LinkNotch",
+    "old_slug": "linknotch",
+    "new_slug": "link-notch",
+    "status": "UPDATED"
+  },
+  {
+    "product_id": "69804141ce12edf9ebb3cf7f",
+    "product_name": "Simpl",
+    "old_slug": "simpl",
+    "new_slug": "simpl",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "69804141ce12edf9ebb3cf86",
+    "product_name": "Undiscord",
+    "old_slug": "undiscord",
+    "new_slug": "undiscord",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "69804141ce12edf9ebb3cf8d",
+    "product_name": "0xCal",
+    "old_slug": "0xcal",
+    "new_slug": "0x-cal",
+    "status": "UPDATED"
+  },
+  {
+    "product_id": "69804141ce12edf9ebb3cf94",
+    "product_name": "Dottie",
+    "old_slug": "dottie",
+    "new_slug": "dottie",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "69804142ce12edf9ebb3cf9b",
+    "product_name": "Time Ledger",
+    "old_slug": "time-ledger",
+    "new_slug": "time-ledger",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "69804142ce12edf9ebb3cfa2",
+    "product_name": "Yomio",
+    "old_slug": "yomio",
+    "new_slug": "yomio",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "69804142ce12edf9ebb3cfa9",
+    "product_name": "Good Assistant",
+    "old_slug": "good-assistant",
+    "new_slug": "good-assistant",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "69804142ce12edf9ebb3cfb0",
+    "product_name": "Hyta",
+    "old_slug": "hyta",
+    "new_slug": "hyta",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "69804142ce12edf9ebb3cfb7",
+    "product_name": "Reavion",
+    "old_slug": "reavion",
+    "new_slug": "reavion",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "69804142ce12edf9ebb3cfbe",
+    "product_name": "ClaudeUsageBar",
+    "old_slug": "claudeusagebar",
+    "new_slug": "claude-usage-bar",
+    "status": "UPDATED"
+  },
+  {
+    "product_id": "69804142ce12edf9ebb3cfc5",
+    "product_name": "Pretty Prompt 1.0",
+    "old_slug": "pretty-prompt-10",
+    "new_slug": "pretty-prompt",
+    "status": "UPDATED"
+  },
+  {
+    "product_id": "69804142ce12edf9ebb3cfcc",
+    "product_name": "skills.sh",
+    "old_slug": "skillssh",
+    "new_slug": "skills-sh",
+    "status": "UPDATED"
+  },
+  {
+    "product_id": "69804143ce12edf9ebb3cfd3",
+    "product_name": "Herodot AI",
+    "old_slug": "herodot-ai",
+    "new_slug": "herodot-ai",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "69804143ce12edf9ebb3cfda",
+    "product_name": "Flowstep",
+    "old_slug": "flowstep",
+    "new_slug": "flowstep",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "69804143ce12edf9ebb3cfe1",
+    "product_name": "DestMate",
+    "old_slug": "destmate",
+    "new_slug": "dest-mate",
+    "status": "UPDATED"
+  },
+  {
+    "product_id": "69804143ce12edf9ebb3cfe8",
+    "product_name": "ChartGen AI",
+    "old_slug": "chartgen-ai",
+    "new_slug": "chart-gen-ai",
+    "status": "UPDATED"
+  },
+  {
+    "product_id": "69804143ce12edf9ebb3cfef",
+    "product_name": "Cowork",
+    "old_slug": "cowork",
+    "new_slug": "cowork",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "69804143ce12edf9ebb3cff6",
+    "product_name": "PostSyncer",
+    "old_slug": "postsyncer",
+    "new_slug": "post-syncer",
+    "status": "UPDATED"
+  },
+  {
+    "product_id": "69804143ce12edf9ebb3cffd",
+    "product_name": "DataFast",
+    "old_slug": "datafast",
+    "new_slug": "data-fast",
+    "status": "UPDATED"
+  },
+  {
+    "product_id": "69804143ce12edf9ebb3d004",
+    "product_name": "Mom Clock",
+    "old_slug": "mom-clock",
+    "new_slug": "mom-clock",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "69804144ce12edf9ebb3d00b",
+    "product_name": "1Code",
+    "old_slug": "1code",
+    "new_slug": "1code",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "69804144ce12edf9ebb3d012",
+    "product_name": "Red Barn Robotics",
+    "old_slug": "red-barn-robotics",
+    "new_slug": "red-barn-robotics",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "69804144ce12edf9ebb3d019",
+    "product_name": "Mentra",
+    "old_slug": "mentra",
+    "new_slug": "mentra",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "69804144ce12edf9ebb3d020",
+    "product_name": "Vantel",
+    "old_slug": "vantel",
+    "new_slug": "vantel",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "69804144ce12edf9ebb3d027",
+    "product_name": "Fira",
+    "old_slug": "fira",
+    "new_slug": "fira",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "69804144ce12edf9ebb3d02e",
+    "product_name": "assistant-ui",
+    "old_slug": "assistant-ui",
+    "new_slug": "assistant-ui",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "69804144ce12edf9ebb3d035",
+    "product_name": "Axal",
+    "old_slug": "axal",
+    "new_slug": "axal",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "69804144ce12edf9ebb3d03c",
+    "product_name": "Dexterity",
+    "old_slug": "dexterity",
+    "new_slug": "dexterity",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "69804145ce12edf9ebb3d043",
+    "product_name": "TrainLoop",
+    "old_slug": "trainloop",
+    "new_slug": "train-loop",
+    "status": "UPDATED"
+  },
+  {
+    "product_id": "69804145ce12edf9ebb3d04a",
+    "product_name": "Cedar",
+    "old_slug": "cedar",
+    "new_slug": "cedar",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "69804145ce12edf9ebb3d051",
+    "product_name": "Browser Use",
+    "old_slug": "browser-use",
+    "new_slug": "browser-use",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "69804145ce12edf9ebb3d058",
+    "product_name": "TamLabs",
+    "old_slug": "tamlabs",
+    "new_slug": "tam-labs",
+    "status": "UPDATED"
+  },
+  {
+    "product_id": "69804145ce12edf9ebb3d05f",
+    "product_name": "Paratus Health",
+    "old_slug": "paratus-health",
+    "new_slug": "paratus-health",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "69804145ce12edf9ebb3d066",
+    "product_name": "Dalus",
+    "old_slug": "dalus",
+    "new_slug": "dalus",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "69804145ce12edf9ebb3d06d",
+    "product_name": "Roark.ai",
+    "old_slug": "roarkai",
+    "new_slug": "roark-ai",
+    "status": "UPDATED"
+  },
+  {
+    "product_id": "69804145ce12edf9ebb3d074",
+    "product_name": "Rebolt",
+    "old_slug": "rebolt",
+    "new_slug": "rebolt",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "69804146ce12edf9ebb3d07b",
+    "product_name": "Fuse AI",
+    "old_slug": "fuse-ai",
+    "new_slug": "fuse-ai",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "69804146ce12edf9ebb3d082",
+    "product_name": "Miyagi Labs",
+    "old_slug": "miyagi-labs",
+    "new_slug": "miyagi-labs",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "69804146ce12edf9ebb3d089",
+    "product_name": "Artificial Societies",
+    "old_slug": "artificial-societies",
+    "new_slug": "artificial-societies",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "69804146ce12edf9ebb3d090",
+    "product_name": "TripleZip",
+    "old_slug": "triplezip",
+    "new_slug": "triple-zip",
+    "status": "UPDATED"
+  },
+  {
+    "product_id": "69804146ce12edf9ebb3d097",
+    "product_name": "Peppr",
+    "old_slug": "peppr",
+    "new_slug": "peppr",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "69804146ce12edf9ebb3d09e",
+    "product_name": "Tire Swing",
+    "old_slug": "tire-swing",
+    "new_slug": "tire-swing",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "69804146ce12edf9ebb3d0a5",
+    "product_name": "Harper",
+    "old_slug": "harper",
+    "new_slug": "harper",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "69804146ce12edf9ebb3d0ac",
+    "product_name": "Calltree AI",
+    "old_slug": "calltree-ai",
+    "new_slug": "calltree-ai",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "69804147ce12edf9ebb3d0b3",
+    "product_name": "Nitrode",
+    "old_slug": "nitrode",
+    "new_slug": "nitrode",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "69804147ce12edf9ebb3d0ba",
+    "product_name": "Karsa",
+    "old_slug": "karsa",
+    "new_slug": "karsa",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "69804147ce12edf9ebb3d0c1",
+    "product_name": "Confident AI",
+    "old_slug": "confident-ai",
+    "new_slug": "confident-ai",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "69804147ce12edf9ebb3d0c8",
+    "product_name": "Riviera",
+    "old_slug": "riviera",
+    "new_slug": "riviera",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "69804147ce12edf9ebb3d0cf",
+    "product_name": "Waypoint Transit",
+    "old_slug": "waypoint-transit",
+    "new_slug": "waypoint-transit",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "69804147ce12edf9ebb3d0d6",
+    "product_name": "RedChecker.io",
+    "old_slug": "redcheckerio",
+    "new_slug": "red-checker-io",
+    "status": "UPDATED"
+  },
+  {
+    "product_id": "69804147ce12edf9ebb3d0dd",
+    "product_name": "LeadSynthAI",
+    "old_slug": "leadsynthai",
+    "new_slug": "lead-synth-ai",
+    "status": "UPDATED"
+  },
+  {
+    "product_id": "69804147ce12edf9ebb3d0e4",
+    "product_name": "ShipAhead",
+    "old_slug": "shipahead",
+    "new_slug": "ship-ahead",
+    "status": "UPDATED"
+  },
+  {
+    "product_id": "69804148ce12edf9ebb3d0eb",
+    "product_name": "PodSnip",
+    "old_slug": "podsnip",
+    "new_slug": "pod-snip",
+    "status": "UPDATED"
+  },
+  {
+    "product_id": "69804148ce12edf9ebb3d0f2",
+    "product_name": "LeaseLens",
+    "old_slug": "leaselens",
+    "new_slug": "lease-lens",
+    "status": "UPDATED"
+  },
+  {
+    "product_id": "69804148ce12edf9ebb3d0f9",
+    "product_name": "NicheNav",
+    "old_slug": "nichenav",
+    "new_slug": "niche-nav",
+    "status": "UPDATED"
+  },
+  {
+    "product_id": "69804148ce12edf9ebb3d100",
+    "product_name": "GreenThread",
+    "old_slug": "greenthread",
+    "new_slug": "green-thread",
+    "status": "UPDATED"
+  },
+  {
+    "product_id": "69804148ce12edf9ebb3d107",
+    "product_name": "SwiftGrant",
+    "old_slug": "swiftgrant",
+    "new_slug": "swift-grant",
+    "status": "UPDATED"
+  },
+  {
+    "product_id": "69804148ce12edf9ebb3d10e",
+    "product_name": "OnlyFams",
+    "old_slug": "onlyfams",
+    "new_slug": "only-fams",
+    "status": "UPDATED"
+  },
+  {
+    "product_id": "69804148ce12edf9ebb3d115",
+    "product_name": "MedMemo",
+    "old_slug": "medmemo",
+    "new_slug": "med-memo",
+    "status": "UPDATED"
+  },
+  {
+    "product_id": "69804148ce12edf9ebb3d11c",
+    "product_name": "StackSalad",
+    "old_slug": "stacksalad",
+    "new_slug": "stack-salad",
+    "status": "UPDATED"
+  },
+  {
+    "product_id": "69804149ce12edf9ebb3d123",
+    "product_name": "EventEssentials",
+    "old_slug": "eventessentials",
+    "new_slug": "event-essentials",
+    "status": "UPDATED"
+  },
+  {
+    "product_id": "69804149ce12edf9ebb3d12a",
+    "product_name": "RetireRight",
+    "old_slug": "retireright",
+    "new_slug": "retire-right",
+    "status": "UPDATED"
+  },
+  {
+    "product_id": "69804149ce12edf9ebb3d131",
+    "product_name": "CheckAnalytic",
+    "old_slug": "checkanalytic",
+    "new_slug": "check-analytic",
+    "status": "UPDATED"
+  },
+  {
+    "product_id": "69804149ce12edf9ebb3d138",
+    "product_name": "Bazzly",
+    "old_slug": "bazzly",
+    "new_slug": "bazzly",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "69804149ce12edf9ebb3d13f",
+    "product_name": "TrustGather",
+    "old_slug": "trustgather",
+    "new_slug": "trust-gather",
+    "status": "UPDATED"
+  },
+  {
+    "product_id": "69804149ce12edf9ebb3d146",
+    "product_name": "TrelloMate",
+    "old_slug": "trellomate",
+    "new_slug": "trello-mate",
+    "status": "UPDATED"
+  },
+  {
+    "product_id": "69804149ce12edf9ebb3d14d",
+    "product_name": "FashionHub",
+    "old_slug": "fashionhub",
+    "new_slug": "fashion-hub",
+    "status": "UPDATED"
+  },
+  {
+    "product_id": "69804149ce12edf9ebb3d154",
+    "product_name": "Cofounder Hunt",
+    "old_slug": "cofounder-hunt",
+    "new_slug": "cofounder-hunt",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "6980414ace12edf9ebb3d15b",
+    "product_name": "Ekit Studio",
+    "old_slug": "ekit-studio",
+    "new_slug": "ekit-studio",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "6980414ace12edf9ebb3d162",
+    "product_name": "KirkBench",
+    "old_slug": "kirkbench",
+    "new_slug": "kirk-bench",
+    "status": "UPDATED"
+  },
+  {
+    "product_id": "6980414ace12edf9ebb3d169",
+    "product_name": "IndieBank",
+    "old_slug": "indiebank",
+    "new_slug": "indie-bank",
+    "status": "UPDATED"
+  },
+  {
+    "product_id": "6980414ace12edf9ebb3d170",
+    "product_name": "LaunchFast",
+    "old_slug": "launchfast",
+    "new_slug": "launch-fast",
+    "status": "UPDATED"
+  },
+  {
+    "product_id": "6980414ace12edf9ebb3d177",
+    "product_name": "OpenSaaS",
+    "old_slug": "opensaas",
+    "new_slug": "open-saa-s",
+    "status": "UPDATED"
+  },
+  {
+    "product_id": "6980414ace12edf9ebb3d17e",
+    "product_name": "Divjoy",
+    "old_slug": "divjoy",
+    "new_slug": "divjoy",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "6980414ace12edf9ebb3d185",
+    "product_name": "Neon",
+    "old_slug": "neon",
+    "new_slug": "neon",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "6980414ace12edf9ebb3d18c",
+    "product_name": "Railway",
+    "old_slug": "railway",
+    "new_slug": "railway",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "6980414bce12edf9ebb3d193",
+    "product_name": "Upstash",
+    "old_slug": "upstash",
+    "new_slug": "upstash",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "6980414bce12edf9ebb3d19a",
+    "product_name": "Auth.js",
+    "old_slug": "authjs",
+    "new_slug": "auth-js",
+    "status": "UPDATED"
+  },
+  {
+    "product_id": "6980414bce12edf9ebb3d1a1",
+    "product_name": "Resend",
+    "old_slug": "resend",
+    "new_slug": "resend",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "6980414bce12edf9ebb3d1a8",
+    "product_name": "Loops",
+    "old_slug": "loops",
+    "new_slug": "loops",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "6980414bce12edf9ebb3d1af",
+    "product_name": "Pirsch",
+    "old_slug": "pirsch",
+    "new_slug": "pirsch",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "6980414bce12edf9ebb3d1b6",
+    "product_name": "Featurebase",
+    "old_slug": "featurebase",
+    "new_slug": "featurebase",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "6980414bce12edf9ebb3d1bd",
+    "product_name": "Sleekplan",
+    "old_slug": "sleekplan",
+    "new_slug": "sleekplan",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "6980414bce12edf9ebb3d1c4",
+    "product_name": "Tally",
+    "old_slug": "tally",
+    "new_slug": "tally",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "6980414cce12edf9ebb3d1cb",
+    "product_name": "Chatwoot",
+    "old_slug": "chatwoot",
+    "new_slug": "chatwoot",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "6980414cce12edf9ebb3d1d2",
+    "product_name": "Screen Studio",
+    "old_slug": "screen-studio",
+    "new_slug": "screen-studio",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "6980414cce12edf9ebb3d1d9",
+    "product_name": "Kap",
+    "old_slug": "kap",
+    "new_slug": "kap",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "6980414cce12edf9ebb3d1e0",
+    "product_name": "Listen Labs",
+    "old_slug": "listen-labs",
+    "new_slug": "listen-labs",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "6980414cce12edf9ebb3d1e7",
+    "product_name": "Avoca",
+    "old_slug": "avoca",
+    "new_slug": "avoca",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "6980414cce12edf9ebb3d1ee",
+    "product_name": "Traba",
+    "old_slug": "traba",
+    "new_slug": "traba",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "6980414cce12edf9ebb3d1f5",
+    "product_name": "Pogo",
+    "old_slug": "pogo",
+    "new_slug": "pogo",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "6980414cce12edf9ebb3d1fc",
+    "product_name": "Sonner",
+    "old_slug": "sonner",
+    "new_slug": "sonner",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "6980414dce12edf9ebb3d203",
+    "product_name": "Lucia",
+    "old_slug": "lucia",
+    "new_slug": "lucia",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "6980414dce12edf9ebb3d20a",
+    "product_name": "Coolify",
+    "old_slug": "coolify",
+    "new_slug": "coolify",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "6980414dce12edf9ebb3d211",
+    "product_name": "LaunchVault",
+    "old_slug": "launchvault",
+    "new_slug": "launch-vault",
+    "status": "UPDATED"
+  },
+  {
+    "product_id": "6980414dce12edf9ebb3d218",
+    "product_name": "CoastFireCalc",
+    "old_slug": "coastfirecalc",
+    "new_slug": "coast-fire-calc",
+    "status": "UPDATED"
+  },
+  {
+    "product_id": "6980414dce12edf9ebb3d21f",
+    "product_name": "JustSimple.tools",
+    "old_slug": "justsimpletools",
+    "new_slug": "just-simple-tools",
+    "status": "UPDATED"
+  },
+  {
+    "product_id": "6980414dce12edf9ebb3d226",
+    "product_name": "CapCut Desktop",
+    "old_slug": "capcut-desktop",
+    "new_slug": "cap-cut-desktop",
+    "status": "UPDATED"
+  },
+  {
+    "product_id": "6980414dce12edf9ebb3d22d",
+    "product_name": "InVideo",
+    "old_slug": "invideo",
+    "new_slug": "in-video",
+    "status": "UPDATED"
+  },
+  {
+    "product_id": "6980414dce12edf9ebb3d234",
+    "product_name": "Mureka",
+    "old_slug": "mureka",
+    "new_slug": "mureka",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "6980414ece12edf9ebb3d23b",
+    "product_name": "Surfer SEO",
+    "old_slug": "surfer-seo",
+    "new_slug": "surfer-seo",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "6980414ece12edf9ebb3d242",
+    "product_name": "ConvertKit",
+    "old_slug": "convertkit",
+    "new_slug": "convert-kit",
+    "status": "UPDATED"
+  },
+  {
+    "product_id": "6980414ece12edf9ebb3d249",
+    "product_name": "ZeroGPT",
+    "old_slug": "zerogpt",
+    "new_slug": "zero-gpt",
+    "status": "UPDATED"
+  },
+  {
+    "product_id": "6980414ece12edf9ebb3d250",
+    "product_name": "Sudowrite",
+    "old_slug": "sudowrite",
+    "new_slug": "sudowrite",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "6980414ece12edf9ebb3d257",
+    "product_name": "AIVA",
+    "old_slug": "aiva",
+    "new_slug": "aiva",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "6980414ece12edf9ebb3d25e",
+    "product_name": "Suno",
+    "old_slug": "suno",
+    "new_slug": "suno",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "6980414ece12edf9ebb3d265",
+    "product_name": "Glean",
+    "old_slug": "glean",
+    "new_slug": "glean",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "6980414ece12edf9ebb3d26c",
+    "product_name": "Relay",
+    "old_slug": "relay",
+    "new_slug": "relay",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "6980414fce12edf9ebb3d273",
+    "product_name": "Bardeen AI",
+    "old_slug": "bardeen-ai",
+    "new_slug": "bardeen-ai",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "6980414fce12edf9ebb3d27a",
+    "product_name": "EmbedSocial",
+    "old_slug": "embedsocial",
+    "new_slug": "embed-social",
+    "status": "UPDATED"
+  },
+  {
+    "product_id": "6980414fce12edf9ebb3d281",
+    "product_name": "BrightLocal",
+    "old_slug": "brightlocal",
+    "new_slug": "bright-local",
+    "status": "UPDATED"
+  },
+  {
+    "product_id": "6980414fce12edf9ebb3d288",
+    "product_name": "Wave Financial",
+    "old_slug": "wave-financial",
+    "new_slug": "wave-financial",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "6980414fce12edf9ebb3d28f",
+    "product_name": "FreshBooks",
+    "old_slug": "freshbooks",
+    "new_slug": "fresh-books",
+    "status": "UPDATED"
+  },
+  {
+    "product_id": "6980414fce12edf9ebb3d296",
+    "product_name": "QuickBooks",
+    "old_slug": "quickbooks",
+    "new_slug": "quick-books",
+    "status": "UPDATED"
+  },
+  {
+    "product_id": "6980414fce12edf9ebb3d29d",
+    "product_name": "Otter.ai",
+    "old_slug": "otterai",
+    "new_slug": "otter-ai",
+    "status": "UPDATED"
+  },
+  {
+    "product_id": "6980414fce12edf9ebb3d2a4",
+    "product_name": "Fireflies.ai",
+    "old_slug": "firefliesai",
+    "new_slug": "fireflies-ai",
+    "status": "UPDATED"
+  },
+  {
+    "product_id": "69804150ce12edf9ebb3d2ab",
+    "product_name": "Fathom",
+    "old_slug": "fathom",
+    "new_slug": "fathom",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "69804150ce12edf9ebb3d2b2",
+    "product_name": "Cyclr",
+    "old_slug": "cyclr",
+    "new_slug": "cyclr",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "69804150ce12edf9ebb3d2b9",
+    "product_name": "Salesforce Agentforce",
+    "old_slug": "salesforce-agentforce",
+    "new_slug": "salesforce-agentforce",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "69804150ce12edf9ebb3d2c0",
+    "product_name": "HubSpot AI",
+    "old_slug": "hubspot-ai",
+    "new_slug": "hub-spot-ai",
+    "status": "UPDATED"
+  },
+  {
+    "product_id": "69804150ce12edf9ebb3d2c7",
+    "product_name": "Microsoft Copilot",
+    "old_slug": "microsoft-copilot",
+    "new_slug": "microsoft-copilot",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "69804150ce12edf9ebb3d2ce",
+    "product_name": "Notion AI",
+    "old_slug": "notion-ai",
+    "new_slug": "notion-ai",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "69804150ce12edf9ebb3d2d5",
+    "product_name": "Zapier Central",
+    "old_slug": "zapier-central",
+    "new_slug": "zapier-central",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "69804150ce12edf9ebb3d2dc",
+    "product_name": "Make (Integromat)",
+    "old_slug": "make-integromat",
+    "new_slug": "make-integromat",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "69804151ce12edf9ebb3d2e3",
+    "product_name": "Supabase",
+    "old_slug": "supabase",
+    "new_slug": "supabase",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "69804151ce12edf9ebb3d2ea",
+    "product_name": "Clerk",
+    "old_slug": "clerk",
+    "new_slug": "clerk",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "69804151ce12edf9ebb3d2f1",
+    "product_name": "Auth0",
+    "old_slug": "auth0",
+    "new_slug": "auth",
+    "status": "UPDATED"
+  },
+  {
+    "product_id": "69804151ce12edf9ebb3d2f8",
+    "product_name": "Prisma",
+    "old_slug": "prisma",
+    "new_slug": "prisma",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "69804151ce12edf9ebb3d2ff",
+    "product_name": "Vercel",
+    "old_slug": "vercel",
+    "new_slug": "vercel",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "69804151ce12edf9ebb3d306",
+    "product_name": "Netlify",
+    "old_slug": "netlify",
+    "new_slug": "netlify",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "69804151ce12edf9ebb3d30d",
+    "product_name": "Render",
+    "old_slug": "render",
+    "new_slug": "render",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "69804151ce12edf9ebb3d314",
+    "product_name": "Fly.io",
+    "old_slug": "flyio",
+    "new_slug": "fly-io",
+    "status": "UPDATED"
+  },
+  {
+    "product_id": "69804152ce12edf9ebb3d31b",
+    "product_name": "Hypefury",
+    "old_slug": "hypefury",
+    "new_slug": "hypefury",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "69804152ce12edf9ebb3d322",
+    "product_name": "Black Magic",
+    "old_slug": "black-magic",
+    "new_slug": "black-magic",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "69804152ce12edf9ebb3d329",
+    "product_name": "Shield",
+    "old_slug": "shield",
+    "new_slug": "shield",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "69804152ce12edf9ebb3d330",
+    "product_name": "Unicorn Platform",
+    "old_slug": "unicorn-platform",
+    "new_slug": "unicorn-platform",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "69804152ce12edf9ebb3d337",
+    "product_name": "PostHog",
+    "old_slug": "posthog",
+    "new_slug": "post-hog",
+    "status": "UPDATED"
+  },
+  {
+    "product_id": "69804152ce12edf9ebb3d33e",
+    "product_name": "LogRocket",
+    "old_slug": "logrocket",
+    "new_slug": "log-rocket",
+    "status": "UPDATED"
+  },
+  {
+    "product_id": "69804152ce12edf9ebb3d345",
+    "product_name": "Intercom",
+    "old_slug": "intercom",
+    "new_slug": "intercom",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "69804152ce12edf9ebb3d34c",
+    "product_name": "Help Scout",
+    "old_slug": "help-scout",
+    "new_slug": "help-scout",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "69804153ce12edf9ebb3d353",
+    "product_name": "Buttondown",
+    "old_slug": "buttondown",
+    "new_slug": "buttondown",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "69804153ce12edf9ebb3d35a",
+    "product_name": "Mailchimp",
+    "old_slug": "mailchimp",
+    "new_slug": "mailchimp",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "69804153ce12edf9ebb3d361",
+    "product_name": "Ubersuggest",
+    "old_slug": "ubersuggest",
+    "new_slug": "ubersuggest",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "69804153ce12edf9ebb3d368",
+    "product_name": "AnswerThePublic",
+    "old_slug": "answerthepublic",
+    "new_slug": "answer-public",
+    "status": "UPDATED"
+  },
+  {
+    "product_id": "69804153ce12edf9ebb3d36f",
+    "product_name": "Clearscope",
+    "old_slug": "clearscope",
+    "new_slug": "clearscope",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "69804153ce12edf9ebb3d376",
+    "product_name": "Google Search Console",
+    "old_slug": "google-search-console",
+    "new_slug": "google-search-console",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "69804153ce12edf9ebb3d37d",
+    "product_name": "Buffer",
+    "old_slug": "buffer",
+    "new_slug": "buffer",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "69804153ce12edf9ebb3d384",
+    "product_name": "Photopea",
+    "old_slug": "photopea",
+    "new_slug": "photopea",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "69804154ce12edf9ebb3d38b",
+    "product_name": "Spline",
+    "old_slug": "spline",
+    "new_slug": "spline",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "69804154ce12edf9ebb3d392",
+    "product_name": "Rive",
+    "old_slug": "rive",
+    "new_slug": "rive",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "69804154ce12edf9ebb3d399",
+    "product_name": "DaisyUI",
+    "old_slug": "daisyui",
+    "new_slug": "daisy-ui",
+    "status": "UPDATED"
+  },
+  {
+    "product_id": "69804154ce12edf9ebb3d3a0",
+    "product_name": "Lucide",
+    "old_slug": "lucide",
+    "new_slug": "lucide",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "69804154ce12edf9ebb3d3a7",
+    "product_name": "Heroicons",
+    "old_slug": "heroicons",
+    "new_slug": "heroicons",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "69804154ce12edf9ebb3d3ae",
+    "product_name": "unDraw",
+    "old_slug": "undraw",
+    "new_slug": "un-draw",
+    "status": "UPDATED"
+  },
+  {
+    "product_id": "69804154ce12edf9ebb3d3b5",
+    "product_name": "Storyset",
+    "old_slug": "storyset",
+    "new_slug": "storyset",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "69804154ce12edf9ebb3d3bc",
+    "product_name": "Remove.bg",
+    "old_slug": "removebg",
+    "new_slug": "remove-bg",
+    "status": "UPDATED"
+  },
+  {
+    "product_id": "69804155ce12edf9ebb3d3c3",
+    "product_name": "TinyPNG",
+    "old_slug": "tinypng",
+    "new_slug": "tiny-png",
+    "status": "UPDATED"
+  },
+  {
+    "product_id": "69804155ce12edf9ebb3d3ca",
+    "product_name": "Loom",
+    "old_slug": "loom",
+    "new_slug": "loom",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "69804155ce12edf9ebb3d3d1",
+    "product_name": "OBS Studio",
+    "old_slug": "obs-studio",
+    "new_slug": "obs-studio",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "69804155ce12edf9ebb3d3d8",
+    "product_name": "Eraser",
+    "old_slug": "eraser",
+    "new_slug": "eraser",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "69804155ce12edf9ebb3d3df",
+    "product_name": "Feedback Pulse",
+    "old_slug": "feedback-pulse",
+    "new_slug": "feedback-pulse",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "69804155ce12edf9ebb3d3e6",
+    "product_name": "AnyToURL",
+    "old_slug": "anytourl",
+    "new_slug": "any-to-url",
+    "status": "UPDATED"
+  },
+  {
+    "product_id": "69804155ce12edf9ebb3d3ed",
+    "product_name": "Dreamervision.ai",
+    "old_slug": "dreamervisionai",
+    "new_slug": "dreamervision-ai",
+    "status": "UPDATED"
+  },
+  {
+    "product_id": "69804155ce12edf9ebb3d3f4",
+    "product_name": "Launch SaaS",
+    "old_slug": "launch-saas",
+    "new_slug": "launch-saa-s",
+    "status": "UPDATED"
+  },
+  {
+    "product_id": "69804156ce12edf9ebb3d3fb",
+    "product_name": "spool",
+    "old_slug": "spool",
+    "new_slug": "spool",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "69804156ce12edf9ebb3d402",
+    "product_name": "ChromaFlow",
+    "old_slug": "chromaflow",
+    "new_slug": "chroma-flow",
+    "status": "UPDATED"
+  },
+  {
+    "product_id": "69804156ce12edf9ebb3d409",
+    "product_name": "Meddle",
+    "old_slug": "meddle",
+    "new_slug": "meddle",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "69804156ce12edf9ebb3d410",
+    "product_name": "HipDeck",
+    "old_slug": "hipdeck",
+    "new_slug": "hip-deck",
+    "status": "UPDATED"
+  },
+  {
+    "product_id": "69804156ce12edf9ebb3d417",
+    "product_name": "MensorAI",
+    "old_slug": "mensorai",
+    "new_slug": "mensor-ai",
+    "status": "UPDATED"
+  },
+  {
+    "product_id": "69804156ce12edf9ebb3d41e",
+    "product_name": "Coinbird",
+    "old_slug": "coinbird",
+    "new_slug": "coinbird",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "69804156ce12edf9ebb3d425",
+    "product_name": "AppStoreReady",
+    "old_slug": "appstoreready",
+    "new_slug": "app-store-ready",
+    "status": "UPDATED"
+  },
+  {
+    "product_id": "69804156ce12edf9ebb3d42c",
+    "product_name": "AI Essay Writer",
+    "old_slug": "ai-essay-writer",
+    "new_slug": "ai-essay-writer",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "69804157ce12edf9ebb3d433",
+    "product_name": "LILA",
+    "old_slug": "lila",
+    "new_slug": "lila",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "69804157ce12edf9ebb3d43a",
+    "product_name": "AI Photo Studio",
+    "old_slug": "ai-photo-studio",
+    "new_slug": "ai-photo-studio",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "69804157ce12edf9ebb3d441",
+    "product_name": "SprintPulse",
+    "old_slug": "sprintpulse",
+    "new_slug": "sprint-pulse",
+    "status": "UPDATED"
+  },
+  {
+    "product_id": "69804157ce12edf9ebb3d448",
+    "product_name": "6th Mind",
+    "old_slug": "6th-mind",
+    "new_slug": "6th-mind",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "69804157ce12edf9ebb3d44f",
+    "product_name": "Enquiry Genie",
+    "old_slug": "enquiry-genie",
+    "new_slug": "enquiry-genie",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "69804157ce12edf9ebb3d456",
+    "product_name": "PopVia",
+    "old_slug": "popvia",
+    "new_slug": "pop-via",
+    "status": "UPDATED"
+  },
+  {
+    "product_id": "69804157ce12edf9ebb3d45d",
+    "product_name": "GeneratePDFs.com",
+    "old_slug": "generatepdfscom",
+    "new_slug": "generate-pdfs-com",
+    "status": "UPDATED"
+  },
+  {
+    "product_id": "69804157ce12edf9ebb3d464",
+    "product_name": "x2i",
+    "old_slug": "x2i",
+    "new_slug": "x2i",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "69804158ce12edf9ebb3d46b",
+    "product_name": "LiFE RPG",
+    "old_slug": "life-rpg",
+    "new_slug": "li-fe-rpg",
+    "status": "UPDATED"
+  },
+  {
+    "product_id": "69804158ce12edf9ebb3d472",
+    "product_name": "Agent Sequence",
+    "old_slug": "agent-sequence",
+    "new_slug": "agent-sequence",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "69804158ce12edf9ebb3d479",
+    "product_name": "WriteHybrid",
+    "old_slug": "writehybrid",
+    "new_slug": "write-hybrid",
+    "status": "UPDATED"
+  },
+  {
+    "product_id": "69804158ce12edf9ebb3d480",
+    "product_name": "KeikoAI",
+    "old_slug": "keikoai",
+    "new_slug": "keiko-ai",
+    "status": "UPDATED"
+  },
+  {
+    "product_id": "69804158ce12edf9ebb3d487",
+    "product_name": "Visona",
+    "old_slug": "visona",
+    "new_slug": "visona",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "69804158ce12edf9ebb3d48e",
+    "product_name": "PR Bot",
+    "old_slug": "pr-bot",
+    "new_slug": "pr-bot",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "69804158ce12edf9ebb3d495",
+    "product_name": "Facet",
+    "old_slug": "facet",
+    "new_slug": "facet",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "69804158ce12edf9ebb3d49c",
+    "product_name": "AssistBot",
+    "old_slug": "assistbot",
+    "new_slug": "assist-bot",
+    "status": "UPDATED"
+  },
+  {
+    "product_id": "69804159ce12edf9ebb3d4a3",
+    "product_name": "RankLoop",
+    "old_slug": "rankloop",
+    "new_slug": "rank-loop",
+    "status": "UPDATED"
+  },
+  {
+    "product_id": "69804159ce12edf9ebb3d4aa",
+    "product_name": "Elasticnote",
+    "old_slug": "elasticnote",
+    "new_slug": "elasticnote",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "69804159ce12edf9ebb3d4b1",
+    "product_name": "RenovationTimeline",
+    "old_slug": "renovationtimeline",
+    "new_slug": "renovation-timeline",
+    "status": "UPDATED"
+  },
+  {
+    "product_id": "69804159ce12edf9ebb3d4b8",
+    "product_name": "Rdytofly",
+    "old_slug": "rdytofly",
+    "new_slug": "rdytofly",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "69804159ce12edf9ebb3d4bf",
+    "product_name": "Diet Tracker",
+    "old_slug": "diet-tracker",
+    "new_slug": "diet-tracker",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "69804159ce12edf9ebb3d4c6",
+    "product_name": "spectra.fm",
+    "old_slug": "spectrafm",
+    "new_slug": "spectra-fm",
+    "status": "UPDATED"
+  },
+  {
+    "product_id": "69804159ce12edf9ebb3d4cd",
+    "product_name": "snaggd.io",
+    "old_slug": "snaggdio",
+    "new_slug": "snaggd-io",
+    "status": "UPDATED"
+  },
+  {
+    "product_id": "69804159ce12edf9ebb3d4d4",
+    "product_name": "ProfileAudit",
+    "old_slug": "profileaudit",
+    "new_slug": "profile-audit",
+    "status": "UPDATED"
+  },
+  {
+    "product_id": "6980415ace12edf9ebb3d4db",
+    "product_name": "CreatorBrain",
+    "old_slug": "creatorbrain",
+    "new_slug": "creator-brain",
+    "status": "UPDATED"
+  },
+  {
+    "product_id": "6980415ace12edf9ebb3d4e2",
+    "product_name": "Preflight.sh",
+    "old_slug": "preflightsh",
+    "new_slug": "preflight-sh",
+    "status": "UPDATED"
+  },
+  {
+    "product_id": "6980415ace12edf9ebb3d4e9",
+    "product_name": "Crustdata",
+    "old_slug": "crustdata",
+    "new_slug": "crustdata",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "6980415ace12edf9ebb3d4f0",
+    "product_name": "Team Pulse",
+    "old_slug": "team-pulse",
+    "new_slug": "team-pulse",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "6980415ace12edf9ebb3d4f7",
+    "product_name": "Komos",
+    "old_slug": "komos",
+    "new_slug": "komos",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "6980415ace12edf9ebb3d4fe",
+    "product_name": "Quadrants",
+    "old_slug": "quadrants",
+    "new_slug": "quadrants",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "6980415ace12edf9ebb3d505",
+    "product_name": "Guideless",
+    "old_slug": "guideless",
+    "new_slug": "guideless",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "6980415ace12edf9ebb3d50c",
+    "product_name": "Nueo",
+    "old_slug": "nueo",
+    "new_slug": "nueo",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "6980415bce12edf9ebb3d513",
+    "product_name": "Qeebo",
+    "old_slug": "qeebo",
+    "new_slug": "qeebo",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "6980415bce12edf9ebb3d51a",
+    "product_name": "Cracked.ai",
+    "old_slug": "crackedai",
+    "new_slug": "cracked-ai",
+    "status": "UPDATED"
+  },
+  {
+    "product_id": "6980415bce12edf9ebb3d521",
+    "product_name": "ClientKit",
+    "old_slug": "clientkit",
+    "new_slug": "client-kit",
+    "status": "UPDATED"
+  },
+  {
+    "product_id": "6980415bce12edf9ebb3d528",
+    "product_name": "Featurehunter",
+    "old_slug": "featurehunter",
+    "new_slug": "featurehunter",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "6980415bce12edf9ebb3d52f",
+    "product_name": "Nano Banana",
+    "old_slug": "nano-banana",
+    "new_slug": "nano-banana",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "6980415bce12edf9ebb3d536",
+    "product_name": "VibeMarketing",
+    "old_slug": "vibemarketing",
+    "new_slug": "vibe-marketing",
+    "status": "UPDATED"
+  },
+  {
+    "product_id": "6980415cce12edf9ebb3d53d",
+    "product_name": "LucideAnimated",
+    "old_slug": "lucideanimated",
+    "new_slug": "lucide-animated",
+    "status": "UPDATED"
+  },
+  {
+    "product_id": "6980415cce12edf9ebb3d544",
+    "product_name": "Pictiny",
+    "old_slug": "pictiny",
+    "new_slug": "pictiny",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "6980415cce12edf9ebb3d54b",
+    "product_name": "redmo",
+    "old_slug": "redmo",
+    "new_slug": "redmo",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "6980415cce12edf9ebb3d552",
+    "product_name": "HighlightGPT",
+    "old_slug": "highlightgpt",
+    "new_slug": "highlight-gpt",
+    "status": "UPDATED"
+  },
+  {
+    "product_id": "6980415cce12edf9ebb3d559",
+    "product_name": "GymGod Weightlifting",
+    "old_slug": "gymgod-weightlifting",
+    "new_slug": "gym-god-weightlifting",
+    "status": "UPDATED"
+  },
+  {
+    "product_id": "6980415cce12edf9ebb3d560",
+    "product_name": "Sketch To",
+    "old_slug": "sketch-to",
+    "new_slug": "sketch-to",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "6980415cce12edf9ebb3d567",
+    "product_name": "Funy AI: Image‑to‑Video",
+    "old_slug": "funy-ai-imagetovideo",
+    "new_slug": "funy-ai-image-to-video",
+    "status": "UPDATED"
+  },
+  {
+    "product_id": "6980415cce12edf9ebb3d56e",
+    "product_name": "orgchartstudio",
+    "old_slug": "orgchartstudio",
+    "new_slug": "orgchartstudio",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "6980415dce12edf9ebb3d575",
+    "product_name": "iMayGen",
+    "old_slug": "imaygen",
+    "new_slug": "i-may-gen",
+    "status": "UPDATED"
+  },
+  {
+    "product_id": "6980415dce12edf9ebb3d57c",
+    "product_name": "RewarxStudio",
+    "old_slug": "rewarxstudio",
+    "new_slug": "rewarx-studio",
+    "status": "UPDATED"
+  },
+  {
+    "product_id": "6980415dce12edf9ebb3d583",
+    "product_name": "RSW Sora 2 AI Studio",
+    "old_slug": "rsw-sora-2-ai-studio",
+    "new_slug": "rsw-sora-ai-studio",
+    "status": "UPDATED"
+  },
+  {
+    "product_id": "6980415dce12edf9ebb3d58a",
+    "product_name": "NotifyGate",
+    "old_slug": "notifygate",
+    "new_slug": "notify-gate",
+    "status": "UPDATED"
+  },
+  {
+    "product_id": "6980415dce12edf9ebb3d591",
+    "product_name": "Build In Public Log",
+    "old_slug": "build-in-public-log",
+    "new_slug": "build-in-public-log",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "6980415dce12edf9ebb3d598",
+    "product_name": "Paper Animation Tool",
+    "old_slug": "paper-animation-tool",
+    "new_slug": "paper-animation-tool",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "6980415dce12edf9ebb3d59f",
+    "product_name": "WorkPPT",
+    "old_slug": "workppt",
+    "new_slug": "work-ppt",
+    "status": "UPDATED"
+  },
+  {
+    "product_id": "6980415dce12edf9ebb3d5a6",
+    "product_name": "ClickLabs",
+    "old_slug": "clicklabs",
+    "new_slug": "click-labs",
+    "status": "UPDATED"
+  },
+  {
+    "product_id": "6980415ece12edf9ebb3d5ad",
+    "product_name": "Atra Terminal",
+    "old_slug": "atra-terminal",
+    "new_slug": "atra-terminal",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "6980415ece12edf9ebb3d5b4",
+    "product_name": "AI PDF Assistant",
+    "old_slug": "ai-pdf-assistant",
+    "new_slug": "ai-pdf-assistant",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "6980415ece12edf9ebb3d5bb",
+    "product_name": "GetNowDate",
+    "old_slug": "getnowdate",
+    "new_slug": "get-now-date",
+    "status": "UPDATED"
+  },
+  {
+    "product_id": "6980415ece12edf9ebb3d5c2",
+    "product_name": "Step",
+    "old_slug": "step",
+    "new_slug": "step",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "6980415ece12edf9ebb3d5c9",
+    "product_name": "Tarantillo",
+    "old_slug": "tarantillo",
+    "new_slug": "tarantillo",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "6980415ece12edf9ebb3d5d0",
+    "product_name": "Atoms",
+    "old_slug": "atoms",
+    "new_slug": "atoms",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "6980415ece12edf9ebb3d5d7",
+    "product_name": "Orchata",
+    "old_slug": "orchata",
+    "new_slug": "orchata",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "6980415ece12edf9ebb3d5de",
+    "product_name": "Attensira",
+    "old_slug": "attensira",
+    "new_slug": "attensira",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "6980415fce12edf9ebb3d5e5",
+    "product_name": "SaaSBox",
+    "old_slug": "saasbox",
+    "new_slug": "saa-sbox",
+    "status": "UPDATED"
+  },
+  {
+    "product_id": "6980415fce12edf9ebb3d5ec",
+    "product_name": "Ghostscroll",
+    "old_slug": "ghostscroll",
+    "new_slug": "ghostscroll",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "6980415fce12edf9ebb3d5f3",
+    "product_name": "Tykon.io",
+    "old_slug": "tykonio",
+    "new_slug": "tykon-io",
+    "status": "UPDATED"
+  },
+  {
+    "product_id": "6980415fce12edf9ebb3d5fa",
+    "product_name": "publy.to",
+    "old_slug": "publyto",
+    "new_slug": "publy-to",
+    "status": "UPDATED"
+  },
+  {
+    "product_id": "6980415fce12edf9ebb3d601",
+    "product_name": "Grow Fit",
+    "old_slug": "grow-fit",
+    "new_slug": "grow-fit",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "6980415fce12edf9ebb3d608",
+    "product_name": "Seedance 1.5 Pro",
+    "old_slug": "seedance-15-pro",
+    "new_slug": "seedance-pro",
+    "status": "UPDATED"
+  },
+  {
+    "product_id": "6980415fce12edf9ebb3d60f",
+    "product_name": "WeddingStory",
+    "old_slug": "weddingstory",
+    "new_slug": "wedding-story",
+    "status": "UPDATED"
+  },
+  {
+    "product_id": "6980415fce12edf9ebb3d616",
+    "product_name": "Thumbnails Studio",
+    "old_slug": "thumbnails-studio",
+    "new_slug": "thumbnails-studio",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "69804160ce12edf9ebb3d61d",
+    "product_name": "Transcriptr",
+    "old_slug": "transcriptr",
+    "new_slug": "transcriptr",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "69804160ce12edf9ebb3d624",
+    "product_name": "Anysite",
+    "old_slug": "anysite",
+    "new_slug": "anysite",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "69804160ce12edf9ebb3d62b",
+    "product_name": "SongGuru",
+    "old_slug": "songguru",
+    "new_slug": "song-guru",
+    "status": "UPDATED"
+  },
+  {
+    "product_id": "69804160ce12edf9ebb3d632",
+    "product_name": "ScrollWise AI",
+    "old_slug": "scrollwise-ai",
+    "new_slug": "scroll-wise-ai",
+    "status": "UPDATED"
+  },
+  {
+    "product_id": "69804160ce12edf9ebb3d639",
+    "product_name": "Elser AI",
+    "old_slug": "elser-ai",
+    "new_slug": "elser-ai",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "69804160ce12edf9ebb3d640",
+    "product_name": "Supalytics",
+    "old_slug": "supalytics",
+    "new_slug": "supalytics",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "69804160ce12edf9ebb3d647",
+    "product_name": "Leadly OneTap",
+    "old_slug": "leadly-onetap",
+    "new_slug": "leadly-one-tap",
+    "status": "UPDATED"
+  },
+  {
+    "product_id": "69804160ce12edf9ebb3d64e",
+    "product_name": "ROLLIN",
+    "old_slug": "rollin",
+    "new_slug": "rollin",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "69804161ce12edf9ebb3d655",
+    "product_name": "CV Shortlist",
+    "old_slug": "cv-shortlist",
+    "new_slug": "cv-shortlist",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "69804161ce12edf9ebb3d65c",
+    "product_name": "SOC 2 Audit Cost",
+    "old_slug": "soc-2-audit-cost",
+    "new_slug": "soc-audit-cost",
+    "status": "UPDATED"
+  },
+  {
+    "product_id": "69804161ce12edf9ebb3d663",
+    "product_name": "Echother",
+    "old_slug": "echother",
+    "new_slug": "echother",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "69804161ce12edf9ebb3d66a",
+    "product_name": "Pernox AI",
+    "old_slug": "pernox-ai",
+    "new_slug": "pernox-ai",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "69804161ce12edf9ebb3d671",
+    "product_name": "Evolvoom.io",
+    "old_slug": "evolvoomio",
+    "new_slug": "evolvoom-io",
+    "status": "UPDATED"
+  },
+  {
+    "product_id": "69804161ce12edf9ebb3d678",
+    "product_name": "MicroPawn",
+    "old_slug": "micropawn",
+    "new_slug": "micro-pawn",
+    "status": "UPDATED"
+  },
+  {
+    "product_id": "69804161ce12edf9ebb3d67f",
+    "product_name": "Linkzy",
+    "old_slug": "linkzy",
+    "new_slug": "linkzy",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "69804161ce12edf9ebb3d686",
+    "product_name": "Portfolio Genius",
+    "old_slug": "portfolio-genius",
+    "new_slug": "portfolio-genius",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "69804162ce12edf9ebb3d68d",
+    "product_name": "IndexMachine",
+    "old_slug": "indexmachine",
+    "new_slug": "index-machine",
+    "status": "UPDATED"
+  },
+  {
+    "product_id": "69804162ce12edf9ebb3d694",
+    "product_name": "Hale",
+    "old_slug": "hale",
+    "new_slug": "hale",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "69804162ce12edf9ebb3d69b",
+    "product_name": "sendproof.io",
+    "old_slug": "sendproofio",
+    "new_slug": "sendproof-io",
+    "status": "UPDATED"
+  },
+  {
+    "product_id": "69804162ce12edf9ebb3d6a2",
+    "product_name": "Drive IO",
+    "old_slug": "drive-io",
+    "new_slug": "drive-io",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "69804162ce12edf9ebb3d6a9",
+    "product_name": "Ask Weather",
+    "old_slug": "ask-weather",
+    "new_slug": "ask-weather",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "69804162ce12edf9ebb3d6b0",
+    "product_name": "Live3D",
+    "old_slug": "live3d",
+    "new_slug": "live3d",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "69804162ce12edf9ebb3d6b7",
+    "product_name": "Insertrr",
+    "old_slug": "insertrr",
+    "new_slug": "insertrr",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "69804162ce12edf9ebb3d6be",
+    "product_name": "Edgen",
+    "old_slug": "edgen",
+    "new_slug": "edgen",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "69804163ce12edf9ebb3d6c5",
+    "product_name": "Moltbook Town",
+    "old_slug": "moltbook-town",
+    "new_slug": "moltbook-town",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "69804163ce12edf9ebb3d6cc",
+    "product_name": "saystory",
+    "old_slug": "saystory",
+    "new_slug": "saystory",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "69804163ce12edf9ebb3d6d3",
+    "product_name": "PrettyInsights",
+    "old_slug": "prettyinsights",
+    "new_slug": "pretty-insights",
+    "status": "UPDATED"
+  },
+  {
+    "product_id": "69804163ce12edf9ebb3d6da",
+    "product_name": "Meishi",
+    "old_slug": "meishi",
+    "new_slug": "meishi",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "69804163ce12edf9ebb3d6e1",
+    "product_name": "Itnova",
+    "old_slug": "itnova",
+    "new_slug": "itnova",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "69804163ce12edf9ebb3d6e8",
+    "product_name": "Eleidon",
+    "old_slug": "eleidon",
+    "new_slug": "eleidon",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "69804163ce12edf9ebb3d6ef",
+    "product_name": "WellNest",
+    "old_slug": "wellnest",
+    "new_slug": "well-nest",
+    "status": "UPDATED"
+  },
+  {
+    "product_id": "69804163ce12edf9ebb3d6f6",
+    "product_name": "ZapZipped",
+    "old_slug": "zapzipped",
+    "new_slug": "zap-zipped",
+    "status": "UPDATED"
+  },
+  {
+    "product_id": "69804164ce12edf9ebb3d6fd",
+    "product_name": "SAM3D",
+    "old_slug": "sam3d",
+    "new_slug": "sam3d",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "69804164ce12edf9ebb3d704",
+    "product_name": "Buildables",
+    "old_slug": "buildables",
+    "new_slug": "buildables",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "69804164ce12edf9ebb3d70b",
+    "product_name": "MediaFast",
+    "old_slug": "mediafast",
+    "new_slug": "media-fast",
+    "status": "UPDATED"
+  },
+  {
+    "product_id": "69804164ce12edf9ebb3d712",
+    "product_name": "AnyStory",
+    "old_slug": "anystory",
+    "new_slug": "any-story",
+    "status": "UPDATED"
+  },
+  {
+    "product_id": "69804164ce12edf9ebb3d719",
+    "product_name": "QuantLedger",
+    "old_slug": "quantledger",
+    "new_slug": "quant-ledger",
+    "status": "UPDATED"
+  },
+  {
+    "product_id": "69804164ce12edf9ebb3d720",
+    "product_name": "Mention Broker",
+    "old_slug": "mention-broker",
+    "new_slug": "mention-broker",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "69804164ce12edf9ebb3d727",
+    "product_name": "ordinalforgov",
+    "old_slug": "ordinalforgov",
+    "new_slug": "ordinalforgov",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "69804164ce12edf9ebb3d72e",
+    "product_name": "Poison Pill",
+    "old_slug": "poison-pill",
+    "new_slug": "poison-pill",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "69804165ce12edf9ebb3d735",
+    "product_name": "server_compass",
+    "old_slug": "server_compass",
+    "new_slug": "server-compass",
+    "status": "UPDATED"
+  },
+  {
+    "product_id": "69804165ce12edf9ebb3d73c",
+    "product_name": "Next Enhancer AI",
+    "old_slug": "next-enhancer-ai",
+    "new_slug": "next-enhancer-ai",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "69804165ce12edf9ebb3d743",
+    "product_name": "Agenta",
+    "old_slug": "agenta",
+    "new_slug": "agenta",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "69804165ce12edf9ebb3d74a",
+    "product_name": "MakeBestMusic",
+    "old_slug": "makebestmusic",
+    "new_slug": "make-best-music",
+    "status": "UPDATED"
+  },
+  {
+    "product_id": "69804165ce12edf9ebb3d751",
+    "product_name": "Baltex",
+    "old_slug": "baltex",
+    "new_slug": "baltex",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "69804165ce12edf9ebb3d758",
+    "product_name": "Day Off",
+    "old_slug": "day-off",
+    "new_slug": "day-off",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "69804165ce12edf9ebb3d75f",
+    "product_name": "docketqa",
+    "old_slug": "docketqa",
+    "new_slug": "docketqa",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "69804165ce12edf9ebb3d766",
+    "product_name": "Chord",
+    "old_slug": "chord",
+    "new_slug": "chord",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "69804166ce12edf9ebb3d76d",
+    "product_name": "TWT Chat",
+    "old_slug": "twt-chat",
+    "new_slug": "twt-chat",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "69804166ce12edf9ebb3d774",
+    "product_name": "holyfocus",
+    "old_slug": "holyfocus",
+    "new_slug": "holyfocus",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "69804166ce12edf9ebb3d77b",
+    "product_name": "Fragmatic",
+    "old_slug": "fragmatic",
+    "new_slug": "fragmatic",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "69804166ce12edf9ebb3d782",
+    "product_name": "LeadJot",
+    "old_slug": "leadjot",
+    "new_slug": "lead-jot",
+    "status": "UPDATED"
+  },
+  {
+    "product_id": "69804166ce12edf9ebb3d789",
+    "product_name": "PostPulse",
+    "old_slug": "postpulse",
+    "new_slug": "post-pulse",
+    "status": "UPDATED"
+  },
+  {
+    "product_id": "69804166ce12edf9ebb3d790",
+    "product_name": "TrendEdge",
+    "old_slug": "trendedge",
+    "new_slug": "trend-edge",
+    "status": "UPDATED"
+  },
+  {
+    "product_id": "69804166ce12edf9ebb3d797",
+    "product_name": "BlinkDisk",
+    "old_slug": "blinkdisk",
+    "new_slug": "blink-disk",
+    "status": "UPDATED"
+  },
+  {
+    "product_id": "69804166ce12edf9ebb3d79e",
+    "product_name": "Anomaly AI",
+    "old_slug": "anomaly-ai",
+    "new_slug": "anomaly-ai",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "69804167ce12edf9ebb3d7a5",
+    "product_name": "Daisy AI",
+    "old_slug": "daisy-ai",
+    "new_slug": "daisy-ai",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "69804167ce12edf9ebb3d7ac",
+    "product_name": "Build Desk",
+    "old_slug": "build-desk",
+    "new_slug": "build-desk",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "69804167ce12edf9ebb3d7b3",
+    "product_name": "Skyvern",
+    "old_slug": "skyvern",
+    "new_slug": "skyvern",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "69804167ce12edf9ebb3d7ba",
+    "product_name": "Feen",
+    "old_slug": "feen",
+    "new_slug": "feen",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "69804167ce12edf9ebb3d7c1",
+    "product_name": "Lovarank",
+    "old_slug": "lovarank",
+    "new_slug": "lovarank",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "69804167ce12edf9ebb3d7c8",
+    "product_name": "Affok",
+    "old_slug": "affok",
+    "new_slug": "affok",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "69804167ce12edf9ebb3d7cf",
+    "product_name": "Rare Big Deal",
+    "old_slug": "rare-big-deal",
+    "new_slug": "rare-big-deal",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "69804167ce12edf9ebb3d7d6",
+    "product_name": "Stretch It",
+    "old_slug": "stretch-it",
+    "new_slug": "stretch-it",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "69804168ce12edf9ebb3d7dd",
+    "product_name": "CrePal",
+    "old_slug": "crepal",
+    "new_slug": "cre-pal",
+    "status": "UPDATED"
+  },
+  {
+    "product_id": "69804168ce12edf9ebb3d7e4",
+    "product_name": "VoiceCheap",
+    "old_slug": "voicecheap",
+    "new_slug": "voice-cheap",
+    "status": "UPDATED"
+  },
+  {
+    "product_id": "69804168ce12edf9ebb3d7eb",
+    "product_name": "Zest",
+    "old_slug": "zest",
+    "new_slug": "zest",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "69804168ce12edf9ebb3d7f2",
+    "product_name": "Flowtion",
+    "old_slug": "flowtion",
+    "new_slug": "flowtion",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "69804168ce12edf9ebb3d7f9",
+    "product_name": "Latent HQ",
+    "old_slug": "latent-hq",
+    "new_slug": "latent-hq",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "69804168ce12edf9ebb3d800",
+    "product_name": "Rocketship",
+    "old_slug": "rocketship",
+    "new_slug": "rocketship",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "69804168ce12edf9ebb3d807",
+    "product_name": "Taxing.app",
+    "old_slug": "taxingapp",
+    "new_slug": "taxing-app",
+    "status": "UPDATED"
+  },
+  {
+    "product_id": "69804169ce12edf9ebb3d80e",
+    "product_name": "Localflare",
+    "old_slug": "localflare",
+    "new_slug": "localflare",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "69804169ce12edf9ebb3d815",
+    "product_name": "PortaBase",
+    "old_slug": "portabase",
+    "new_slug": "porta-base",
+    "status": "UPDATED"
+  },
+  {
+    "product_id": "69804169ce12edf9ebb3d81c",
+    "product_name": "Docker Android",
+    "old_slug": "docker-android",
+    "new_slug": "docker-android",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "69804169ce12edf9ebb3d823",
+    "product_name": "Browser Cash",
+    "old_slug": "browser-cash",
+    "new_slug": "browser-cash",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "69804169ce12edf9ebb3d82a",
+    "product_name": "Claude Hud",
+    "old_slug": "claude-hud",
+    "new_slug": "claude-hud",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "69804169ce12edf9ebb3d831",
+    "product_name": "RayAI",
+    "old_slug": "rayai",
+    "new_slug": "ray-ai",
+    "status": "UPDATED"
+  },
+  {
+    "product_id": "69804169ce12edf9ebb3d838",
+    "product_name": "Maily",
+    "old_slug": "maily",
+    "new_slug": "maily",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "69804169ce12edf9ebb3d83f",
+    "product_name": "Blinko",
+    "old_slug": "blinko",
+    "new_slug": "blinko",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "6980416ace12edf9ebb3d846",
+    "product_name": "Checkmate",
+    "old_slug": "checkmate",
+    "new_slug": "checkmate",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "6980416ace12edf9ebb3d84d",
+    "product_name": "Typesense",
+    "old_slug": "typesense",
+    "new_slug": "typesense",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "6980416ace12edf9ebb3d854",
+    "product_name": "ClawdBot",
+    "old_slug": "clawdbot",
+    "new_slug": "clawd-bot",
+    "status": "UPDATED"
+  },
+  {
+    "product_id": "6980416ace12edf9ebb3d85b",
+    "product_name": "Renoun",
+    "old_slug": "renoun",
+    "new_slug": "renoun",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "6980416ace12edf9ebb3d862",
+    "product_name": "Solidtype",
+    "old_slug": "solidtype",
+    "new_slug": "solidtype",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "6980416ace12edf9ebb3d869",
+    "product_name": "Oh My Opencode",
+    "old_slug": "oh-my-opencode",
+    "new_slug": "oh-my-opencode",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "6980416ace12edf9ebb3d870",
+    "product_name": "Keep",
+    "old_slug": "keep",
+    "new_slug": "keep",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "6980416ace12edf9ebb3d877",
+    "product_name": "Agency OS",
+    "old_slug": "agency-os",
+    "new_slug": "agency-os",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "6980416bce12edf9ebb3d87e",
+    "product_name": "Nanocode",
+    "old_slug": "nanocode",
+    "new_slug": "nanocode",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "6980416bce12edf9ebb3d885",
+    "product_name": "Mockly",
+    "old_slug": "mockly",
+    "new_slug": "mockly",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "6980416bce12edf9ebb3d88c",
+    "product_name": "PostEverywhere.ai",
+    "old_slug": "posteverywhereai",
+    "new_slug": "post-everywhere-ai",
+    "status": "UPDATED"
+  },
+  {
+    "product_id": "6980416bce12edf9ebb3d893",
+    "product_name": "Open Claude Cowork",
+    "old_slug": "open-claude-cowork",
+    "new_slug": "open-claude-cowork",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "6980416bce12edf9ebb3d89a",
+    "product_name": "AgentCraft",
+    "old_slug": "agentcraft",
+    "new_slug": "agent-craft",
+    "status": "UPDATED"
+  },
+  {
+    "product_id": "6980416bce12edf9ebb3d8a1",
+    "product_name": "Vibecraft",
+    "old_slug": "vibecraft",
+    "new_slug": "vibecraft",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "6980416bce12edf9ebb3d8a8",
+    "product_name": "oneurl.live",
+    "old_slug": "oneurllive",
+    "new_slug": "oneurl-live",
+    "status": "UPDATED"
+  },
+  {
+    "product_id": "6980416bce12edf9ebb3d8af",
+    "product_name": "CodexBar",
+    "old_slug": "codexbar",
+    "new_slug": "codex-bar",
+    "status": "UPDATED"
+  },
+  {
+    "product_id": "6980416cce12edf9ebb3d8b6",
+    "product_name": "Rankad",
+    "old_slug": "rankad",
+    "new_slug": "rankad",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "6980416cce12edf9ebb3d8bd",
+    "product_name": "Chargeflow",
+    "old_slug": "chargeflow",
+    "new_slug": "chargeflow",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "6980416cce12edf9ebb3d8c4",
+    "product_name": "Lygos",
+    "old_slug": "lygos",
+    "new_slug": "lygos",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "6980416cce12edf9ebb3d8cb",
+    "product_name": "Highlights.ai",
+    "old_slug": "highlightsai",
+    "new_slug": "highlights-ai",
+    "status": "UPDATED"
+  },
+  {
+    "product_id": "6980416cce12edf9ebb3d8d2",
+    "product_name": "freelanceOS",
+    "old_slug": "freelanceos",
+    "new_slug": "freelance-os",
+    "status": "UPDATED"
+  },
+  {
+    "product_id": "6980416cce12edf9ebb3d8d9",
+    "product_name": "triggle",
+    "old_slug": "triggle",
+    "new_slug": "triggle",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "6980416cce12edf9ebb3d8e0",
+    "product_name": "Skope",
+    "old_slug": "skope",
+    "new_slug": "skope",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "6980416cce12edf9ebb3d8e7",
+    "product_name": "Podium",
+    "old_slug": "podium",
+    "new_slug": "podium",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "6980416dce12edf9ebb3d8ee",
+    "product_name": "Pencil",
+    "old_slug": "pencil",
+    "new_slug": "pencil",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "6980416dce12edf9ebb3d8f5",
+    "product_name": "Karumi AI",
+    "old_slug": "karumi-ai",
+    "new_slug": "karumi-ai",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "6980416dce12edf9ebb3d8fc",
+    "product_name": "Teemux",
+    "old_slug": "teemux",
+    "new_slug": "teemux",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "6980416dce12edf9ebb3d903",
+    "product_name": "Ropilot AI",
+    "old_slug": "ropilot-ai",
+    "new_slug": "ropilot-ai",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "6980416dce12edf9ebb3d90a",
+    "product_name": "The Interface",
+    "old_slug": "the-interface",
+    "new_slug": "interface",
+    "status": "UPDATED"
+  },
+  {
+    "product_id": "6980416dce12edf9ebb3d911",
+    "product_name": "Tips from Investors",
+    "old_slug": "tips-from-investors",
+    "new_slug": "tips-from-investors",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "6980416dce12edf9ebb3d918",
+    "product_name": "AtelQ: AI Calorie Tracker",
+    "old_slug": "atelq-ai-calorie-tracker",
+    "new_slug": "atel-q-ai-calorie-tracker",
+    "status": "UPDATED"
+  },
+  {
+    "product_id": "6980416dce12edf9ebb3d91f",
+    "product_name": "KidTeller",
+    "old_slug": "kidteller",
+    "new_slug": "kid-teller",
+    "status": "UPDATED"
+  },
+  {
+    "product_id": "6980416ece12edf9ebb3d926",
+    "product_name": "Macaron AI",
+    "old_slug": "macaron-ai",
+    "new_slug": "macaron-ai",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "6980416ece12edf9ebb3d92d",
+    "product_name": "Billite",
+    "old_slug": "billite",
+    "new_slug": "billite",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "6980416ece12edf9ebb3d934",
+    "product_name": "Variant AI",
+    "old_slug": "variant-ai",
+    "new_slug": "variant-ai",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "6980416ece12edf9ebb3d93b",
+    "product_name": "UI Layouts",
+    "old_slug": "ui-layouts",
+    "new_slug": "ui-layouts",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "6980416ece12edf9ebb3d942",
+    "product_name": "MakeComics",
+    "old_slug": "makecomics",
+    "new_slug": "make-comics",
+    "status": "UPDATED"
+  },
+  {
+    "product_id": "6980416ece12edf9ebb3d949",
+    "product_name": "Companion AI",
+    "old_slug": "companion-ai",
+    "new_slug": "companion-ai",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "6980416ece12edf9ebb3d950",
+    "product_name": "TinyFish AI",
+    "old_slug": "tinyfish-ai",
+    "new_slug": "tiny-fish-ai",
+    "status": "UPDATED"
+  },
+  {
+    "product_id": "6980416ece12edf9ebb3d957",
+    "product_name": "SudoDocs",
+    "old_slug": "sudodocs",
+    "new_slug": "sudo-docs",
+    "status": "UPDATED"
+  },
+  {
+    "product_id": "6980416fce12edf9ebb3d95e",
+    "product_name": "GuruTrans",
+    "old_slug": "gurutrans",
+    "new_slug": "guru-trans",
+    "status": "UPDATED"
+  },
+  {
+    "product_id": "6980416fce12edf9ebb3d965",
+    "product_name": "PageFinder",
+    "old_slug": "pagefinder",
+    "new_slug": "page-finder",
+    "status": "UPDATED"
+  },
+  {
+    "product_id": "6980416fce12edf9ebb3d96c",
+    "product_name": "CoreProse",
+    "old_slug": "coreprose",
+    "new_slug": "core-prose",
+    "status": "UPDATED"
+  },
+  {
+    "product_id": "6980416fce12edf9ebb3d973",
+    "product_name": "The Prompt Fixer",
+    "old_slug": "the-prompt-fixer",
+    "new_slug": "prompt-fixer",
+    "status": "UPDATED"
+  },
+  {
+    "product_id": "6980416fce12edf9ebb3d97a",
+    "product_name": "RezFix",
+    "old_slug": "rezfix",
+    "new_slug": "rez-fix",
+    "status": "UPDATED"
+  },
+  {
+    "product_id": "6980416fce12edf9ebb3d981",
+    "product_name": "Video Summarizer",
+    "old_slug": "video-summarizer",
+    "new_slug": "video-summarizer",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "6980416fce12edf9ebb3d988",
+    "product_name": "ReadDocs",
+    "old_slug": "readdocs",
+    "new_slug": "read-docs",
+    "status": "UPDATED"
+  },
+  {
+    "product_id": "6980416fce12edf9ebb3d98f",
+    "product_name": "IdeaProof",
+    "old_slug": "ideaproof",
+    "new_slug": "idea-proof",
+    "status": "UPDATED"
+  },
+  {
+    "product_id": "69804170ce12edf9ebb3d996",
+    "product_name": "Vonvo",
+    "old_slug": "vonvo",
+    "new_slug": "vonvo",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "69804170ce12edf9ebb3d99d",
+    "product_name": "Aymo AI",
+    "old_slug": "aymo-ai",
+    "new_slug": "aymo-ai",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "69804170ce12edf9ebb3d9a4",
+    "product_name": "Skene",
+    "old_slug": "skene",
+    "new_slug": "skene",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "69804170ce12edf9ebb3d9ab",
+    "product_name": "AISEOMate",
+    "old_slug": "aiseomate",
+    "new_slug": "aiseomate",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "69804170ce12edf9ebb3d9b2",
+    "product_name": "AEO lite",
+    "old_slug": "aeo-lite",
+    "new_slug": "aeo-lite",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "69804170ce12edf9ebb3d9b9",
+    "product_name": "Agentive SEO",
+    "old_slug": "agentive-seo",
+    "new_slug": "agentive-seo",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "69804170ce12edf9ebb3d9c0",
+    "product_name": "AlertBot",
+    "old_slug": "alertbot",
+    "new_slug": "alert-bot",
+    "status": "UPDATED"
+  },
+  {
+    "product_id": "69804170ce12edf9ebb3d9c7",
+    "product_name": "Panellog",
+    "old_slug": "panellog",
+    "new_slug": "panellog",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "69804171ce12edf9ebb3d9ce",
+    "product_name": "Newtab",
+    "old_slug": "newtab",
+    "new_slug": "newtab",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "69804171ce12edf9ebb3d9d5",
+    "product_name": "Buildstash",
+    "old_slug": "buildstash",
+    "new_slug": "buildstash",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "69804171ce12edf9ebb3d9dc",
+    "product_name": "VDOC",
+    "old_slug": "vdoc",
+    "new_slug": "vdoc",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "69804171ce12edf9ebb3d9e3",
+    "product_name": "Supawrite",
+    "old_slug": "supawrite",
+    "new_slug": "supawrite",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "69804171ce12edf9ebb3d9ea",
+    "product_name": "Vibe Coding App",
+    "old_slug": "vibe-coding-app",
+    "new_slug": "vibe-coding-app",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "69804171ce12edf9ebb3d9f1",
+    "product_name": "Noodle Seed",
+    "old_slug": "noodle-seed",
+    "new_slug": "noodle-seed",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "69804171ce12edf9ebb3d9f8",
+    "product_name": "Serversage.ai",
+    "old_slug": "serversageai",
+    "new_slug": "serversage-ai",
+    "status": "UPDATED"
+  },
+  {
+    "product_id": "69804171ce12edf9ebb3d9ff",
+    "product_name": "SocialRails",
+    "old_slug": "socialrails",
+    "new_slug": "social-rails",
+    "status": "UPDATED"
+  },
+  {
+    "product_id": "69804172ce12edf9ebb3da06",
+    "product_name": "PageDock",
+    "old_slug": "pagedock",
+    "new_slug": "page-dock",
+    "status": "UPDATED"
+  },
+  {
+    "product_id": "69804172ce12edf9ebb3da0d",
+    "product_name": "SocialPost",
+    "old_slug": "socialpost",
+    "new_slug": "social-post",
+    "status": "UPDATED"
+  },
+  {
+    "product_id": "69804172ce12edf9ebb3da14",
+    "product_name": "GeoNudge",
+    "old_slug": "geonudge",
+    "new_slug": "geo-nudge",
+    "status": "UPDATED"
+  },
+  {
+    "product_id": "69804172ce12edf9ebb3da1b",
+    "product_name": "AEO Optimizer",
+    "old_slug": "aeo-optimizer",
+    "new_slug": "aeo-optimizer",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "69804172ce12edf9ebb3da22",
+    "product_name": "Wolfy",
+    "old_slug": "wolfy",
+    "new_slug": "wolfy",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "69804172ce12edf9ebb3da29",
+    "product_name": "AIVO",
+    "old_slug": "aivo",
+    "new_slug": "aivo",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "69804172ce12edf9ebb3da30",
+    "product_name": "Dapple",
+    "old_slug": "dapple",
+    "new_slug": "dapple",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "69804172ce12edf9ebb3da37",
+    "product_name": "Askruit",
+    "old_slug": "askruit",
+    "new_slug": "askruit",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "69804173ce12edf9ebb3da3e",
+    "product_name": "Reelu",
+    "old_slug": "reelu",
+    "new_slug": "reelu",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "69804173ce12edf9ebb3da45",
+    "product_name": "Jobari",
+    "old_slug": "jobari",
+    "new_slug": "jobari",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "69804173ce12edf9ebb3da4c",
+    "product_name": "AssetsAnalyzer",
+    "old_slug": "assetsanalyzer",
+    "new_slug": "assets-analyzer",
+    "status": "UPDATED"
+  },
+  {
+    "product_id": "69804173ce12edf9ebb3da53",
+    "product_name": "AssetScape",
+    "old_slug": "assetscape",
+    "new_slug": "asset-scape",
+    "status": "UPDATED"
+  },
+  {
+    "product_id": "69804173ce12edf9ebb3da5a",
+    "product_name": "Outsampler",
+    "old_slug": "outsampler",
+    "new_slug": "outsampler",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "69804173ce12edf9ebb3da61",
+    "product_name": "Tellus",
+    "old_slug": "tellus",
+    "new_slug": "tellus",
+    "status": "SKIPPED"
+  },
+  {
+    "product_id": "69804173ce12edf9ebb3da68",
+    "product_name": "NemoVideo",
+    "old_slug": "nemovideo",
+    "new_slug": "nemo-video",
+    "status": "UPDATED"
+  },
+  {
+    "product_id": "69824a39232be6a18934523a",
+    "product_name": "FileRTT",
+    "old_slug": "filertt",
+    "new_slug": "file-rtt",
+    "status": "UPDATED"
+  },
+  {
+    "product_id": "69830ef8b60da0cd85119a9d",
+    "product_name": "BrewQuant",
+    "old_slug": "brewquant",
+    "new_slug": "brew-quant",
+    "status": "UPDATED"
+  }
+]

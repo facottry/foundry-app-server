@@ -52,7 +52,8 @@ class AuthController {
             }
 
             const identity = AuthService.normalizeIdentity('otp', { email, id: email, verified: true });
-            const user = await AuthService.resolveUser(identity);
+            const ip = req.headers['x-forwarded-for'] || req.socket.remoteAddress || req.ip;
+            const user = await AuthService.resolveUser(identity, ip);
             const tokens = AuthService.generateTokens(user);
 
             // Send tokens as JSON (client stores in localStorage or memory)
@@ -120,7 +121,8 @@ class AuthController {
             adapterValues.name = adapterValues.name || profile.name;
 
             const identity = AuthService.normalizeIdentity(provider, adapterValues);
-            const user = await AuthService.resolveUser(identity);
+            const ip = req.headers['x-forwarded-for'] || req.socket.remoteAddress || req.ip;
+            const user = await AuthService.resolveUser(identity, ip);
             const tokens = AuthService.generateTokens(user);
 
             res.cookie('refreshToken', tokens.refreshToken, {
@@ -196,7 +198,8 @@ class AuthController {
             adapterValues.name = adapterValues.name || profile.name;
 
             const identity = AuthService.normalizeIdentity(provider, adapterValues);
-            const user = await AuthService.resolveUser(identity);
+            const ip = req.headers['x-forwarded-for'] || req.socket.remoteAddress || req.ip;
+            const user = await AuthService.resolveUser(identity, ip);
             const tokens = AuthService.generateTokens(user);
 
             // Set Refresh Token
@@ -232,7 +235,8 @@ class AuthController {
             adapterValues.name = adapterValues.name || profile.name;
 
             const identity = AuthService.normalizeIdentity(provider, adapterValues);
-            const user = await AuthService.resolveUser(identity);
+            const ip = req.headers['x-forwarded-for'] || req.socket.remoteAddress || req.ip;
+            const user = await AuthService.resolveUser(identity, ip);
             const tokens = AuthService.generateTokens(user);
 
             // Set Refresh Token
@@ -285,7 +289,8 @@ class AuthController {
 
             // Resolve Identity
             const identity = AuthService.normalizeIdentity('google', adapterValues);
-            const user = await AuthService.resolveUser(identity);
+            const ip = req.headers['x-forwarded-for'] || req.socket.remoteAddress || req.ip;
+            const user = await AuthService.resolveUser(identity, ip);
             const tokens = AuthService.generateTokens(user);
 
             // Set Refresh Token
@@ -315,6 +320,45 @@ class AuthController {
         } catch (err) {
             console.error(err);
             res.status(500).json({ error: 'Server error' });
+        }
+    }
+
+    static async logout(req, res) {
+        try {
+            // "res.clearCookie" with same options as creation is critical
+            // But we might not knwo exact options used for creation if they vary by environment.
+            // Best practice: clear with and without domain, just in case.
+
+            // 1. Clear with explicit settings (Production style)
+            res.clearCookie('refreshToken', {
+                domain: '.clicktory.in',
+                path: '/api/auth/refresh', // Path must match creation
+                httpOnly: true,
+                secure: true,
+                sameSite: 'None'
+            });
+
+            // 2. Clear at root path/generic (Fallback)
+            res.clearCookie('refreshToken', {
+                path: '/',
+                httpOnly: true,
+                secure: true,
+                sameSite: 'None'
+            });
+
+            // Also clear any other tokens if we had them (e.g. auth_token)
+            res.clearCookie('auth_token', {
+                domain: '.clicktory.in',
+                path: '/',
+                httpOnly: true,
+                secure: true,
+                sameSite: 'None'
+            });
+
+            res.status(200).json({ ok: true, message: 'Logged out successfully' });
+        } catch (err) {
+            console.error('Logout error:', err);
+            res.status(500).json({ error: 'Logout failed' });
         }
     }
 }

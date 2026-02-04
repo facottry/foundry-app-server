@@ -19,6 +19,7 @@ const UserSchema = new mongoose.Schema({
     bio: { type: String },
     company_name: { type: String },
     role_title: { type: String },
+    city: { type: String }, // Inferred from IP or User set
     location: { type: String },
     website: { type: String },
     twitter: { type: String },

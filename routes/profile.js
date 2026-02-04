@@ -72,6 +72,7 @@ router.put('/me', auth(), asyncHandler(async (req, res, next) => {
         bio,
         company_name,
         role_title,
+        city,
         location,
         website,
         twitter,
@@ -100,6 +101,7 @@ router.put('/me', auth(), asyncHandler(async (req, res, next) => {
     if (bio !== undefined) user.bio = bio;
     if (company_name !== undefined) user.company_name = company_name;
     if (role_title !== undefined) user.role_title = role_title;
+    if (city !== undefined) user.city = city;
     if (location !== undefined) user.location = location;
     if (website !== undefined) user.website = website;
     if (twitter !== undefined) user.twitter = twitter;

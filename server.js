@@ -17,6 +17,21 @@ app.use((req, res, next) => {
     next();
 });
 
+// DB Status Middleware (Protect All Routes)
+app.use((req, res, next) => {
+    // 0: disconnected, 1: connected, 2: connecting, 3: disconnecting
+    // Allow health checks or specific routes if needed, but here we protect everything.
+    // If DB is critical for Auth, allow nothing.
+    if (mongoose.connection.readyState !== 1) {
+        return res.status(503).json({
+            error: 'Service Unavailable',
+            message: 'Database connection is down. Please try again later.',
+            details: 'The server is running but cannot reach the database.'
+        });
+    }
+    next();
+});
+
 // DB Config
 const db = process.env.MONGO_URI || 'mongodb://127.0.0.1:27017/foundry';
 mongoose.set('strictQuery', false);
@@ -65,25 +80,40 @@ require('./cron/segmentation');
 const { initBotVASCron } = require('./cron/botvasCron');
 initBotVASCron();
 
-// Connect to MongoDB
-mongoose.connect(db)
-    .then(async () => {
+// Connect to MongoDB (Non-blocking)
+const connectDB = async () => {
+    try {
+        await mongoose.connect(db, {
+            serverSelectionTimeoutMS: 5000,
+            socketTimeoutMS: 45000,
+        });
         console.log('MongoDB Connected');
 
-        // Seed Config
-        const seedSystemConfig = require('./utils/seedSystemConfig');
-        await seedSystemConfig();
-
-        app.listen(PORT, () => console.log(`Server started on port ${PORT}`));
+        // Seed Config (Only if connected)
+        try {
+            const seedSystemConfig = require('./utils/seedSystemConfig');
+            await seedSystemConfig();
+        } catch (e) {
+            console.error('Seeding Error:', e.message);
+        }
 
         // Run Segmentation immediately on startup
-        // Forced restart for route updates
-        const { runSegmentation } = require('./cron/segmentation');
-        runSegmentation();
-        // Force restart for botvas route
-    })
-    .catch(err => {
-        console.error('MongoDB Connection Error:', err);
-        process.exit(1);
-    });
-// Force restart for Logging Update
+        try {
+            const { runSegmentation } = require('./cron/segmentation');
+            runSegmentation();
+        } catch (e) { console.error('Segmentation Error:', e.message); }
+
+    } catch (err) {
+        console.error('MongoDB Connection Failed (Will Retry):', err.message);
+        // Do NOT exit process.
+        // Optional: Retry logic could be added here or rely on Mongoose's auto-reconnect if it was once connected.
+        // But for initial failure, Mongoose gives up. We can retry manually if we want, 
+        // but user just said "Server Should up".
+        setTimeout(connectDB, 10000); // Retry every 10 seconds
+    }
+};
+
+connectDB();
+
+// Start Server Immediately
+app.listen(PORT, () => console.log(`Server started on port ${PORT} (DB Status: ${mongoose.connection.readyState === 1 ? 'Connected' : 'Connecting...'})`));
