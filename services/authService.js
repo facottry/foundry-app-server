@@ -6,7 +6,8 @@ class AuthService {
     static normalizeIdentity(provider, profile) {
         let email = profile.email;
         let providerUserId = profile.id;
-        let verified = profile.verified || false;
+        // Handle both naming conventions from different providers
+        let verified = profile.verified || profile.email_verified || false;
 
         if (provider === 'password' || provider === 'otp') {
             providerUserId = email;
