@@ -41,23 +41,26 @@ class AuthService {
 
         // 2. Email Match (The "Canonical" Check)
         // We only trust verified emails for automatic linking
+        // 2. Email Match (The "Canonical" Check)
+        // We only trust verified emails for automatic linking
         let user = await User.findOne({ email });
 
         if (user) {
+            console.log('[AuthService] Existing user found by email:', email);
             // User exists!
             if (verified) {
+                console.log('[AuthService] Linking new identity to existing user.');
                 // Link this new provider to the existing user
                 await this.createAuthIdentity(user._id, identity);
                 return await this.attachLoginMethods(user);
             } else {
+                console.warn('[AuthService] Cannot link unverified identity:', email);
                 // Email matches but new provider is NOT verified?
                 // Security Risk: Do not link. Do not log in.
-                // However, spec says "Email is single source of truth".
-                // If the provider doesn't verify email (rare for Google/GitHub), we shouldn't trust it to hijack the account.
-                // We will throw error or force verification?
-                // Spec says "Google/GitHub/LinkedIn -> provider verified email". Assuming verified=true.
                 throw new Error('Cannot link unverified identity to existing account.');
             }
+        } else {
+            console.log('[AuthService] No existing user found. Creating new user for:', email);
         }
 
         // 3. New User (No existing user found)
