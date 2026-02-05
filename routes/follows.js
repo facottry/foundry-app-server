@@ -5,6 +5,7 @@ const User = require('../models/User');
 const Product = require('../models/Product');
 
 // Toggle Follow Product
+// Toggle Follow Product
 router.post('/product/:id', auth, async (req, res) => {
     try {
         const productId = req.params.id;
@@ -23,6 +24,7 @@ router.post('/product/:id', auth, async (req, res) => {
         if (index === -1) {
             // Follow
             user.follows.productIds.push(productId);
+            // Optional: Increment follower count on Product if needed, but safe to just track user side here
             await Product.findByIdAndUpdate(productId, { $inc: { follower_count: 1 } });
             isFollowing = true;
         } else {
@@ -85,6 +87,38 @@ router.get('/', auth, async (req, res) => {
         res.json({
             follows: user.follows || { productIds: [], categoryIds: [] }
         });
+    } catch (err) {
+        console.error(err);
+        res.status(500).json({ msg: 'Server Error' });
+    }
+});
+
+// Check Product Follow State
+router.get('/product/:id/state', auth, async (req, res) => {
+    try {
+        const productId = req.params.id;
+        const user = await User.findById(req.user.id).select('follows');
+
+        if (!user) return res.status(404).json({ msg: 'User not found' });
+
+        const isFollowing = user.follows && user.follows.productIds && user.follows.productIds.includes(productId);
+        res.json({ isFollowing });
+    } catch (err) {
+        console.error(err);
+        res.status(500).json({ msg: 'Server Error' });
+    }
+});
+
+// Check Category Follow State
+router.get('/category/:id/state', auth, async (req, res) => {
+    try {
+        const categoryId = req.params.id;
+        const user = await User.findById(req.user.id).select('follows');
+
+        if (!user) return res.status(404).json({ msg: 'User not found' });
+
+        const isFollowing = user.follows && user.follows.categoryIds && user.follows.categoryIds.includes(categoryId);
+        res.json({ isFollowing });
     } catch (err) {
         console.error(err);
         res.status(500).json({ msg: 'Server Error' });
