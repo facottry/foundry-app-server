@@ -5,7 +5,7 @@ const UserEvent = require('../models/UserEvent');
 const { OpenAI } = require('openai');
 
 // Initialize OpenAI (using same env as enhanceProduct)
-const getKey = () => process.env.FOUNDRY_OPENAI_KEY || process.env.OPENAI_API_KEY || process.env.GEMINI_API_KEY;
+const getKey = () => process.env.OPENAI_API_KEY || process.env.OPENAI_API_KEY || process.env.GEMINI_API_KEY;
 
 // No global init to prevent crash if key missing on startup
 // const openai = new OpenAI(...) 
@@ -57,7 +57,7 @@ const runSegmentation = async () => {
                 // 3. AI Call
                 const apiKey = getKey();
                 if (!apiKey) {
-                    console.log('[Segmentation Cron] No AI Key (FOUNDRY_OPENAI_KEY), skipping user.');
+                    console.log('[Segmentation Cron] No AI Key (OPENAI_API_KEY), skipping user.');
                     continue;
                 }
                 const openai = new OpenAI({

@@ -1,9 +1,9 @@
 require('dotenv').config(); // Load from current directory
 const { OpenAI } = require('openai');
 
-const getKey = () => process.env.FOUNDRY_OPENAI_KEY || process.env.OPENAI_API_KEY || process.env.GEMINI_API_KEY;
+const getKey = () => process.env.OPENAI_API_KEY || process.env.OPENAI_API_KEY || process.env.GEMINI_API_KEY;
 
-console.log('FOUNDRY_OPENAI_KEY:', !!process.env.FOUNDRY_OPENAI_KEY);
+console.log('OPENAI_API_KEY:', !!process.env.OPENAI_API_KEY);
 console.log('OPENAI_API_KEY:', !!process.env.OPENAI_API_KEY);
 console.log('GEMINI_API_KEY:', !!process.env.GEMINI_API_KEY);
 

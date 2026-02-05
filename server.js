@@ -57,6 +57,7 @@ app.use('/api/tracks', require('./routes/track')); // Legacy Analytics tracking
 app.use('/api/founder', require('./routes/founder'));
 app.use('/api/analytics', require('./routes/analytics')); // Product analytics
 app.use('/api/categories', require('./routes/categories')); // NEW Category Discovery
+app.use('/api/collections', require('./routes/collections')); // NEW Collections Discovery
 app.use('/api/founder/traffic', require('./routes/traffic_analytics')); // NEW Traffic analytics
 app.use('/api/boost', require('./routes/boost'));
 app.use('/api/wallet', require('./routes/wallet'));

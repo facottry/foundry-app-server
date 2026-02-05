@@ -7,7 +7,7 @@ const Product = require('../models/Product');
 
 // Config
 const db = process.env.MONGO_URI || 'mongodb://127.0.0.1:27017/foundry';
-const apiKey = process.env.OPENAI_KEY || process.env.FOUNDRY_OPENAI_KEY;
+const apiKey = process.env.OPENAI_KEY || process.env.OPENAI_API_KEY;
 
 if (!apiKey) {
     console.error('FATAL: OPENAI_KEY is missing in .env');

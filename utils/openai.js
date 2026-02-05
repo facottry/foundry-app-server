@@ -1,7 +1,7 @@
 const OpenAI = require('openai');
 
 const getClient = () => {
-    const key = process.env.FOUNDRY_OPENAI_KEY || process.env.OPENAI_API_KEY;
+    const key = process.env.OPENAI_API_KEY || process.env.OPENAI_API_KEY;
     if (!key) return null;
     return new OpenAI({ apiKey: key });
 };
@@ -107,7 +107,7 @@ const enhanceProduct = async (productData) => {
     const { name, description, categories } = productData;
 
     // Only enhance if OpenAI key is available
-    if (!process.env.FOUNDRY_OPENAI_KEY) {
+    if (!process.env.OPENAI_API_KEY) {
         console.log('OpenAI key not configured, skipping AI enhancements');
         return productData;
     }
