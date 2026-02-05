@@ -7,7 +7,8 @@ const Collection = require('../models/Collection');
 // @access  Public
 router.get('/', async (req, res) => {
     try {
-        const collections = await Collection.find().sort({ name: 1 });
+        // Only return collections with at least 2 products
+        const collections = await Collection.find({ "products.1": { $exists: true } }).sort({ name: 1 });
         res.json({ success: true, data: collections });
     } catch (err) {
         console.error(err.message);

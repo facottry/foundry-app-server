@@ -56,9 +56,9 @@ router.get('/', asyncHandler(async (req, res) => {
                 };
             });
 
-            // 3. Sort by count descending
+            // 3. Sort by count descending and Filter low content
             allCategories.sort((a, b) => b.productCount - a.productCount);
-            return allCategories;
+            return allCategories.filter(c => c.productCount >= 2);
         }
     });
 
