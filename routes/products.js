@@ -291,6 +291,26 @@ router.get('/slug/:slug', asyncHandler(async (req, res, next) => {
         }
     }
 
+    // Attach Collections
+    const Collection = require('../models/Collection');
+    // Escape regex characters in the name to prevent errors
+    const escapedName = product.name.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    const rawCollections = await Collection.find({
+        products: { $regex: new RegExp(`^${escapedName}$`, 'i') }
+    })
+        .select('name slug tagline products updated_at')
+        .sort({ updated_at: -1 })
+        .limit(8)
+        .lean();
+
+    // Transform to include count and remove heavy products array
+    productObj.collections = rawCollections.map(c => ({
+        name: c.name,
+        slug: c.slug,
+        tagline: c.tagline,
+        productCount: c.products ? c.products.length : 0
+    }));
+
     sendSuccess(res, enhanceProductWithUrls(productObj));
 }));
 
