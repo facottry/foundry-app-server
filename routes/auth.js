@@ -9,7 +9,8 @@ const router = express.Router();
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const crypto = require('crypto');
-const sendEmail = require('../utils/sendEmail');
+const legacySendEmail = require('../utils/sendEmail');
+const { sendEmail } = require('../email-engine');
 const User = require('../models/User');
 const WalletTransaction = require('../models/WalletTransaction');
 const { asyncHandler, sendSuccess, sendError } = require('../utils/response');
@@ -48,6 +49,13 @@ router.post('/signup', asyncHandler(async (req, res, next) => {
             amount: 1000,
             reason: 'starter'
         }).save();
+
+        // Send welcome email (non-blocking)
+        sendEmail({
+            templateKey: 'WELCOME_FOUNDER',
+            to: user.email,
+            data: { founderName: user.name }
+        });
     }
 
     const payload = { user: { id: user.id, role: user.role } };
@@ -89,7 +97,7 @@ router.post('/send-otp', asyncHandler(async (req, res, next) => {
     await user.save();
 
     try {
-        await sendEmail(email, 'Your Foundry OTP', `Your OTP code is ${otp}`);
+        await legacySendEmail(email, 'Your Foundry OTP', `Your OTP code is ${otp}`);
         sendSuccess(res, { msg: 'OTP sent' });
     } catch (err) {
         console.error('Email send failed:', err.message);
@@ -340,7 +348,7 @@ router.post('/send-verification-otp', require('../middleware/auth')(), asyncHand
     await user.save();
 
     try {
-        await sendEmail(user.email, 'Verify Your Email - Foundry', `Your verification code is ${otp}`);
+        await legacySendEmail(user.email, 'Verify Your Email - Foundry', `Your verification code is ${otp}`);
         sendSuccess(res, { msg: 'Verification code sent to email' });
     } catch (err) {
         console.error('Email send failed:', err.message);

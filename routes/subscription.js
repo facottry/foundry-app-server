@@ -51,7 +51,7 @@ async function sendEmail(to, subject, text, html) {
     try {
         // console.log(`[DEBUG] Attempting to send email to ${to} using ${process.env.SMTP_USER} via ${process.env.SMTP_HOST}`);
         await transporter.sendMail({
-            from: process.env.EMAIL_FROM || '"Foundry Newsletter" <no-reply@foundry.com>',
+            from: process.env.EMAIL_FROM || '"Clicktory Hotlist" <no-reply@foundry.com>',
             to,
             subject,
             text,
@@ -124,13 +124,13 @@ router.post('/', async (req, res) => {
         const funkyHtml = `
             <div style="font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; max-width: 600px; margin: 0 auto; background-color: #ffffff; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 20px rgba(0,0,0,0.1);">
                 <div style="background: linear-gradient(135deg, #6366f1 0%, #a855f7 100%); padding: 40px 20px; text-align: center;">
-                    <h1 style="color: #ffffff; margin: 0; font-size: 28px; font-weight: 800; letter-spacing: -1px;">Welcome to the Inner Circle! 🚀</h1>
+                    <h1 style="color: #ffffff; margin: 0; font-size: 28px; font-weight: 800; letter-spacing: -1px;">Welcome to Clicktory Hotlist! 🚀</h1>
                     <p style="color: rgba(255,255,255,0.9); font-size: 16px; margin-top: 10px;">You're just one click away from the best product discovery insights.</p>
                 </div>
                 <div style="padding: 40px 30px; text-align: center;">
                     <p style="color: #334155; font-size: 18px; line-height: 1.6; margin-bottom: 30px;">
                         Hey there! 👋<br/><br/>
-                        Thanks for subscribing to <strong>Foundry</strong>. We're excited to share our daily digest of tech trends and hidden gems with you.
+                        Thanks for subscribing to <strong>Clicktory Hotlist</strong>. We're excited to share our daily digest of tech trends and hidden gems with you.
                     </p>
                     <div style="margin: 40px 0;">
                         <a href="${confirmUrl}" style="background-color: #000000; color: #ffffff; padding: 16px 32px; border-radius: 50px; text-decoration: none; font-weight: bold; font-size: 16px; display: inline-block; transition: transform 0.2s;">
@@ -144,8 +144,8 @@ router.post('/', async (req, res) => {
                 </div>
                 <div style="background-color: #f8fafc; padding: 20px; text-align: center; border-top: 1px solid #e2e8f0;">
                     <p style="color: #64748b; font-size: 12px; margin: 0;">
-                        &copy; ${new Date().getFullYear()} Foundry. All rights reserved.<br/>
-                        You received this because you are awesome/subscribed on our site.
+                        &copy; ${new Date().getFullYear()} Clicktory. All rights reserved.<br/>
+                        Sent via Clicktory Hotlist • Product Discovery Platform
                     </p>
                 </div>
             </div>

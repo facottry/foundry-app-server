@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daily Product Report</title>
+</head>
+
+<body
+    style="margin: 0; padding: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #f4f4f5;">
+    <table role="presentation" width="100%" cellspacing="0" cellpadding="0"
+        style="background-color: #f4f4f5; padding: 40px 20px;">
+        <tr>
+            <td align="center">
+                <table role="presentation" width="600" cellspacing="0" cellpadding="0"
+                    style="background-color: #ffffff; border-radius: 12px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);">
+                    <!-- Header -->
+                    <tr>
+                        <td style="padding: 40px 40px 20px 40px; text-align: center;">
+                            <img src="https://clicktory.io/logo.png" alt="Clicktory" width="150"
+                                style="display: block; margin: 0 auto;">
+                        </td>
+                    </tr>
+
+                    <!-- Date Badge -->
+                    <tr>
+                        <td style="padding: 0 40px; text-align: center;">
+                            <span
+                                style="display: inline-block; background-color: #e0e7ff; color: #4338ca; padding: 8px 16px; border-radius: 20px; font-size: 14px; font-weight: 600;">
+                                📊 {{date}}
+                            </span>
+                        </td>
+                    </tr>
+
+                    <!-- Main Content -->
+                    <tr>
+                        <td style="padding: 30px 40px;">
+                            <h1 style="margin: 0 0 20px 0; font-size: 26px; color: #1a1a2e; text-align: center;">
+                                Daily Product Report
+                            </h1>
+
+                            <!-- Stats Card -->
+                            <div
+                                style="background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%); border-radius: 12px; padding: 30px; margin: 20px 0; text-align: center;">
+                                <p style="margin: 0 0 8px 0; font-size: 14px; color: rgba(255,255,255,0.85);">Products
+                                    Approved Yesterday</p>
+                                <p style="margin: 0; font-size: 48px; color: #ffffff; font-weight: 700;">{{count}}</p>
+                            </div>
+
+                            <h3 style="margin: 30px 0 16px 0; font-size: 16px; color: #1a1a2e;">🏆 Top Launches</h3>
+
+                            <div style="background-color: #f9fafb; border-radius: 8px; padding: 16px;">
+                                {{topProducts}}
+                            </div>
+
+                            <p
+                                style="margin: 30px 0 20px 0; font-size: 16px; line-height: 1.6; color: #4a4a68; text-align: center;">
+                                Discover all the new launches on Clicktory today!
+                            </p>
+                        </td>
+                    </tr>
+
+                    <!-- CTA Button -->
+                    <tr>
+                        <td style="padding: 10px 40px 40px 40px; text-align: center;">
+                            <a href="{{baseUrl}}/today"
+                                style="display: inline-block; background-color: #6366f1; color: #ffffff; text-decoration: none; padding: 14px 32px; border-radius: 8px; font-size: 16px; font-weight: 600;">
+                                View All Launches
+                            </a>
+                        </td>
+                    </tr>
+
+                    <!-- Footer -->
+                    <tr>
+                        <td
+                            style="padding: 30px 40px; background-color: #f9fafb; border-radius: 0 0 12px 12px; text-align: center;">
+                            <p style="margin: 0; font-size: 12px; color: #9ca3af;">
+                                © Clicktory. All rights reserved.<br>
+                                You're receiving this because you're a Clicktory admin.
+                            </p>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+</body>
+
+</html>

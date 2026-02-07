@@ -7,6 +7,7 @@ const { enhanceProduct } = require('../utils/openai');
 
 const { buildPublicR2Url } = require('../utils/r2Url');
 const slugify = require('../utils/slugify');
+const { sendEmail } = require('../email-engine');
 
 // Helper to enhance product with derived URLs
 const enhanceProductWithUrls = (product) => {
@@ -170,6 +171,18 @@ router.post('/', auth(['FOUNDER']), asyncHandler(async (req, res, next) => {
     }
 
     const product = await newProduct.save();
+
+    // Send product submission email (non-blocking)
+    const APP_BASE_URL = process.env.APP_BASE_URL || 'https://clicktory.io';
+    sendEmail({
+        templateKey: 'PRODUCT_SUBMITTED',
+        to: founder.email,
+        data: {
+            founderName: founder.name,
+            productName: product.name,
+            dashboardUrl: `${APP_BASE_URL}/founder/products/${product._id}`
+        }
+    });
 
     // Return enhanced product
     sendSuccess(res, enhanceProductWithUrls(product));

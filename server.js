@@ -71,6 +71,7 @@ app.use('/api/subscribe', require('./routes/subscription'));
 app.use('/api/newsletters', require('./routes/newsletters')); // Public Archive
 app.use('/api/founder/botvas', require('./routes/botvas')); // Bot VAS
 app.use('/api/wakeup', require('./routes/wakeup')); // Wakeup API
+app.use('/api/feedback', require('./routes/feedback')); // Feedback API
 
 
 // Global Error Handler
