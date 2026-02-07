@@ -17,54 +17,64 @@ const { buildPublicR2Url } = require('../utils/r2Url');
 // @route   GET /api/founder/public/:userId
 // @desc    Get public founder profile and products
 router.get('/public/:identity', asyncHandler(async (req, res, next) => {
+    const cacheFirst = require('../utils/cacheFirst');
     const { identity } = req.params;
-    let query = {};
 
-    // Check if identity is a valid ObjectId
-    if (identity.match(/^[0-9a-fA-F]{24}$/)) {
-        query = { _id: identity };
-    } else {
-        query = { slug: identity };
-    }
+    const data = await cacheFirst({
+        key: `public:founder:profile:${identity}`,
+        ttlMs: 3600000,
+        res,
+        fetcher: async () => {
+            let query = {};
 
-    const user = await User.findOne(query).select('name role_title bio company_name linkedin twitter website avatar_url profileImageKey created_at slug');
+            // Check if identity is a valid ObjectId
+            if (identity.match(/^[0-9a-fA-F]{24}$/)) {
+                query = { _id: identity };
+            } else {
+                query = { slug: identity };
+            }
 
-    if (!user) {
-        return sendError(next, 'NOT_FOUND', 'Founder not found', 404);
-    }
+            const user = await User.findOne(query).select('name role_title bio company_name linkedin twitter website avatar_url profileImageKey created_at slug');
 
-    // Prepare public profile object
-    const publicProfile = user.toObject();
-    if (publicProfile.profileImageKey) {
-        publicProfile.profileImageUrl = buildPublicR2Url(publicProfile.profileImageKey);
-        // Cache busting
-        publicProfile.profileImageUrl += `?ts=${new Date(publicProfile.created_at || Date.now()).getTime()}`;
-    } else {
-        publicProfile.profileImageUrl = publicProfile.avatar_url;
-    }
+            if (!user) return null;
 
-    // Fetch Public Products (Owned by this user OR where they are a Team Member)
-    // "team_members.user_id": user._id
-    const products = await Product.find({
-        $or: [
-            { owner_user_id: user._id },
-            { 'team_members.user_id': user._id }
-        ],
-        status: 'approved',
-        deleted_at: null
-    }).select('name slug tagline logo_url logoKey categories avg_rating ratings_count');
+            // Prepare public profile object
+            const publicProfile = user.toObject();
+            if (publicProfile.profileImageKey) {
+                publicProfile.profileImageUrl = buildPublicR2Url(publicProfile.profileImageKey);
+                // Cache busting
+                publicProfile.profileImageUrl += `?ts=${new Date(publicProfile.created_at || Date.now()).getTime()}`;
+            } else {
+                publicProfile.profileImageUrl = publicProfile.avatar_url;
+            }
 
-    // Enhance products with URLs
-    const enhancedProducts = products.map(p => {
-        const obj = p.toObject();
-        if (obj.logoKey) obj.logoUrl = buildPublicR2Url(obj.logoKey);
-        return obj;
+            // Fetch Public Products (Owned by this user OR where they are a Team Member)
+            // "team_members.user_id": user._id
+            const products = await Product.find({
+                $or: [
+                    { owner_user_id: user._id },
+                    { 'team_members.user_id': user._id }
+                ],
+                status: 'approved',
+                deleted_at: null
+            }).select('name slug tagline logo_url logoKey categories avg_rating ratings_count');
+
+            // Enhance products with URLs
+            const enhancedProducts = products.map(p => {
+                const obj = p.toObject();
+                if (obj.logoKey) obj.logoUrl = buildPublicR2Url(obj.logoKey);
+                return obj;
+            });
+
+            return {
+                profile: publicProfile,
+                products: enhancedProducts
+            };
+        }
     });
 
-    sendSuccess(res, {
-        profile: publicProfile,
-        products: enhancedProducts
-    });
+    if (!data) return sendError(next, 'NOT_FOUND', 'Founder not found', 404);
+    sendSuccess(res, data);
 }));
 
 router.get('/dashboard', auth(['FOUNDER']), asyncHandler(async (req, res, next) => {

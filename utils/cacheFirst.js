@@ -18,9 +18,10 @@ const DEFAULT_TTL = parseInt(process.env.CACHE_TTL || '3600000', 10); // 1 Hour
  * @param {Function} options.fetcher - Promise-returning function to fetch data
  * @returns {Promise<any>}
  */
-const cacheFirst = async ({ key, ttlMs = DEFAULT_TTL, fetcher }) => {
+const cacheFirst = async ({ key, ttlMs = DEFAULT_TTL, fetcher, res }) => {
     // 1. If Cache Disabled, fetch directly
     if (!ENABLE_CACHE) {
+        if (res) res.set('X-Cache', 'DISABLED');
         return fetcher();
     }
 
@@ -30,6 +31,7 @@ const cacheFirst = async ({ key, ttlMs = DEFAULT_TTL, fetcher }) => {
 
         // 2. Cache HIT
         if (cached) {
+            if (res) res.set('X-Cache', 'HIT');
             const isStale = (now - cached.timestamp) > ttlMs;
 
             // If stale and NOT already refreshing, trigger background refresh
@@ -38,12 +40,14 @@ const cacheFirst = async ({ key, ttlMs = DEFAULT_TTL, fetcher }) => {
                     memoryCache.markRefreshing(key);
 
                     // Background Refresh (Fire & Forget)
+                    // We do NOT await this.
                     fetcher()
                         .then((freshData) => {
                             memoryCache.set(key, freshData);
                         })
                         .catch((err) => {
                             console.error(`[Cache] Background refresh failed for ${key}:`, err.message);
+                            // Do NOTHING else. Stale data remains valid until next success.
                         })
                         .finally(() => {
                             memoryCache.unmarkRefreshing(key);
@@ -56,22 +60,19 @@ const cacheFirst = async ({ key, ttlMs = DEFAULT_TTL, fetcher }) => {
         }
 
         // 3. Cache MISS - Fetch synchronously (Blocking)
-        // We could also stampede-protect here, but for simplicity we allow concurrent initial fetches 
-        // or we can mark refreshing to block others? 
-        // Requirement says: "Only one background refresh per key".
-        // For MISS, multiple requests might hit DB. That is acceptable for simple design unless strict locking requested.
-        // "Prevent cache stampede" usually implies the background refresh part. 
-        // Let's protect MISS too lightly if possible, but standard logic: Fetch -> Store -> Return.
+        // We use the same refreshing lock to prevent stampede on initial fetch if multiple requests come in at once.
+        // However, for simplicity and robustness, we will just fetch.
+        // If we wanted to prevent stampede on MISS, we would need a pending promise map.
+        // For now, simple fetch is acceptable as per "eventual consistency" goal.
 
+        if (res) res.set('X-Cache', 'MISS');
         const data = await fetcher();
         memoryCache.set(key, data);
         return data;
 
     } catch (err) {
         console.error(`[Cache] Error in cacheFirst for ${key}:`, err.message);
-        // Fallback to fetcher if cache logic crashes? Or rethrow?
-        // Requirement: "Failures during background refresh must never break the response"
-        // If main fetch fails, we must throw to caller.
+        // If everything fails, throw.
         throw err;
     }
 };

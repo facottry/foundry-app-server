@@ -14,6 +14,7 @@ router.get('/', asyncHandler(async (req, res) => {
     const categories = await cacheFirst({
         key: 'public:categories:list',
         ttlMs: 3600000, // 1 Hour
+        res,
         fetcher: async () => {
             // 1. Get counts and Top 3 Products
             const stats = await Product.aggregate([
