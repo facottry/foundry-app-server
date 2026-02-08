@@ -175,7 +175,7 @@ class AuthController {
     static async socialRedirect(req, res) {
         try {
             const { provider } = req.params;
-            const url = require('../services/oauthService').getRedirectUrl(provider);
+            const url = require('../services/oauthService').getRedirectUrl(provider, req);
             res.redirect(url);
         } catch (err) {
             console.error('OAuth Redirect Error:', err);
@@ -193,7 +193,7 @@ class AuthController {
 
             console.log(`[Auth Debug] Social Callback received for ${provider}. Code present.`);
 
-            const profile = await require('../services/oauthService').exchangeCode(provider, code);
+            const profile = await require('../services/oauthService').exchangeCode(provider, code, req);
             const adapterValues = ProviderAdapters[provider](profile);
             adapterValues.name = adapterValues.name || profile.name;
 
@@ -210,15 +210,14 @@ class AuthController {
             });
 
             // Redirect to Frontend with Access Token
-            // Use env var for Frontend URL, default to localhost:3000
-            const clientUrl = process.env.CLIENT_URL || 'http://localhost:3000';
-            res.redirect(`${clientUrl}/auth/callback?token=${tokens.accessToken}`);
+            const { clientBase } = require('../services/oauthService').getBaseUrls(req);
+            res.redirect(`${clientBase}/auth/callback?token=${tokens.accessToken}`);
 
         } catch (err) {
             console.error('OAuth Callback Error:', err);
             // Redirect to login with error
-            const clientUrl = process.env.CLIENT_URL || 'http://localhost:3000';
-            res.redirect(`${clientUrl}/login?error=${encodeURIComponent(err.message)}`);
+            const { clientBase } = require('../services/oauthService').getBaseUrls(req);
+            res.redirect(`${clientBase}/login?error=${encodeURIComponent(err.message)}`);
         }
     }
 
@@ -230,7 +229,7 @@ class AuthController {
 
             if (!code) return res.status(400).json({ error: 'No code provided' });
 
-            const profile = await require('../services/oauthService').exchangeCode(provider, code);
+            const profile = await require('../services/oauthService').exchangeCode(provider, code, req);
             const adapterValues = ProviderAdapters[provider](profile);
             adapterValues.name = adapterValues.name || profile.name;
 
