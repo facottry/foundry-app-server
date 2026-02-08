@@ -6,7 +6,7 @@ require('dotenv').config({ path: path.join(__dirname, '../.env') });
 const Product = require('../models/Product');
 
 // Config
-const db = process.env.MONGO_URI || 'mongodb://127.0.0.1:27017/foundry';
+const db = process.env.MONGO_URI || 'mongodb://127.0.0.1:27017/clicktory_database';
 const apiKey = process.env.OPENAI_KEY || process.env.OPENAI_API_KEY;
 
 if (!apiKey) {

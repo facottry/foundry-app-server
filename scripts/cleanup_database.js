@@ -19,7 +19,7 @@ const ProductNote = require('../models/ProductNote');
 const FolderNote = require('../models/FolderNote');
 const SavedFolder = require('../models/SavedFolder');
 
-const DB_URI = process.env.MONGO_URI || 'mongodb://127.0.0.1:27017/foundry';
+const DB_URI = process.env.MONGO_URI || 'mongodb://127.0.0.1:27017/clicktory_database';
 
 async function cleanupDatabase() {
     try {

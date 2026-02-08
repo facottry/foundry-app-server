@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 require('dotenv').config({ path: '../.env' });
 
 // Connection URIs from .env
-const LOCAL_URI = process.env.MONGO_URI_LOCAL || 'mongodb://127.0.0.1:27017/foundry';
+const LOCAL_URI = process.env.MONGO_URI_LOCAL || 'mongodb://127.0.0.1:27017/clicktory_database';
 const PROD_URI = process.env.MONGO_URI_PROD;
 
 if (!PROD_URI) {
@@ -24,7 +24,7 @@ async function migrateData() {
     let localConn, prodConn;
 
     try {
-        console.log('=== FOUNDRY DATA MIGRATION: LOCAL → PRODUCTION ===\n');
+        console.log('=== CLICKTORY DATA MIGRATION: LOCAL → PRODUCTION ===\n');
 
         // Connect to LOCAL database
         console.log('Connecting to LOCAL database...');

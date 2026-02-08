@@ -51,7 +51,7 @@ async function sendEmail(to, subject, text, html) {
     try {
         // console.log(`[DEBUG] Attempting to send email to ${to} using ${process.env.SMTP_USER} via ${process.env.SMTP_HOST}`);
         await transporter.sendMail({
-            from: process.env.EMAIL_FROM || '"Clicktory Hotlist" <no-reply@foundry.com>',
+            from: process.env.EMAIL_FROM || '"Clicktory Hotlist" <no-reply@clicktory.in>',
             to,
             subject,
             text,

@@ -13,7 +13,7 @@ const seedFile = path.join(__dirname, '../../../tools/seed_founder_product_4.jso
 const seedData = JSON.parse(fs.readFileSync(seedFile, 'utf8'));
 
 // Mongo Connection
-const db = process.env.MONGO_URI || 'mongodb://127.0.0.1:27017/foundry';
+const db = process.env.MONGO_URI || 'mongodb://127.0.0.1:27017/clicktory_database';
 
 const seed = async () => {
     try {
@@ -32,7 +32,7 @@ const seed = async () => {
 
             let founderEmail = item.contact.email;
             if (!founderEmail) {
-                let domain = 'foundry.com';
+                let domain = 'clicktory.in';
                 if (item.contact.website) {
                     try {
                         domain = new URL(item.contact.website).hostname.replace('www.', '');

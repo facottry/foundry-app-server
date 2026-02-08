@@ -217,17 +217,47 @@ router.put('/products/:id', auth(['FOUNDER']), asyncHandler(async (req, res, nex
     const product = await Product.findOne({ _id: req.params.id, owner_user_id: req.user.id });
     if (!product) return sendError(next, 'NOT_FOUND', 'Product not found', 404);
 
-    const { name, tagline, description, website_url, logo_url, screenshots, categories, tags, team_members } = req.body;
+    const { name, tagline, description, website_url, logo_url, logoKey, screenshots, screenshotKeys, categories, tags, team_members } = req.body;
+
+    console.log(`[DEBUG] Update Product ${req.params.id} Body:`, JSON.stringify({
+        name, logoKey, screenshotKeys, logo_url, screenshots_count: screenshots?.length
+    }, null, 2));
 
     // AI Enhancement optional here? Maybe button triggered instead of auto.
     // For now, straight update.
+
+    // Helper (Duplicate from products.js for now, or move to utils/productHelper.js if preferred)
+    const { buildPublicR2Url } = require('../utils/r2Url');
+    const enhanceProductWithUrls = (product) => {
+        let p = product;
+        if (product.toObject) p = product.toObject();
+
+        if (p.logoKey) {
+            p.logoUrl = buildPublicR2Url(p.logoKey);
+            p.logoUrl += `?ts=${new Date(p.updated_at || Date.now()).getTime()}`;
+        } else if (p.externalLogoUrl) {
+            p.logoUrl = p.externalLogoUrl;
+        } else {
+            p.logoUrl = p.logo_url;
+        }
+
+        if (p.screenshotKeys && p.screenshotKeys.length > 0) {
+            p.screenshotUrls = p.screenshotKeys.map(key => buildPublicR2Url(key)).filter(url => url);
+            p.screenshots = p.screenshotUrls;
+        } else {
+            p.screenshotUrls = p.screenshots || [];
+        }
+        return p;
+    };
 
     if (name) product.name = name;
     if (tagline) product.tagline = tagline;
     if (description) product.description = description;
     if (website_url) product.website_url = website_url;
     if (logo_url !== undefined) product.logo_url = logo_url;
+    if (logoKey !== undefined) product.logoKey = logoKey;
     if (screenshots) product.screenshots = screenshots;
+    if (screenshotKeys) product.screenshotKeys = screenshotKeys;
     if (categories) product.categories = categories;
     if (tags) product.tags = tags;
     if (team_members) product.team_members = team_members;
@@ -240,7 +270,9 @@ router.put('/products/:id', auth(['FOUNDER']), asyncHandler(async (req, res, nex
 
     product.updated_at = Date.now();
     await product.save();
-    sendSuccess(res, product);
+
+    // Return enhanced product
+    sendSuccess(res, enhanceProductWithUrls(product));
 }));
 
 // @route   DELETE /api/founder/products/:id

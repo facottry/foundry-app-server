@@ -97,7 +97,7 @@ router.post('/send-otp', asyncHandler(async (req, res, next) => {
     await user.save();
 
     try {
-        await legacySendEmail(email, 'Your Foundry OTP', `Your OTP code is ${otp}`);
+        await legacySendEmail(email, 'Your Clicktory OTP', `Your OTP code is ${otp}`);
         sendSuccess(res, { msg: 'OTP sent' });
     } catch (err) {
         console.error('Email send failed:', err.message);
@@ -348,7 +348,7 @@ router.post('/send-verification-otp', require('../middleware/auth')(), asyncHand
     await user.save();
 
     try {
-        await legacySendEmail(user.email, 'Verify Your Email - Foundry', `Your verification code is ${otp}`);
+        await legacySendEmail(user.email, 'Verify Your Email - Clicktory', `Your verification code is ${otp}`);
         sendSuccess(res, { msg: 'Verification code sent to email' });
     } catch (err) {
         console.error('Email send failed:', err.message);

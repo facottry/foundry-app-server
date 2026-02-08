@@ -4,7 +4,7 @@ require('dotenv').config({ path: path.join(__dirname, '../.env') });
 const User = require('../models/User');
 const { runSegmentation } = require('../cron/segmentation');
 
-const db = process.env.MONGO_URI || 'mongodb://127.0.0.1:27017/foundry';
+const db = process.env.MONGO_URI || 'mongodb://127.0.0.1:27017/clicktory_database';
 
 const forceRun = async () => {
     try {

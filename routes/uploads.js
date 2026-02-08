@@ -56,6 +56,12 @@ router.post('/image', auth(['FOUNDER']), upload.single('file'), async (req, res)
 
     try {
         // Enforce specific size limits per type
+        const MIN_SIZE = 5 * 1024; // 5KB
+
+        if (req.file.size < MIN_SIZE) {
+            return sendError(res, 'File too small. Min 5KB required.', 400);
+        }
+
         if (['product_logo', 'team_photo', 'avatar'].includes(type) && req.file.size > 1 * 1024 * 1024) {
             return sendError(res, 'File too large. Max 1MB for logos/photos.', 400);
         }

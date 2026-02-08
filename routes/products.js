@@ -14,7 +14,10 @@ const enhanceProductWithUrls = (product) => {
     let p = product;
     if (product.toObject) p = product.toObject();
 
-    // Logo
+    // Logo Logic
+    // 1. Try logoKey (R2)
+    // 2. Try externalLogoUrl (if migrated/external)
+    // 3. Fallback to logo_url (legacy/absolute)
     if (p.logoKey) {
         p.logoUrl = buildPublicR2Url(p.logoKey);
         // Cache busting
@@ -24,17 +27,18 @@ const enhanceProductWithUrls = (product) => {
     } else {
         p.logoUrl = p.logo_url;
     }
+    // Ensure logo_url is always populated for frontend (even if it matches one of the above)
+    // If buildPublicR2Url failed or returned null, fallback might be empty.
 
-
-
-    // Screenshots
+    // Screenshots Logic
     if (p.screenshotKeys && p.screenshotKeys.length > 0) {
-        p.screenshotUrls = p.screenshotKeys.map(key => buildPublicR2Url(key));
+        // Map keys to full URLs
+        p.screenshotUrls = p.screenshotKeys.map(key => buildPublicR2Url(key)).filter(url => url);
+        // Also overwrite the legacy 'screenshots' array with these full URLs so frontend sees them naturally
+        p.screenshots = p.screenshotUrls;
     } else {
         p.screenshotUrls = p.screenshots || [];
     }
-
-
 
     return p;
 };

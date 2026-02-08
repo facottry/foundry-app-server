@@ -18,7 +18,7 @@ const ProductStats = mongoose.model('ProductStats', ProductStatsSchema);
 
 const run = async () => {
     try {
-        await mongoose.connect(process.env.MONGO_URI || 'mongodb://127.0.0.1:27017/foundry');
+        await mongoose.connect(process.env.MONGO_URI || 'mongodb://127.0.0.1:27017/clicktory_database');
         console.log('Connected to DB');
 
         const clicks = await OutboundClick.find({});

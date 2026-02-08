@@ -17,6 +17,9 @@ app.use((req, res, next) => {
     next();
 });
 
+// Source Validation Middleware (TOTP) - Protects integrity
+app.use(require('./middleware/validateSource'));
+
 // DB Status Middleware (Protect All Routes)
 app.use((req, res, next) => {
     // 0: disconnected, 1: connected, 2: connecting, 3: disconnecting
@@ -33,7 +36,7 @@ app.use((req, res, next) => {
 });
 
 // DB Config
-const db = process.env.MONGO_URI || 'mongodb://127.0.0.1:27017/foundry';
+const db = process.env.MONGO_URI || 'mongodb://127.0.0.1:27017/clicktory_database';
 mongoose.set('strictQuery', false);
 const PORT = process.env.PORT || 5000;
 

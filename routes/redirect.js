@@ -72,7 +72,7 @@ router.get('/:productId', async (req, res) => {
             confirmed_at: new Date()
         });
 
-        // 4. Credit Deduction Logic of Foundry (1 Credit = 1 Click)
+        // 4. Credit Deduction Logic of Clicktory (1 Credit = 1 Click)
         // Check for duplicate charge window (24h per session/product)
         const today = new Date().toISOString().split('T')[0];
 
@@ -167,7 +167,7 @@ router.get('/:productId', async (req, res) => {
 
         // 7. Redirect
         const destUrl = new URL(product.website_url.startsWith('http') ? product.website_url : `https://${product.website_url}`);
-        destUrl.searchParams.append('fid', 'foundry');
+        destUrl.searchParams.append('fid', 'clicktory');
         destUrl.searchParams.append('vid', visitId);
 
         res.redirect(destUrl.toString());

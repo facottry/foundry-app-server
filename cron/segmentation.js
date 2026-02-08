@@ -82,7 +82,7 @@ const runSegmentation = async () => {
                 }
 
                 const prompt = `
-                Analyze this user based on their recent behavior and profile on a Product Discovery Platform (Foundry).
+                Analyze this user based on their recent behavior and profile on a Product Discovery Platform (Clicktory).
                 Classify them into segments from this list: [Developer, Founder, Investor, Product Manager, Marketer, Student, Indie Hacker, Recruiter, Designer, SaaS Builder].
                 
                 ${rules}

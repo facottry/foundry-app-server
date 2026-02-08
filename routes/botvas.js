@@ -63,7 +63,7 @@ router.get('/eligibility', async (req, res) => {
             data: {
                 botEligible: eligibility.eligible,
                 disableReason: eligibility.reason,
-                botNamespace: eligibility.eligible ? 'FoundryAI' : null,
+                botNamespace: eligibility.eligible ? 'ClicktoryAI' : null,
                 credits: eligibility.credits,
                 nextDeduction: eligibility.nextDeduction,
                 sdkUrl: eligibility.sdkUrl,

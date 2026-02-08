@@ -17,7 +17,7 @@ if (!OPENAI_API_KEY) {
 
 const openai = new OpenAI({ apiKey: OPENAI_API_KEY });
 
-// const db = process.env.MONGO_URI_PROD || process.env.MONGO_URI_LOCAL || 'mongodb://127.0.0.1:27017/foundry';
+// const db = process.env.MONGO_URI_PROD || process.env.MONGO_URI_LOCAL || 'mongodb://127.0.0.1:27017/clicktory_database';
 const db = process.env.MONGO_URI_LOCAL;
 
 const connectDB = async () => {

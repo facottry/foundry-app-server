@@ -10,7 +10,7 @@ const Product = require('../models/Product');
 const slugify = require('../utils/slugify');
 
 // Mongo Connection
-const db = process.env.MONGO_URI || 'mongodb://127.0.0.1:27017/foundry';
+const db = process.env.MONGO_URI || 'mongodb://127.0.0.1:27017/clicktory_database';
 
 function parseCSVLine(line) {
     const result = [];
@@ -98,7 +98,7 @@ const seed = async () => {
 
             let founderEmail = emailInput;
             if (!founderEmail || !founderEmail.includes('@')) {
-                let domain = 'foundry.com';
+                let domain = 'clicktory.in';
                 if (websiteInput) {
                     try {
                         domain = new URL(websiteInput).hostname.replace('www.', '');
