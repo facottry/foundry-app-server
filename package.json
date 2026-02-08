@@ -1,6 +1,6 @@
 {
   "name": "foundry-server",
-  "version": "3.3.6.3",
+  "version": "3.3.9.1",
   "description": "www.clicktory.in Backend",
   "main": "server.js",
   "scripts": {
