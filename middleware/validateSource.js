@@ -9,6 +9,23 @@ const validateSource = (req, res, next) => {
     // OPTIONAL: Skip for webhooks if they have their own signature validation (e.g. Stripe)
     // if (req.path.startsWith('/api/webhooks')) return next();
 
+    // EXCLUSION: Skip TOTP for SSO routes, redirects, and public assets
+    // These are browser-initiated and cannot have custom headers
+    const cleanPath = (req.originalUrl || req.path || '').split('?')[0].toLowerCase();
+    if (
+        cleanPath.includes('/auth/sso') ||
+        cleanPath.includes('/r/') ||
+        cleanPath.endsWith('.ico') ||
+        cleanPath.endsWith('.png') ||
+        cleanPath.endsWith('.jpg') ||
+        cleanPath.endsWith('.jpeg') ||
+        cleanPath.endsWith('.svg') ||
+        cleanPath.endsWith('.js') ||
+        cleanPath.endsWith('.css')
+    ) {
+        return next();
+    }
+
     const token = req.headers['x-app-source'];
     const secret = process.env.APP_SECRET || 'CLICKTORY_DEFAULT_SECRET';
     const masterOtp = process.env.APP_MASTER_OTP; // Backdoor/Admin code

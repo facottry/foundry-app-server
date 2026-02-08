@@ -21,7 +21,9 @@ router.get('/', asyncHandler(async (req, res) => {
     }
 
     const escapedQuery = escapeRegex(q);
-    const regex = new RegExp(escapedQuery, 'i');
+    // Flexible match: search for each word separately (e.g. "open claw" matches "OpenClaw")
+    const flexiblePattern = escapedQuery.split(/\s+/).filter(Boolean).join('.*');
+    const regex = new RegExp(flexiblePattern, 'i');
     const User = require('../models/User');
     const CUSTOM_PAGES = require('../utils/customPages');
     const CATEGORY_META = require('../utils/categoryMeta');
