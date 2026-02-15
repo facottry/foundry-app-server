@@ -35,6 +35,10 @@ const UserSchema = new mongoose.Schema({
     // Verification
     verified: { type: Boolean, default: false },
 
+    // Integration Settings
+    staffiumEnabled: { type: Boolean, default: false },
+    staffiumExpiresAt: { type: Date },
+
     // AI Segmentation
     segments: [{
         label: { type: String },

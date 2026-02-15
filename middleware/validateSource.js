@@ -14,6 +14,7 @@ const validateSource = (req, res, next) => {
     const cleanPath = (req.originalUrl || req.path || '').split('?')[0].toLowerCase();
     if (
         cleanPath.includes('/auth/sso') ||
+        cleanPath.includes('/api/staffium') || // Allow Staffium SSO
         cleanPath.includes('/r/') ||
         cleanPath.endsWith('.ico') ||
         cleanPath.endsWith('.png') ||
@@ -43,6 +44,8 @@ const validateSource = (req, res, next) => {
                 details: 'Missing X-App-Source header.'
             }
         });
+    } else {
+        console.log(`[Security] Allowed request from ${req.ip} to ${req.path} - Valid TOTP`);
     }
 
     next();

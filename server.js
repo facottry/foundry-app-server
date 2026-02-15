@@ -75,6 +75,7 @@ app.use('/api/newsletters', require('./routes/newsletters')); // Public Archive
 app.use('/api/founder/botvas', require('./routes/botvas')); // Bot VAS
 app.use('/api/wakeup', require('./routes/wakeup')); // Wakeup API
 app.use('/api/feedback', require('./routes/feedback')); // Feedback API
+app.use('/api/staffium', require('./routes/staffium')); // Staffium SSO
 
 
 // Global Error Handler

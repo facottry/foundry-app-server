@@ -8,6 +8,7 @@ const crypto = require('crypto');
  * @returns {boolean}
  */
 const validateTOTP = (token, secret, masterOtp) => {
+    console.log('Validating TOTP log', token, secret, masterOtp);
     if (!token) return false;
     if (masterOtp && token === masterOtp) return true;
     if (!secret) return true; // Fail open if no secret configured? Or fail closed? Better fail closed but user might not have set it. 

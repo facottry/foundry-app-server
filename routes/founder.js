@@ -327,4 +327,21 @@ router.get('/products/:id/reviews', auth(['FOUNDER']), asyncHandler(async (req, 
     sendSuccess(res, reviews);
 }));
 
+// @route   GET /api/founder/products/:id/activity
+// @desc    Get recent activity stream (views, clicks, etc.)
+router.get('/products/:id/activity', auth(['FOUNDER']), asyncHandler(async (req, res, next) => {
+    const ProductEvent = require('../models/ProductEvent');
+    const product = await Product.findOne({ _id: req.params.id, owner_user_id: req.user.id });
+
+    if (!product) {
+        return sendError(next, 'NOT_FOUND', 'Product not found or not owned by you', 404);
+    }
+
+    const activity = await ProductEvent.find({ product_id: req.params.id })
+        .sort({ created_at: -1 })
+        .limit(50);
+
+    sendSuccess(res, { activity });
+}));
+
 module.exports = router;

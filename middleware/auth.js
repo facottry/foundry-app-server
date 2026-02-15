@@ -14,6 +14,7 @@ const User = require('../models/User');
 module.exports = function requireUserAuth(roles = []) {
     return async (req, res, next) => {
         const token = req.header('x-auth-token');
+        console.log(`[Auth] Validating token for ${req.path}`);
 
         if (!token) {
             return res.status(401).json({

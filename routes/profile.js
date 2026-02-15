@@ -107,7 +107,9 @@ router.put('/me', auth(), asyncHandler(async (req, res, next) => {
     if (twitter !== undefined) user.twitter = twitter;
     if (linkedin !== undefined) user.linkedin = linkedin;
     if (timezone !== undefined) user.timezone = timezone;
+    if (timezone !== undefined) user.timezone = timezone;
     if (onboarding_completed !== undefined) user.onboarding_completed = onboarding_completed;
+    if (req.body.staffiumEnabled !== undefined) user.staffiumEnabled = req.body.staffiumEnabled;
 
     await user.save();
 
