@@ -51,8 +51,34 @@ router.get('/initial-config', async (req, res) => {
                 .catch(err => console.error('[Wakeup] Stats Logging Error:', err));
         }
 
+        const SystemConfig = require('../models/SystemConfig');
+        const popupConfig = await SystemConfig.findOne({ key: 'PROMO_POPUP_CONFIG' });
+        const marqueeConfig = await SystemConfig.findOne({ key: 'MARQUEE_CONFIG' });
+
+        const defaultPopup = { enabled: false, htmlContent: '', frequencyHours: 24 };
+        const defaultMarquee = { enabled: false, htmlContent: '', linkUrl: '', backgroundColor: '#111827', textColor: '#ffffff' };
+
+        let popup = defaultPopup;
+        let marquee = defaultMarquee;
+
+        if (popupConfig && popupConfig.value) {
+            try {
+                const val = typeof popupConfig.value === 'string' ? JSON.parse(popupConfig.value) : popupConfig.value;
+                popup = { ...defaultPopup, ...val };
+            } catch (e) { console.error('Error parsing popup config', e); }
+        }
+
+        if (marqueeConfig && marqueeConfig.value) {
+            try {
+                const val = typeof marqueeConfig.value === 'string' ? JSON.parse(marqueeConfig.value) : marqueeConfig.value;
+                marquee = { ...defaultMarquee, ...val };
+            } catch (e) { console.error('Error parsing marquee config', e); }
+        }
+
         res.json({
-            trackServerBaseUrl: trackServerBaseUrl || ''
+            trackServerBaseUrl: trackServerBaseUrl || '',
+            popup,
+            marquee
         });
 
     } catch (err) {

@@ -1,6 +1,6 @@
 {
   "name": "@clicktory/appserver",
-  "version": "3.3.15.15",
+  "version": "3.3.15.16",
   "description": "www.clicktory.in Backend",
   "main": "server.js",
   "scripts": {

@@ -77,7 +77,7 @@ router.get('/public/:identity', asyncHandler(async (req, res, next) => {
     sendSuccess(res, data);
 }));
 
-router.get('/dashboard', auth(['FOUNDER']), asyncHandler(async (req, res, next) => {
+router.get('/dashboard', auth(['FOUNDER', 'CUSTOMER']), asyncHandler(async (req, res, next) => {
     const user = await User.findById(req.user.id);
     if (!user) {
         return sendError(next, 'AUTH_ERROR', 'User not found (DB mismatch)', 401);
@@ -117,7 +117,7 @@ router.get('/dashboard', auth(['FOUNDER']), asyncHandler(async (req, res, next) 
 
 // @route   GET /api/founder/products
 // @desc    Get founder's own products
-router.get('/products', auth(['FOUNDER']), asyncHandler(async (req, res) => {
+router.get('/products', auth(['FOUNDER', 'CUSTOMER']), asyncHandler(async (req, res) => {
     const products = await Product.find({
         owner_user_id: req.user.id,
         deleted_at: null
@@ -128,7 +128,7 @@ router.get('/products', auth(['FOUNDER']), asyncHandler(async (req, res) => {
 
 // @route   GET /api/founder/products/:id/audience
 // @desc    Get audience analytics for a product
-router.get('/products/:id/audience', auth(['FOUNDER']), asyncHandler(async (req, res) => {
+router.get('/products/:id/audience', auth(['FOUNDER', 'CUSTOMER']), asyncHandler(async (req, res) => {
     const { id } = req.params;
 
     // Verify ownership
@@ -213,7 +213,7 @@ router.get('/products/:id/audience', auth(['FOUNDER']), asyncHandler(async (req,
 
 // @route   PUT /api/founder/products/:id
 // @desc    Update product details
-router.put('/products/:id', auth(['FOUNDER']), asyncHandler(async (req, res, next) => {
+router.put('/products/:id', auth(['FOUNDER', 'CUSTOMER']), asyncHandler(async (req, res, next) => {
     const product = await Product.findOne({ _id: req.params.id, owner_user_id: req.user.id });
     if (!product) return sendError(next, 'NOT_FOUND', 'Product not found', 404);
 
@@ -277,7 +277,7 @@ router.put('/products/:id', auth(['FOUNDER']), asyncHandler(async (req, res, nex
 
 // @route   DELETE /api/founder/products/:id
 // @desc    Soft delete product
-router.delete('/products/:id', auth(['FOUNDER']), asyncHandler(async (req, res, next) => {
+router.delete('/products/:id', auth(['FOUNDER', 'CUSTOMER']), asyncHandler(async (req, res, next) => {
     const product = await Product.findOne({ _id: req.params.id, owner_user_id: req.user.id });
     if (!product) return sendError(next, 'NOT_FOUND', 'Product not found', 404);
 
@@ -291,7 +291,7 @@ router.delete('/products/:id', auth(['FOUNDER']), asyncHandler(async (req, res, 
 
 // @route   PATCH /api/founder/products/:id/archive
 // @desc    Archive product (Toggle)
-router.patch('/products/:id/archive', auth(['FOUNDER']), asyncHandler(async (req, res, next) => {
+router.patch('/products/:id/archive', auth(['FOUNDER', 'CUSTOMER']), asyncHandler(async (req, res, next) => {
     const product = await Product.findOne({ _id: req.params.id, owner_user_id: req.user.id });
     if (!product) return sendError(res, 'NOT_FOUND', 'Product not found', 404);
 
@@ -312,7 +312,7 @@ router.patch('/products/:id/archive', auth(['FOUNDER']), asyncHandler(async (req
 
 // @route   GET /api/founder/products/:id/reviews
 // @desc    Get reviews for a product owned by founder
-router.get('/products/:id/reviews', auth(['FOUNDER']), asyncHandler(async (req, res, next) => {
+router.get('/products/:id/reviews', auth(['FOUNDER', 'CUSTOMER']), asyncHandler(async (req, res, next) => {
     const Review = require('../models/Review');
     const product = await Product.findOne({ _id: req.params.id, owner_user_id: req.user.id });
 
@@ -329,7 +329,7 @@ router.get('/products/:id/reviews', auth(['FOUNDER']), asyncHandler(async (req, 
 
 // @route   GET /api/founder/products/:id/activity
 // @desc    Get recent activity stream (views, clicks, etc.)
-router.get('/products/:id/activity', auth(['FOUNDER']), asyncHandler(async (req, res, next) => {
+router.get('/products/:id/activity', auth(['FOUNDER', 'CUSTOMER']), asyncHandler(async (req, res, next) => {
     const ProductEvent = require('../models/ProductEvent');
     const product = await Product.findOne({ _id: req.params.id, owner_user_id: req.user.id });
 
